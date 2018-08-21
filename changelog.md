@@ -15,7 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Renamed license for gatsby content to show that it is for the gatsby-created content
+- Replaced `gatsby-start-default` branded content in `package.json` to reflect the name and goal of this project
 
 ### Removed
 
-- npm-based lock file since this project is using yarn instead.
+- npm-based lock file since this project is using yarn instead
