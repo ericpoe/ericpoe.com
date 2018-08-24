@@ -9,6 +9,11 @@
     "env": {
         "browser": true
     },
+    "settings": {
+        "import/core-modules": [
+            "prop-types"
+        ]
+    },
     "rules": {
         "no-unused-expressions": ["error", {
             "allowTaggedTemplates": true
