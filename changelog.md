@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Initialized default gatsby v2 project (based on gatsby-starter-default)
 - License for code created specifically for this site
 - eslint and rules for AirBnB style guide and Gatsby
+- Testing out an a11y rule for eslint
 
 ### Changed
 
