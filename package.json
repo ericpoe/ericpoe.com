@@ -2,6 +2,14 @@
   "name": "ericpoe.com",
   "description": "Code and content for ericpoe.com",
   "author": "Eric Poe <eric.poe@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write '**/*.js'",
+    "lint": "eslint '**/*.{js,jsx}' --ignore-path .gitignore",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "gatsby": "next",
     "gatsby-plugin-manifest": "next",
@@ -10,14 +18,6 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0"
-  },
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
-    "lint": "eslint '**/*.{js,jsx}' --ignore-path .gitignore",
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "eslint": "^5.3.0",
