@@ -4046,11 +4046,11 @@ gatsby-plugin-manifest@^2.0.2-rc.1:
     bluebird "^3.5.0"
     sharp "^0.20.2"
 
-gatsby-plugin-offline@next:
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.0-rc.0.tgz#e7d4a1e2a796971fee8497add86edf681a93bfce"
+gatsby-plugin-offline@^2.0.0-rc.1:
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.0-rc.1.tgz#10601be2d36e9bdf48cf8ce37065a78519078292"
   dependencies:
-    "@babel/runtime" "7.0.0-beta.52"
+    "@babel/runtime" "^7.0.0"
     cheerio "^1.0.0-rc.2"
     lodash "^4.17.10"
     replace-in-file "^3.4.2"
