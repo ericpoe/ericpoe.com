@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Replaced `gatsby-start-default` branded content in `package.json` to reflect the name and goal of this project
 - Renamed JS files that used jsx to have the `.jsx` extension.
 - Renamed `.prettierrc` config file to `.prettierrc.json` to remind me of its format
+- Removed h1 from header so that only one h1 per page will be available. This is for #a11y
 
 ### Removed
 
