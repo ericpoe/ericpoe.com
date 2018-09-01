@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 const IndexPage = ({ data }) => (
@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => (
           <h2>{node.frontmatter.title} </h2>
           <p>{node.frontmatter.date}</p>
           <p>{node.excerpt}</p>
-          <p>Read more...</p>
+          <Link to={node.fields.slug}>Read more...</Link>
         </div>
       ))}
     </div>
@@ -28,6 +28,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "YYYY DD MMMM")
+          }
+          fields {
+            slug
           }
           excerpt
         }
