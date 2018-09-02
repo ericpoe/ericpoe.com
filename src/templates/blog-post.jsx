@@ -13,7 +13,7 @@ const blogPost = ({ data }) => {
         </p>
         <p id="timeToRead">
           <strong>Time to read: </strong>
-          {post.timeToRead} minutes
+          {post.timeToRead} {post.timeToRead > 1 ? 'minutes' : 'minute'}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
