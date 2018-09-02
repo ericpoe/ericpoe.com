@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Renamed JS files that used jsx to have the `.jsx` extension.
 - Renamed `.prettierrc` config file to `.prettierrc.json` to remind me of its format
 - Removed h1 from header so that only one h1 per page will be available. This is for #a11y
+- Allow a "draft: true" in the yml header of a markdown file to ensure that it won't get published
 
 ### Removed
 
