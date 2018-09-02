@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `editorconfig` to help with whitespace in code
 - `gatsby-source-filesystem` to read markdown files from the filesystem
 - `gatsby-transformer-remark` to transform those markdown files to HTML
+- `gatsby-remark-prismjs` &  `prismjs` to have nice code highlighting
 
 ### Changed
 
