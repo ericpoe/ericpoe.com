@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `gatsby-transformer-remark` to transform those markdown files to HTML
 - `gatsby-remark-prismjs` & `prismjs` to have nice code highlighting
 - Existing markdown files from old blog - these are useful for testing the layout and design of the site
+- `gatsby-plugin-google-analytics` to continue using Google Analytics
 
 ### Changed
 
