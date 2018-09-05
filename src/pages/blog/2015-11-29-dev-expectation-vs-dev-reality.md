@@ -5,7 +5,7 @@ tags:
   - career
 categories:
   - programming
-date: '2015-11-29T19:04:00-0600'
+date: '2015-11-29T19:04:00-06:00'
 ---
 
 I have been a professional developer for over a year and a half now.

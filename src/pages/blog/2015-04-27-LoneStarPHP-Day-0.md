@@ -6,7 +6,7 @@ tags:
   - conferences
 categories:
   - programming
-date: '2015-04-27T19:06:00-0500'
+date: '2015-04-27T19:06:00-05:00'
 ---
 
 The first day of Lone Star 2015 was devoted to training. The workshop track I took was geared towards unit testing.
