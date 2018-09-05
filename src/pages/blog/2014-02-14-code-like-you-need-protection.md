@@ -7,7 +7,7 @@ categories:
   - programming
 date: '2014-02-14T00:00:00-06:00'
 ---
-## Background ##
+## Background
 
 I was recently tasked with  programming a connecty-bit between a Google Drive Form and our instance of SolarWinds Web Help Desk. Both are great products. Both offer fabulous APIs.
 
@@ -17,7 +17,7 @@ I first  thought to add a "read" flag to each record that I had read and created
 
 I decided that my best bet would be to create a new worksheet, an "archive" worksheet, and move each record, once processed, from from the default worksheet to this new "archive" worksheet.
 
-## How it’s done ##
+## How it’s done
 
 My first love, in regards to programming, is PHP, so I thought I might program the  intermediate script in PHP; however, the server I was to run this on did not include PHP. On the other hand, it did run Python 2.
 
