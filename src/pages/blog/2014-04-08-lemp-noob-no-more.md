@@ -7,7 +7,7 @@ tags:
   - lamp
 categories:
   - sysadmin
-date: '2014-04-08T00:00:00-0500'
+date: '2014-04-08T00:00:00-05:00'
 ---
 
 For years, I have prided myself on knowing how to set up a LAMP (Linux, Apache, MySQL, PHP/Perl/Python) server in linux OSes based on Debian, RedHat, and SuSE.

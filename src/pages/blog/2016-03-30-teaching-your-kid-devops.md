@@ -9,7 +9,7 @@ tags:
   - minecraft
 categories: 
   - sysadmin
-date: '2016-03-30T22:56:00-0500'
+date: '2016-03-30T22:56:00-05:00'
 draft: true
 ---
 

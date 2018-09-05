@@ -7,7 +7,7 @@ tags:
 categories:
   - programming
   - frameworks
-date: '2014-03-03T00:00:00-0600'
+date: '2014-03-03T00:00:00-06:00'
 ---
 
 I am currently feeling a bit of push and pull between at least two different decisions. I have a “when you have time for it” project that I am thinking of building in [Laravel](http://laravel.com/). I am also interested in learning more about the [Dart language](http://dartlang.org/) with Dart’s implementation of [Angular.js](https://angulardart.org/).

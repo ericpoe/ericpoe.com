@@ -5,7 +5,7 @@ tags:
   - quijote
 categories:
   - literature
-date: '2015-11-01T22:18:00-0500'
+date: '2015-11-01T22:18:00-05:00'
 ---
 
 My 6th grader asked me this evening about the classic novel, _Don Quixote_. "Like, what's it _about_, Dad?"

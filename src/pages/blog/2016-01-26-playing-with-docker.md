@@ -7,7 +7,7 @@ tags:
   - drupal
 categories:
   - sysadmin
-date: '2016-01-26T21:48:00-0600'
+date: '2016-01-26T21:48:00-06:00'
 ---
 
 In my current job, I am starting the process to upgrade our PHP 5.4 application to a PHP 5.6 application (PHP 7 is not yet support by the majority of the 3rd party libraries we use). I have been tasked with building the staging server for use in testing our legacy application as well as our newer Symfony-based application. We are using an older version of MySQL as well.

@@ -9,6 +9,7 @@ categories:
   - colophon
 date: '2018-09-03T22:30:52-05:00'
 ---
+
 I had been searching for a new static-site generator for some time. I was delving into [Grav](https://getgrav.org/), which is more of a flat-file CMS than a static-site generator and is pretty awesome. Unfortunately, I couldn't make Grav work for my needs.
 
 One of the things that I'd like to do is provide my source-code and source-documents in the same git repo so that I can push text updates and site updates (UI, a11y, themes, etc) via git.
