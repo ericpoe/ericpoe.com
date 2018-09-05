@@ -3,7 +3,7 @@ title: Power of RDD
 tags:
 categories:
   - programming
-date: '2014-07-28T00:00:00-0500'
+date: '2014-07-28T00:00:00-05:00'
 ---
 
 We hired a new guy at work. I was officially the new guy for 2 months, now we have someone new.

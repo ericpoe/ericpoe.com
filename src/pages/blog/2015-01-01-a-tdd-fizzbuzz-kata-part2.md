@@ -9,7 +9,7 @@ tags:
   - testing
 categories: 
   - programming
-date: '2015-01-01T00:00:00-0600'
+date: '2015-01-01T00:00:00-06:00'
 draft: true
 ---
 

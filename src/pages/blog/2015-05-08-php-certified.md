@@ -5,7 +5,7 @@ tags:
   - certification
 categories:
   - programming
-date: '2015-05-08T14:17:00-0500'
+date: '2015-05-08T14:17:00-05:00'
 ---
 
 On Wednesday, I took an extended lunch break in order to take the Zend PHP Certification test at a local Pearson VUE Testing Center.
