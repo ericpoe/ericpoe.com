@@ -29,8 +29,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "YYYY DD MMMM")
-            draft
+            date(formatString: "YYYY MMMM DD HH:mm")
           }
           fields {
             slug
