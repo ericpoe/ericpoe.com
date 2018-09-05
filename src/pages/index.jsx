@@ -6,23 +6,24 @@ const IndexPage = ({ data }) => (
   <Layout>
     <div id="latestPosts">
       <h1>Latest Posts</h1>
-      {data.allMarkdownRemark.edges
-        .filter(({ node }) => !node.frontmatter.draft)
-        .map(({ node }) => (
-          <div key={node.id}>
-            <h2>{node.frontmatter.title} </h2>
-            <p>{node.frontmatter.date}</p>
-            <p>{node.excerpt}</p>
-            <Link to={node.fields.slug}>Read more...</Link>
-          </div>
-        ))}
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <h2>{node.frontmatter.title} </h2>
+          <p>{node.frontmatter.date}</p>
+          <p>{node.excerpt}</p>
+          <Link to={node.fields.slug}>Read more...</Link>
+        </div>
+      ))}
     </div>
   </Layout>
 );
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       totalCount
       edges {
         node {
