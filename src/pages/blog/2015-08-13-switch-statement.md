@@ -6,7 +6,7 @@ tags:
 categories:
   - programming
   - Bite of PHP
-date: '2015-08-13T00:37:00-0500'
+date: '2015-08-13T00:37:00-05:00'
 ---
 
 The "switch" statement within various languages, contains a similar structure. This makes the [PHP switch](http://php.net/manual/en/control-structures.switch.php) statement familiar.

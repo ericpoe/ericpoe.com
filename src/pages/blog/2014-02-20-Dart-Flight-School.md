@@ -5,7 +5,7 @@ tags:
   - javascript
 categories:
   - programming
-date: '2014-02-20T00:00:00-0600'
+date: '2014-02-20T00:00:00-06:00'
 ---
 
 This evening, I attended the [Dart Flight School](https://www.dartlang.org/events/2014/flight-school/) at the Google Fiber Space in Kansas City. Dart Flight School is a global event occurring throughout February.

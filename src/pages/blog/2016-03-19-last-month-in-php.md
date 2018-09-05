@@ -6,7 +6,7 @@ tags:
   - kcphpug
 categories:
   - programming
-date: '2016-03-19T20:15:00-0600'
+date: '2016-03-19T20:15:00-06:00'
 ---
 
 From a [KCPUG](http://kcpug.org/) lightning talk given on [02 Mar 2016](http://www.slideshare.net/poeeric/last-month-in-php-february-2016-59027277)

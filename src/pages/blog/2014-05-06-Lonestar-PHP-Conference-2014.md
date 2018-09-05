@@ -5,7 +5,7 @@ tags:
   - conferences
 categories:
   - programming
-date: '2014-05-06T00:00:00-0500'
+date: '2014-05-06T00:00:00-05:00'
 ---
 
 I was fortunate to receive a scholarship to attend the 2014 [Lone Star PHP Conference](http://lonestarphp.com/) in Addison, TX (Dallas metro area) over the April last weekend in April. I just had to get myself there. Thank you, Lone Star PHP and [NomadPHP](http://nomadphp.com/)!

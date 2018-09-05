@@ -5,7 +5,7 @@ tags:
     - community
 categories:
     - programming
-date: '2015-07-08T22:42:00-0500'
+date: '2015-07-08T22:42:00-05:00'
 ---
 I was studying the [`array_filter`](http://php.net/manual/en/function.array-filter.php) in PHP and was enjoying coming up with a test that could help me learn better `array_filter` magic. For instance, to filter all words whose first letter is a vowel, I created this PHPUnit test:
 
