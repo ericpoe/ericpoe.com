@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2018-09-06
+
+### Changed
+
+- Updated Gatsby to latest rc
+- Updated `gatsby-plugin-offline` to the latest rc
+- Upgraded `eslint` from 5.4 to 5.5
+- Upgraded `eslint-config-gatsby-standard` from 1.2.2 to 2.0.0
+  - Takes care of the deprecation error messages while linting. Yay!
+
 ## [1.0.1] - 2018-09-04
 
 ### Changed
