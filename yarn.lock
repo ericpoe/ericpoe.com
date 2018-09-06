@@ -1438,9 +1438,9 @@ babel-plugin-macros@^2.4.0:
   dependencies:
     cosmiconfig "^5.0.5"
 
-babel-plugin-remove-graphql-queries@^2.0.2-rc.2:
-  version "2.0.2-rc.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.0.2-rc.2.tgz#85ae3b8d46ebaa27e128d15321d67acd409d95e2"
+babel-plugin-remove-graphql-queries@^2.0.2-rc.3:
+  version "2.0.2-rc.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.0.2-rc.3.tgz#82f8984e06585db4e8fe02caa68d03cec918fd57"
 
 babel-plugin-syntax-class-properties@^6.8.0:
   version "6.13.0"
@@ -4268,9 +4268,9 @@ gatsby-transformer-remark@^1.7.44:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.1.1"
 
-gatsby@^2.0.0-rc.5:
-  version "2.0.0-rc.6"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.0-rc.6.tgz#2d46f8a655b5010b5dfdd72ab7deb771bf4889f3"
+gatsby@^2.0.0-rc.13:
+  version "2.0.0-rc.13"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.0-rc.13.tgz#cede18dd72de943e50be76bc07d1b20ff4e167f8"
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -4291,7 +4291,7 @@ gatsby@^2.0.0-rc.5:
     babel-plugin-add-module-exports "^0.2.1"
     babel-plugin-dynamic-import-node "^1.2.0"
     babel-plugin-macros "^2.4.0"
-    babel-plugin-remove-graphql-queries "^2.0.2-rc.2"
+    babel-plugin-remove-graphql-queries "^2.0.2-rc.3"
     better-queue "^3.8.6"
     bluebird "^3.5.0"
     chalk "^2.3.2"
@@ -4331,7 +4331,7 @@ gatsby@^2.0.0-rc.5:
     glob "^7.1.1"
     graphql "^0.13.2"
     graphql-relay "^0.5.5"
-    graphql-skip-limit "^2.0.0-rc.2"
+    graphql-skip-limit "^2.0.0-rc.3"
     graphql-tools "^3.0.4"
     graphql-type-json "^0.2.1"
     hash-mod "^0.0.5"
@@ -4610,9 +4610,9 @@ graphql-request@^1.5.0:
   dependencies:
     cross-fetch "2.2.2"
 
-graphql-skip-limit@^2.0.0-rc.2:
-  version "2.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/graphql-skip-limit/-/graphql-skip-limit-2.0.0-rc.2.tgz#b545aca4df71fc484b5f2defce2de02ed8a7f307"
+graphql-skip-limit@^2.0.0-rc.3:
+  version "2.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/graphql-skip-limit/-/graphql-skip-limit-2.0.0-rc.3.tgz#c9aa371ec7cc498c47579e0f0635943a48dc60d1"
   dependencies:
     "@babel/runtime" "^7.0.0"
 
