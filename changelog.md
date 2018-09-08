@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Upgraded `gatsby-source-filesystem` to latest v2 rc
 - Upgraded `gatsby-transformer-remark` to latest v2 rc
+- Images that have title attributes now show that title as their captions
+- Other minor image setting tweaks
 
 ### Added
 
