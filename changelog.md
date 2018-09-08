@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - `gatsby-remark-images` and `gatsby-plugin-sharp` to be able to use images in markdown
+- `gatsby-plug-sitemap` for SEO stuff
 
 ## [1.0.2] - 2018-09-06
 
