@@ -6,7 +6,7 @@ tags:
 categories:
   - programming
   - Bite of PHP
-date: '2015-03-04T22:50:24-06:00'
+date: '2015-03-04T22:50:24Z'
 ---
 
 In PHP, we have two ways of formatting an echo statement: we can choose to

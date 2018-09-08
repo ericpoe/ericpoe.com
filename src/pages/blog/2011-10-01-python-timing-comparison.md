@@ -6,7 +6,7 @@ tags:
   - python
 categories:
   - programming
-date: '2011-10-01T00:00:00-05:00'
+date: '2011-10-01T00:00:00Z'
 ---
 
 On page 7 of [Learning Python (4th ed)](http://www.amazon.com/Learning-Python-Powerful-Object-Oriented-Programming/dp/0596158068/), Mark Lutz briefly discusses the speed differences between Python and compiled languages like C++. I was curious as to how much slower an interpreted language is than a compiled language. To illustrate this, I whipped up a quick and simple program that exercises the CPU so I can see the difference — calculating 2^a-big-number, chosen at runtime, should do the trick. PHP is used in this example as another interpreted language to be compared against.

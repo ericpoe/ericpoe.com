@@ -5,7 +5,7 @@ tags:
   - parody
 categories:
   - writing
-date: '2015-08-12T18:43:00-05:00'
+date: '2015-08-12T18:43:00Z'
 ---
 
 <figure>

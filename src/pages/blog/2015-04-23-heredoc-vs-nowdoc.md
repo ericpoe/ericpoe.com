@@ -6,7 +6,7 @@ tags:
 categories:
   - programming
   - Bite of PHP
-date: '2015-04-23T07:42:00-05:00'
+date: '2015-04-23T07:42:00Z'
 ---
 
 ## Heredoc
