@@ -6,7 +6,7 @@ tags:
   - Chinese
 categories:
   - education
-date: '2015-07-16T22:42:00-0500'
+date: '2015-07-16T22:42:00Z'
 ---
 
 ## Introduction

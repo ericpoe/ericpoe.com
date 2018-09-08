@@ -6,7 +6,7 @@ tags:
   - kcphpug
 categories:
   - programming
-date: '2016-04-04T21:19:00-05:00'
+date: '2016-04-04T21:19:00Z'
 ---
 
 From a [KCPUG](http://kcpug.org/) lightning talk being given on [06 Apr 2016]().

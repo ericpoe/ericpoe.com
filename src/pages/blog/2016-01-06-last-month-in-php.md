@@ -6,7 +6,7 @@ tags:
   - kcphpug
 categories:
   - programming
-date: '2016-01-06T22:02:00-06:00'
+date: '2016-01-06T22:02:00Z'
 ---
 
 From a [KCPUG](http://kcpug.org/) lightning talk given on [06 Jan 2016](http://www.slideshare.net/poeeric/last-month-in-php-december-2015)

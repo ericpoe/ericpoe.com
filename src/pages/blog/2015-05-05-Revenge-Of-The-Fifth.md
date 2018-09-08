@@ -5,7 +5,7 @@ tags:
   - binary
 categories:
   - humor
-date: '2015-05-05T12:05:00-05:00'
+date: '2015-05-05T12:05:00Z'
 ---
 
 Today is the unofficial Star-Wars-fan holiday known as the Revenge of the Fifth.

@@ -6,7 +6,7 @@ tags:
   - sculpin
 categories: 
   - sysadmin
-date: '2014-12-28T20:40:00-06:00'
+date: '2014-12-28T20:40:00Z'
 ---
 
 I have moved my site from one domain to another. I was using Wordpress on my old

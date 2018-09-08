@@ -5,7 +5,7 @@ tags:
 categories:
   - programming
   - book review
-date: '2014-04-07T00:00:00-05:00'
+date: '2014-04-07T00:00:00Z'
 ---
 
 After studying [Dart](https://www.dartlang.org/) for a month, I wondered which problems Dart was attempting to resolve. I then realized that my knowledge of JavaScript was not good enough to know why Google had created Dart as a JavaScript alternative. As much as I enjoyed Dart, I decided to dive back in to JavaScript with a fresh look.

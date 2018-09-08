@@ -5,7 +5,7 @@ tags:
   - api
 categories:
   - programming
-date: '2014-02-14T00:00:00-06:00'
+date: '2014-02-14T00:00:00Z'
 ---
 ## Background
 
