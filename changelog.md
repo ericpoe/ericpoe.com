@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- Upgraded `gatsby` to latest v2 rc
 - Upgraded `gatsby-source-filesystem` to latest v2 rc
 - Upgraded `gatsby-transformer-remark` to latest v2 rc
 - Upgraded `gatsby-plugin-google-analytics` to latest v2 rc
