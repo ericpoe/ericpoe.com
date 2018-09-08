@@ -1,9 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: 'Eric Poe',
+    siteUrl: 'https://www.ericpoe.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-sitemap`,
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
