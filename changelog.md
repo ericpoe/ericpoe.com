@@ -9,14 +9,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- Upgraded `gatsby` to latest v2 rc
+- Upgraded `gatsby-plugin-offline` to latest v2 rc
 - Upgraded `gatsby-source-filesystem` to latest v2 rc
 - Upgraded `gatsby-transformer-remark` to latest v2 rc
+- Upgraded `gatsby-plugin-google-analytics` to latest v2 rc
 - Images that have title attributes now show that title as their captions
 - Other minor image setting tweaks
 
 ### Added
 
 - `gatsby-remark-images` and `gatsby-plugin-sharp` to be able to use images in markdown
+- `gatsby-plug-sitemap` for SEO stuff
 
 ## [1.0.2] - 2018-09-06
 
