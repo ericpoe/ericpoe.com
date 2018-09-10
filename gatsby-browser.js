@@ -4,4 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import 'prismjs/themes/prism-solarizedlight.css';
+import 'prism-themes/themes/prism-a11y-dark.css';
