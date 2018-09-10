@@ -7,7 +7,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
-    "lint": "eslint '**/*.{js,jsx}' --ignore-path .gitignore",
+    "lint": "eslint '**/*.{js,jsx}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
