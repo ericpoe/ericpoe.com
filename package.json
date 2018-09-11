@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "css": "node_modules/.bin/tailwind build ./src/components/tailwind.css -c ./tailwind-config.js -o ./src/components/index.css",
-    "build": "yarn css && gatsby build",
+    "build": "yarn css && purgecss -c ./purgecss.config.js -o ./src/components && gatsby build",
     "develop": "yarn css && gatsby develop",
     "format": "prettier --write '**/*.js'",
     "lint": "eslint '**/*.{js,jsx}'",
@@ -39,6 +39,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.0",
     "prettier": "^1.14.2",
+    "purgecss": "^1.1.0",
     "tailwindcss": "^0.6.5"
   }
 }

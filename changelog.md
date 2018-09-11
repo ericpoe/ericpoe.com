@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - `tailwindcss` - For CSS styling
+- `purgecss` - To ensure the minimum amount of CSS is downloaded to the user's browser
 
 ## [1.1.1] - 2018-09-09
 
