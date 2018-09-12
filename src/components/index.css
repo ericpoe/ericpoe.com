@@ -6280,6 +6280,15 @@ table {
  * @import "utilities/skew-transforms";
  */
 
+#blogContent p {
+  margin-bottom: .75rem;
+}
+
+#blogContent figcaption {
+  text-align: right;
+  font-style: italic;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

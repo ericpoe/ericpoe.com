@@ -2,27 +2,10 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <div style={{ margin: 0, fontSize: '3.0rem' }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
+  <div className="bg-purple-darker">
+    <div className="my-0 mv-auto max-w-md py-6 px-4">
+      <div className="m-0 text-5xl">
+        <Link to="/" className="text-grey-lightest no-underline">
           {siteTitle}
         </Link>
       </div>

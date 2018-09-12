@@ -60,3 +60,10 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+#blogContent p {
+  @apply mb-3;
+}
+
+#blogContent figcaption {
+  @apply text-right italic;
+}
