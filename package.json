@@ -4,10 +4,11 @@
   "author": "Eric Poe <eric.poe@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "css": "node_modules/.bin/tailwind build ./src/components/tailwind.css -c ./tailwind-config.js -o ./src/components/index.css",
+    "build": "yarn css && purgecss -c ./purgecss.config.js -o ./src/components && gatsby build",
+    "develop": "yarn css && gatsby develop",
     "format": "prettier --write '**/*.js'",
-    "lint": "eslint '**/*.{js,jsx}' --ignore-path .gitignore",
+    "lint": "eslint '**/*.{js,jsx}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -37,6 +38,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.0",
-    "prettier": "^1.14.2"
+    "prettier": "^1.14.2",
+    "purgecss": "^1.1.0",
+    "tailwindcss": "^0.6.5"
   }
 }
