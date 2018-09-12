@@ -6,16 +6,20 @@ const blogPost = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-      <div>
+      <div className="leading-normal text-lg">
         <h1>{post.frontmatter.title}</h1>
-        <p id="datePosted">
+        <p id="datePosted" className="pt-2">
           <strong>{post.frontmatter.date}</strong>
         </p>
         <p id="timeToRead">
           <strong>Time to read: </strong>
           {post.timeToRead} {post.timeToRead > 1 ? 'minutes' : 'minute'}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          id="blogContent"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+          className="leading-normal pt-4"
+        />
       </div>
     </Layout>
   );
