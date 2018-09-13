@@ -5,11 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2018-09-12
+
+### Changed
+
+- Upgraded `gatsby` to the latest v2 rc
+- Upgraded `gatsby-plugin-offline` to the latest v2 rc
+- Upgraded `gatsby-plugin-sharp` to the latest v2 rc
+- Upgraded `gatsby-remark-images` to the latest v2 rc
+- Upgraded `gatsby-source-filesystem` to the latest v2 rc
+- Upgraded `gatsby-transformer-remark` to the latest v2 rc
+
 ## [1.2.0] - 2018-09-11
 
 ### Changed
 
- - Changed styling to use TailwindCSS
+- Changed styling to use TailwindCSS
 
 ### Added
 
