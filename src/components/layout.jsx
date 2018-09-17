@@ -21,18 +21,8 @@ const Layout = ({ children }) => (
     render={data => (
       <div className="flex flex-col font-sans min-h-screen text-grey-darkest">
         <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {
-              name: 'description',
-              content: 'Thoughts, news, and blog of Eric Poe',
-            },
-            {
-              name: 'keywords',
-              content:
-                'programming, learning, mentoring, CoderDojo, PHP, JavaScript',
-            },
-          ]}
+          defaultTitle={data.site.siteMetadata.title}
+          titleTemplate={`%s | ${data.site.siteMetadata.title}`}
         >
           <html lang="en" />
         </Helmet>
