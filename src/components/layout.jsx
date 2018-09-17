@@ -30,7 +30,7 @@ const Layout = ({ children }) => (
             {
               name: 'keywords',
               content:
-                'eric poe, programming, knitting, learning, mentor, mentoring, mentorship, CoderDojo, PHP, JavaScript',
+                'programming, learning, mentoring, CoderDojo, PHP, JavaScript',
             },
           ]}
         >
