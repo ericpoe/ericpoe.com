@@ -5,9 +5,17 @@ import Layout from '../components/layout';
 
 const blogPost = ({ data }) => {
   const post = data.markdownRemark;
+  const categories = post.frontmatter.categories || [];
+  const tags = post.frontmatter.tags || [];
+  const keywords = categories
+    .concat(tags)
+    .reduce((sentence, word) => `${sentence}, ${word}`);
   return (
     <React.Fragment>
-      <Helmet title={post.frontmatter.title} />
+      <Helmet
+        title={post.frontmatter.title}
+        meta={[{ name: 'keywords', content: keywords }]}
+      />
       <Layout>
         <div className="leading-normal text-lg">
           <h1>{post.frontmatter.title}</h1>
@@ -36,6 +44,8 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY MMMM DD HH:mm")
+        categories
+        tags
       }
       timeToRead
     }
