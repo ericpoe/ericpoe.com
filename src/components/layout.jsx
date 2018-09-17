@@ -23,17 +23,6 @@ const Layout = ({ children }) => (
         <Helmet
           defaultTitle={data.site.siteMetadata.title}
           titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-          meta={[
-            {
-              name: 'description',
-              content: 'Thoughts, news, and blog of Eric Poe',
-            },
-            {
-              name: 'keywords',
-              content:
-                'programming, learning, mentoring, CoderDojo, PHP, JavaScript',
-            },
-          ]}
         >
           <html lang="en" />
         </Helmet>
