@@ -11,7 +11,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        name: 'Eric Poe Blog',
+        short_name: 'Blog',
         start_url: '/',
+        background_color: '#382b5f',
+        theme_color: '#382b5f',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
