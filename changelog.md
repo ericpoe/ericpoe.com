@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- Upgraded packages from rc to final version. Hooray Gatsby v2!
 - Upgraded `eslint` to 5.6.0
 - Upgraded `gatsby` to 2.0.0
 - Upgraded `gatsby-plugin-google-analytics` to 2.0.5
