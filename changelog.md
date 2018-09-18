@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-plugin-google-analytics` to 2.0.5
 - Upgraded `gatsby-plugin-manifest` to 2.0.2
 - Upgraded `gatsby-plugin-offline` to 2.0.5
+- Upgraded `gatsby-plugin-react-helmet` to 3.0.0
 
 ## [1.2.3] - 2018-09-17
 
