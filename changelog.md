@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.4] - 2018-09-17
+
+### Changed
+
+- Upgraded packages from rc to final version. Hooray Gatsby v2!
+- Upgraded `eslint` to 5.6.0
+- Upgraded `gatsby` to 2.0.0
+- Upgraded `gatsby-plugin-google-analytics` to 2.0.5
+- Upgraded `gatsby-plugin-manifest` to 2.0.2
+- Upgraded `gatsby-plugin-offline` to 2.0.5
+- Upgraded `gatsby-plugin-react-helmet` to 3.0.0
+- Upgraded `gatsby-plugin-sharp` to 2.0.5
+- Upgraded `gatsby-plugin-sitemap` to 2.0.1
+- Upgraded `gatsby-remark-images` to 2.0.1
+- Upgraded `gatsby-remark-prismjs` to 3.0.0
+- Upgraded `gatsby-source-filesystem` to 2.0.1
+- Upgraded `gatsby-transformer-remark` to 2.1.1
+- Upgraded `react` to 16.5.1
+- Upgraded `react-dom` to 16.5.1
+
 ## [1.2.3] - 2018-09-17
 
 ### Changed
