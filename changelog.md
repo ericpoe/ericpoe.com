@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-source-filesystem` to 2.0.1
 - Upgraded `gatsby-transformer-remark` to 2.1.1
 - Upgraded `react` to 16.5.1
+- Upgraded `react-dom` to 16.5.1
 
 ## [1.2.3] - 2018-09-17
 
