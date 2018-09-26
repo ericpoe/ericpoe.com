@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import {
   FaGithub,
   FaLinkedin,
@@ -9,57 +8,74 @@ import {
 } from 'react-icons/fa';
 
 const Colophon = () => (
-  <div id="colophon" className="flex flex-col max-w-full">
-    <h2 className="flex justify-start my-1 sm:justify-center sm:my-2">
-      Colophon
-    </h2>
-    <ul id="socialLinks" className="list-reset flex justify-around">
+  <React.Fragment>
+    <h2 className="flex justify-start my-1 justify-center">Colophon</h2>
+    <ul id="socialLinks" className="list-reset flex justify-around no-underline text-purple-darkest">
       <li id="github" mr-2>
-        <Link to="https://github.com/ericpoe" title="Eric Poe's github account">
+        <a href="https://github.com/ericpoe" title="Eric Poe's github account">
           <FaGithub />
-        </Link>
+        </a>
       </li>
       <li id="twitter" mr-2>
-        <Link to="https://twitter.com/eric_poe" title="Eric Poe's twitter">
+        <a href="https://twitter.com/eric_poe" title="Eric Poe's twitter">
           <FaTwitter />
-        </Link>
+        </a>
       </li>
       <li id="mastodon" mr-2>
-        <Link
-          to="https://mastodon.technology/@ericpoe"
+        <a
+          href="https://mastodon.technology/@ericpoe"
           title="Eric Poe's mastodon"
         >
           <FaMastodon />
-        </Link>
+        </a>
       </li>
       <li id="ravelry" mr-2>
-        <Link
-          to="https://www.ravelry.com/people/ericpoe"
+        <a
+          href="https://www.ravelry.com/people/ericpoe"
           title="Eric Poe's ravelry"
         >
           <FaRavelry />
-        </Link>
+        </a>
       </li>
       <li id="linkedin" mr-2>
-        <Link
-          to="https://www.linkedin.com/in/ericpoe/"
+        <a
+          href="https://www.linkedin.com/in/ericpoe/"
           title="Eric Poe's LinkedIn"
         >
           <FaLinkedin />
-        </Link>
+        </a>
       </li>
     </ul>
     <p className="mt-6">
       This site is built using{' '}
-      <Link to="https://www.gatsbyjs.org/" title="main site for gatsbyjs.org">
+      <a href="https://www.gatsbyjs.org/" title="main site for gatsbyjs.org">
         Gatsby
-      </Link>{' '}
-      and{' '}
-      <Link to="https://tailwindcss.com/" title="main site for tailwindcss.com">
+      </a>
+      ,{' '}
+      <a href="https://tailwindcss.com/" title="main site for tailwindcss.com">
         TailwindCSS
-      </Link>
+      </a>
+      , and a{' '}
+      <a
+        href="https://github.com/ericpoe/ericpoe.com"
+        title="github repository for this site"
+      >
+        whole bunch of other fun stuff
+      </a>
+      .
     </p>
-  </div>
+    <p className="mt-2">
+      Corrections or curious to see how this was put together? Check out the
+      latest version of this site at its{' '}
+      <a
+        href="https://github.com/ericpoe/ericpoe.com"
+        title="github repository for this site"
+      >
+        github repo
+      </a>
+      .
+    </p>
+  </React.Fragment>
 );
 
 export default Colophon;
