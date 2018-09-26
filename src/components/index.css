@@ -6280,6 +6280,14 @@ table {
  * @import "utilities/skew-transforms";
  */
 
+.___gatsby {
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  min-height: 100vh;
+  color: #3d4852;
+}
+
 #blogContent p {
   margin-bottom: .75rem;
 }
