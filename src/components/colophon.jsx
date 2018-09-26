@@ -74,8 +74,8 @@ const Colophon = () => (
         </a>
         , and a{' '}
         <a
-          href="https://github.com/ericpoe/ericpoe.com"
-          title="github repository for this site"
+          href="https://github.com/ericpoe/ericpoe.com/blob/master/package.json"
+          title="This site's JavaScript requirements"
         >
           whole bunch of other fun stuff
         </a>
