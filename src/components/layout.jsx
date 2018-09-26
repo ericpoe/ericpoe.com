@@ -28,12 +28,18 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div className="flex flex-col flex-1 max-w-xl mx-auto px-4 py-1 md:p-4 w-full">
+        <section
+          id="children"
+          className="flex flex-col flex-1 max-w-xl mx-auto w-full px-4 py-1 md:p-4"
+        >
           {children}
-        </div>
-        <div className="flex w-full xs:my-6 sm:my-6 xs:py2 sm:py-2 xs:border-t-4 sm:border-t-4 sm:border-purple-darkest">
+        </section>
+        <section
+          id="colophon"
+          className="flex flex-col flex-1 max-w-xl mx-auto w-full px-4 py-1 md:p-4 border-t-4 border-purple-darkest"
+        >
           <Colophon />
-        </div>
+        </section>
       </div>
     )}
   />
