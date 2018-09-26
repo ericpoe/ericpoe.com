@@ -60,10 +60,24 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+ .___gatsby {
+  @apply flex;
+  @apply flex-col;
+  @apply font-sans;
+  @apply min-h-screen;
+  @apply text-grey-darkest
+ }
+
 #blogContent p {
   @apply mb-3;
 }
 
 #blogContent figcaption {
-  @apply text-right italic;
+  @apply text-right;
+  @apply italic;
+}
+
+a {
+  @apply text-purple-darker;
 }
