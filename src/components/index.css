@@ -6289,6 +6289,10 @@ table {
   font-style: italic;
 }
 
+a {
+  color: #382b5f;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
