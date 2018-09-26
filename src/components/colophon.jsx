@@ -41,8 +41,8 @@ const Colophon = () => (
         </li>
         <li id="ravelry" mr-2>
           <a
-            href="https://www.ravelry.com/people/ericpoe"
-            title="Eric Poe's ravelry"
+            href="https://www.ravelry.com/projects/ericpoe"
+            title="Eric Poe's fabric projects on ravelry"
             className="no-underline"
           >
             <FaRavelry />
