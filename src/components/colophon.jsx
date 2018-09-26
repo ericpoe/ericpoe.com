@@ -12,7 +12,7 @@ const Colophon = () => (
     <h2 className="flex justify-start my-1 justify-center pb-1">Colophon</h2>
     <section id="socialLinks">
       <ul className="list-reset flex justify-around">
-        <li id="github" mr-2>
+        <li id="github">
           <a
             href="https://github.com/ericpoe"
             title="Eric Poe's github account"
@@ -21,7 +21,7 @@ const Colophon = () => (
             <FaGithub />
           </a>
         </li>
-        <li id="twitter" mr-2>
+        <li id="twitter">
           <a
             href="https://twitter.com/eric_poe"
             title="Eric Poe's twitter"
@@ -30,7 +30,7 @@ const Colophon = () => (
             <FaTwitter />
           </a>
         </li>
-        <li id="mastodon" mr-2>
+        <li id="mastodon">
           <a
             href="https://mastodon.technology/@ericpoe"
             title="Eric Poe's mastodon"
@@ -39,7 +39,7 @@ const Colophon = () => (
             <FaMastodon />
           </a>
         </li>
-        <li id="ravelry" mr-2>
+        <li id="ravelry">
           <a
             href="https://www.ravelry.com/projects/ericpoe"
             title="Eric Poe's fabric projects on ravelry"
@@ -48,7 +48,7 @@ const Colophon = () => (
             <FaRavelry />
           </a>
         </li>
-        <li id="linkedin" mr-2>
+        <li id="linkedin">
           <a
             href="https://www.linkedin.com/in/ericpoe/"
             title="Eric Poe's LinkedIn"
