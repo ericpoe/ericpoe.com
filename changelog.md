@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [] - 2018-10-01
+## [1.3.2] - 2018-10-01
 
 - Upgraded `eslint` to 5.6.1
 - Upgraded `eslint-plugin-prettier` to 3.0.0
