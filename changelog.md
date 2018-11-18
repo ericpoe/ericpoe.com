@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.3.4] - 2018-11-18
+
+### Changed
+
+- Upgraded `eslint` to 5.9.0
+- Upgraded `eslint-config-gatsby-standard` to 2.1.0
+- Upgraded `eslint-config-prettier` to 3.3.0
+- upgraded `gatsby` to 2.0.50
+- upgraded `gatsby-plugin-google-analytics` to 2.0.7
+- upgraded `gatsby-plugin-manifest` to 2.0.9
+- upgraded `gatsby-plugin-offline` to 2.0.15
+- upgraded `gatsby-plugin-react-helmet` to 3.0.2
+- upgraded `gatsby-plugin-sharp` to 2.0.12
+- upgraded `gatsby-plugin-sitemap` to 2.0.2
+- upgraded `gatsby-remark-images` 2.0.6
+- upgraded `gatsby-remark-prismjs` to 3.0.3
+- upgraded `gatsby-source-filesystem` to 2.0.8
+- upgraded `gatsby-transformer-remark` to 2.1.12
+- upgraded `prettier` to 1.15.2
+- upgraded `react` to 16.6.3
+- upgraded `react-dom` to 16.6.3
+- upgraded `tailwindcss` to 0.7.2
+
 ## [1.3.3] - 2018-10-25
 
 ### Changed
