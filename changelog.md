@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - upgraded `prettier` to 1.15.2
 - upgraded `react` to 16.6.3
 - upgraded `react-dom` to 16.6.3
+- upgraded `tailwindcss` to 0.7.2
 
 ## [1.3.3] - 2018-10-25
 
