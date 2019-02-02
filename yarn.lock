@@ -5331,14 +5331,14 @@ gatsby-plugin-google-analytics@^2.0.13:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-manifest@^2.0.3:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.9.tgz#800d837705c32743d18c12226a0b3325185f75af"
-  integrity sha512-QhU3HCGUT62nD4OGBVGIRivVS9vIkXPlRl3xdW0iInGZRLcwid0NYjpY3rWKi/Bji9dDGzT4ZcghpGYcEkCNdA==
+gatsby-plugin-manifest@^2.0.17:
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.17.tgz#1e2c3329b1a58bdf77186866dd9e94da54ac6e68"
+  integrity sha512-8NMt34U4Qzo7LKctAtVdLbIVNPjHndCQ32MDm7BPfBMrqp61mhCLKZkZOuHLJiaoiBDQPW0AvXOL6nblUfv3wA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     bluebird "^3.5.0"
-    sharp "^0.21.0"
+    sharp "^0.21.3"
 
 gatsby-plugin-offline@^2.0.5:
   version "2.0.15"
@@ -10748,7 +10748,7 @@ shallowequal@^1.0.1, shallowequal@^1.0.2:
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
   integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
 
-sharp@^0.21.0, sharp@^0.21.3:
+sharp@^0.21.3:
   version "0.21.3"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.21.3.tgz#381937de66c123687f2ac7186f85921c6bb19cdd"
   integrity sha512-5qZk8r+YgfyztLEKkNez20Wynq/Uh1oNyP5T/3gTYwt2lBYGs9iDs5m0yVsZEPm8eVBbAJhS08J1wp/g+Ai1Qw==
