@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `react` to 16.7.0
 - Upgraded `react-dom` to 16.7.0
 - Upgraded `react-icons` to 3.3.0
+- Upgraded `gatsby-plugin-react-helmet` to 3.0.6
 
 ## [1.3.4] - 2018-11-18
 
