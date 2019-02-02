@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `eslint-plugin-prettier` to 3.0.1
 - Upgraded `gatsby-plugin-react-helmet` to 3.0.6
 - Upgraded `eslint-plugin-import` to 2.16.0
+- Upgraded `gatsby-remark-imges` to 2.4.2
 
 ## [1.3.4] - 2018-11-18
 
