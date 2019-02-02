@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-source-filesystem` to 2.0.20
 - Upgraded `eslint-config-gatsby-standard` to 2.1.1
 - Upgraded `eslint-config-prettier` to 4.0.0
+- Upgraded `eslint-plugin-jsx-a11y` to 6.2.0
 
 ## [1.3.4] - 2018-11-18
 
