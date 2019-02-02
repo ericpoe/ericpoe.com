@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-plugin-sitemap` to 2.0.5
 - Upgraded `gatsby-plugin-sharp` to 2.0.20
 - Upgraded `gatsby-source-filesystem` to 2.0.20
+- Upgraded `eslint-config-gatsby-standard` to 2.1.1
 
 ## [1.3.4] - 2018-11-18
 
