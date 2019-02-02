@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.3.5] - 2019-02-02
+
+### Changed
+
+- Upgraded [security] `webpack-dev-server` to 3.1.14
+- Upgraded `prettier` to 1.15.3
+- Upgraded `gatsby-remark-images` to 3.0.0
+- Upgraded `gatsby-transformer-remark` to 2.1.13
+- Upgraded `gatsby-plugin-google-analytics` to 2.0.13
+- Upgraded `gatsby-plugin-manifest` to 2.0.17
+- Upgraded `gatsby-remark-prismjs` to 3.2.4
+- Upgraded `gatsby-plugin-sitemap` to 2.0.5
+- Upgraded `gatsby-plugin-sharp` to 2.0.20
+- Upgraded `gatsby-source-filesystem` to 2.0.20
+
 ## [1.3.4] - 2018-11-18
 
 ### Changed
