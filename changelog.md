@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `eslint-config-prettier` to 4.0.0
 - Upgraded `eslint-plugin-jsx-a11y` to 6.2.0
 - Upgraded `eslint-plugin-prettier` to 3.0.1
+- Upgraded `tailwindcss` to 0.7.4
 - Upgraded `react` to 16.7.0
 - Upgraded `react-dom` to 16.7.0
 - Upgraded `react-icons` to 3.3.0
