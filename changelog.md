@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Upgraded [security] `webpack-dev-server` to 3.1.14
 - Upgraded `prettier` to 1.15.3
+- Upgraded `eslint` to 5.13.0
 - Upgraded `gatsby-remark-images` to 3.0.0
 - Upgraded `gatsby-transformer-remark` to 2.1.13
 - Upgraded `gatsby-plugin-google-analytics` to 2.0.13
