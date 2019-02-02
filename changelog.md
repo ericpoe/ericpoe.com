@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `prettier` to 1.16.3
 - Upgraded `eslint` to 5.13.0
 - Upgraded `gatsby` to 2.0.111
+- Upgraded `tailwindcss` to 0.7.4
+- Upgraded `react` to 16.7.0
+- Upgraded `react-dom` to 16.7.0
+- Upgraded `react-icons` to 3.3.0
 - Upgraded `gatsby-remark-images` to 3.0.0
 - Upgraded `gatsby-transformer-remark` to 2.1.13
 - Upgraded `gatsby-plugin-google-analytics` to 2.0.13
@@ -25,10 +29,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `eslint-config-prettier` to 4.0.0
 - Upgraded `eslint-plugin-jsx-a11y` to 6.2.0
 - Upgraded `eslint-plugin-prettier` to 3.0.1
-- Upgraded `tailwindcss` to 0.7.4
-- Upgraded `react` to 16.7.0
-- Upgraded `react-dom` to 16.7.0
-- Upgraded `react-icons` to 3.3.0
 - Upgraded `gatsby-plugin-react-helmet` to 3.0.6
 - Upgraded `eslint-plugin-import` to 2.16.0
 
