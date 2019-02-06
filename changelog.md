@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Upgraded [security] `webpack-dev-server` to 3.1.14
-- Upgraded `prettier` to 1.16.3
+- Upgraded `prettier` to 1.16.4
 - Upgraded `eslint` to 5.13.0
 - Upgraded `gatsby` to 2.0.115
 - Upgraded `tailwindcss` to 0.7.4
