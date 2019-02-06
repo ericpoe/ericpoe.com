@@ -5,33 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.3.5] - 2019-02-02
+## [1.3.5] - 2019-02-05
 
 ### Changed
 
 - Upgraded [security] `webpack-dev-server` to 3.1.14
-- Upgraded `prettier` to 1.16.4
 - Upgraded `eslint` to 5.13.0
 - Upgraded `gatsby` to 2.0.115
+- Upgraded `prettier` to 1.16.4
 - Upgraded `tailwindcss` to 0.7.4
 - Upgraded `react` to 16.7.0
 - Upgraded `react-dom` to 16.7.0
 - Upgraded `react-icons` to 3.3.0
-- Upgraded `gatsby-remark-images` to 3.0.0
-- Upgraded `gatsby-plugin-google-analytics` to 2.0.13
-- Upgraded `gatsby-plugin-manifest` to 2.0.17
-- Upgraded `gatsby-remark-prismjs` to 3.2.4
-- Upgraded `gatsby-plugin-sitemap` to 2.0.5
-- Upgraded `gatsby-plugin-sharp` to 2.0.20
-- Upgraded `gatsby-source-filesystem` to 2.0.20
-- Upgraded `gatsby-plugin-offline` to 2.0.22
 - Upgraded `eslint-config-gatsby-standard` to 2.1.1
 - Upgraded `eslint-config-prettier` to 4.0.0
+- Upgraded `eslint-plugin-import` to 2.16.0
 - Upgraded `eslint-plugin-jsx-a11y` to 6.2.1
 - Upgraded `eslint-plugin-prettier` to 3.0.1
+- Upgraded `gatsby-plugin-google-analytics` to 2.0.13
+- Upgraded `gatsby-plugin-manifest` to 2.0.17
+- Upgraded `gatsby-plugin-offline` to 2.0.22
 - Upgraded `gatsby-plugin-react-helmet` to 3.0.6
-- Upgraded `eslint-plugin-import` to 2.16.0
-- Upgraded `gatsby-remark-imges` to 2.4.2
+- Upgraded `gatsby-plugin-sharp` to 2.0.20
+- Upgraded `gatsby-plugin-sitemap` to 2.0.5
+- Upgraded `gatsby-remark-images` to 3.0.0
+- Upgraded `gatsby-remark-prismjs` to 3.2.4
+- Upgraded `gatsby-source-filesystem` to 2.0.20
 - Upgraded `gatsby-transformer-remark` to 2.2.4
 
 ## [1.3.4] - 2018-11-18
