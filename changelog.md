@@ -18,7 +18,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `react-dom` to 16.7.0
 - Upgraded `react-icons` to 3.3.0
 - Upgraded `gatsby-remark-images` to 3.0.0
-- Upgraded `gatsby-transformer-remark` to 2.1.13
 - Upgraded `gatsby-plugin-google-analytics` to 2.0.13
 - Upgraded `gatsby-plugin-manifest` to 2.0.17
 - Upgraded `gatsby-remark-prismjs` to 3.2.4
@@ -33,7 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-plugin-react-helmet` to 3.0.6
 - Upgraded `eslint-plugin-import` to 2.16.0
 - Upgraded `gatsby-remark-imges` to 2.4.2
-- Upgraded `gatsby-transformer-remark` to 2.2.3
+- Upgraded `gatsby-transformer-remark` to 2.2.4
 
 ## [1.3.4] - 2018-11-18
 
