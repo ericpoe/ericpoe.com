@@ -3,13 +3,32 @@
  * Normalize.css and some additional base styles.
  *
  * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ * https://github.com/tailwindcss/tailwindcss/blob/master/base.css
  *
  * If using `postcss-import`, use this import instead:
  *
- * @import "tailwindcss/preflight";
+ * @import "tailwindcss/base";
  */
-@tailwind preflight;
+@tailwind base;
+
+ul {
+  list-style-type: disc;
+  padding-left: theme('padding.4');
+}
+
+ul.list-reset {
+  list-style-type: none;
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: theme('padding.4');
+}
+
+a {
+  color: theme('colors.indigo.800');
+  text-decoration: underline;
+}
 
 /**
  * This injects any component classes registered by plugins.
@@ -60,13 +79,27 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+ h1 {
+  @apply text-4xl;
+  @apply font-semibold;
+}
+
+h2 {
+  @apply text-2xl;
+  @apply font-semibold;
+}
+
+h3 {
+  @apply text-xl;
+  @apply font-semibold;
+}
 
  .___gatsby {
   @apply flex;
   @apply flex-col;
   @apply font-sans;
   @apply min-h-screen;
-  @apply text-grey-darkest
+  @apply text-gray-800
  }
 
 #blogContent p {
@@ -76,8 +109,4 @@
 #blogContent figcaption {
   @apply text-right;
   @apply italic;
-}
-
-a {
-  @apply text-purple-darker;
 }
