@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Upgraded `tailwindcss` to 1.0.5
 
+### Fixed
+
+- Added languages to language blocks missing languages
+
 ## [1.3.5] - 2019-02-05
 
 ### Changed
