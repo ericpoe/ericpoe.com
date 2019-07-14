@@ -14,7 +14,7 @@ date: '2015-04-23T07:42:00Z'
 Heredoc will define a string of text in a what-you-see-is-what-you-mean type
 of format. So, if you want to echo out structured text, like so:
 
-```html
+```text
 I think that I
     Shall never pay
 As much as I
@@ -37,7 +37,7 @@ echo $poem;
 
 **output:**
 
-```
+```text
 I think that I
     Shall never pay
 As much as I
@@ -66,7 +66,7 @@ echo $poem;
 
 **output:**
 
-```
+```text
 I think that I
     Shall never pay
 As much as I
