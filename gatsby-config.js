@@ -72,7 +72,6 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 800,
               linkImagesToOriginal: true,
-              sizeByPixelDensity: true,
               showCaptions: true,
             },
           },
