@@ -31,7 +31,7 @@
     "react-icons": "^3.1.0"
   },
   "devDependencies": {
-    "eslint": "^6.0.0",
+    "eslint": "^6.1.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-gatsby-standard": "^2.0.0",
     "eslint-config-prettier": "^6.0.0",
