@@ -21,7 +21,7 @@
     "gatsby-plugin-sitemap": "^2.0.5",
     "gatsby-remark-images": "^3.0.0",
     "gatsby-remark-prismjs": "^3.2.4",
-    "gatsby-source-filesystem": "^2.0.20",
+    "gatsby-source-filesystem": "^2.1.9",
     "gatsby-transformer-remark": "^2.1.13",
     "prism-themes": "^1.0.1",
     "prismjs": "^1.15.0",
