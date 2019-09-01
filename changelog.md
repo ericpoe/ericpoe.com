@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `react-icons` to 3.7.0
 - Upgraded `tailwindcss` to 1.1.2
 - Switched React.Fragment to fragment shorthand as suggested by eslint-plugin-react
+- Added a debug option to `yarn develop` -- in VSCode, enable "Debug: Toggle Auto Attach"
 
 ### Fixed
 
