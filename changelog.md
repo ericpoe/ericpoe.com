@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `react-dom` to 16.8.6
 - Upgraded `react-helmet` to 5.2.1
 - Upgraded `react-icons` to 3.7.0
-- Upgraded `tailwindcss` to 1.0.5
+- Upgraded `tailwindcss` to 1.1.2
 
 ### Fixed
 
