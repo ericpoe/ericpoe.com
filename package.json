@@ -40,7 +40,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.14.3",
     "prettier": "^1.15.3",
-    "purgecss": "^1.1.0",
+    "purgecss": "^1.4.0",
     "tailwindcss": "^1.0"
   }
 }

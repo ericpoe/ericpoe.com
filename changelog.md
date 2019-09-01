@@ -88,6 +88,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - upgraded `gatsby-source-filesystem` to 2.0.8
 - upgraded `gatsby-transformer-remark` to 2.1.12
 - upgraded `prettier` to 1.15.2
+- upgraded `purgecss` to 1.4.0
 - upgraded `react` to 16.6.3
 - upgraded `react-dom` to 16.6.3
 - upgraded `tailwindcss` to 0.7.2
