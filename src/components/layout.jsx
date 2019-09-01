@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <React.Fragment>
+      <>
         <Helmet
           defaultTitle={data.site.siteMetadata.title}
           titleTemplate={`%s | ${data.site.siteMetadata.title}`}
@@ -40,7 +40,7 @@ const Layout = ({ children }) => (
         >
           <Colophon />
         </section>
-      </React.Fragment>
+      </>
     )}
   />
 );

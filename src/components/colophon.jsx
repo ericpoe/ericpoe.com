@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa';
 
 const Colophon = () => (
-  <React.Fragment>
+  <>
     <h2 className="flex justify-start my-1 justify-center pb-1">Colophon</h2>
     <section id="socialLinks">
       <ul className="list-reset flex justify-around">
@@ -93,7 +93,7 @@ const Colophon = () => (
         .
       </p>
     </section>
-  </React.Fragment>
+  </>
 );
 
 export default Colophon;
