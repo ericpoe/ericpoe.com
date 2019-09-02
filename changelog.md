@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby` to 2.13.20
 - Upgraded `gatsby-plugin-google-analytics` to 2.1.13
 - Upgraded `gatsby-plugin-manifest` to 2.2.3
-- Upgraded `gatsby-plugin-offline` to 2.2.4
+- Upgraded `gatsby-plugin-offline` to 3.0.1
 - Upgraded `gatsby-plugin-react-helmet` to 3.1.6
 - Upgraded `gatsby-plugin-sharp` to 2.2.19
 - Upgraded `gatsby-plugin-sitemap` to 2.2.10
