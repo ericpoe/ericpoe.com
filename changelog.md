@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Upgraded `eslint` to 5.16.0
 - Upgraded `eslint-config-airbnb` to 18.0.1
-- Upgraded `eslint-config-prettier` to 4.3.0
+- Upgraded `eslint-config-prettier` to 6.1.0
 - Upgraded `eslint-plugin-import` to 2.18.0
 - Upgraded `eslint-plugin-jsx-a11y` to 6.2.3
 - Upgraded `eslint-plugin-prettier` to 3.1.0
