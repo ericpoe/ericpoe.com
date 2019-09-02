@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-plugin-google-analytics` to 2.1.4
 - Upgraded `gatsby-plugin-manifest` to 2.2.3
 - Upgraded `gatsby-plugin-offline` to 2.2.4
-- Upgraded `gatsby-plugin-react-helmet` to 3.1.2
+- Upgraded `gatsby-plugin-react-helmet` to 3.1.6
 - Upgraded `gatsby-plugin-sharp` to 2.2.7
 - Upgraded `gatsby-plugin-sitemap` to 2.2.3
 - Upgraded `gatsby-remark-images` to 3.1.6
@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `tailwindcss` to 1.1.2
 - Switched React.Fragment to fragment shorthand as suggested by eslint-plugin-react
 - Added a debug option to `yarn develop` -- in VSCode, enable "Debug: Toggle Auto Attach"
+- Added a Helmet statement to not defer showing the title when opening a new tab from a link
 
 ### Fixed
 

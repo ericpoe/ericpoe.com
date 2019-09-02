@@ -24,6 +24,7 @@ const Layout = ({ children }) => (
         <Helmet
           defaultTitle={data.site.siteMetadata.title}
           titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+          defer={false}
         >
           <html lang="en" />
         </Helmet>
