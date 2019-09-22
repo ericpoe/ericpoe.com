@@ -60,7 +60,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `eslint-plugin-prettier` to 3.0.1
 - Upgraded `gatsby-plugin-google-analytics` to 2.0.13
 - Upgraded `gatsby-plugin-manifest` to 2.0.17
-- Upgraded `gatsby-plugin-offline` to 2.0.22
+- Upgraded `gatsby-plugin-offline` to 3.0.8
 - Upgraded `gatsby-plugin-react-helmet` to 3.0.6
 - Upgraded `gatsby-plugin-sharp` to 2.0.20
 - Upgraded `gatsby-plugin-sitemap` to 2.0.5
