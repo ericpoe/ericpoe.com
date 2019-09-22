@@ -69,6 +69,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-source-filesystem` to 2.0.20
 - Upgraded `gatsby-transformer-remark` to 2.2.4
 - Switched React.Fragment to fragment shorthand as suggested by eslint-plugin-react
+- Add json & jsx to files under the aegis of `prettier`
 
 ## [1.3.4] - 2018-11-18
 
