@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby` to 2.15.20
 - Upgraded `gatsby-plugin-google-analytics` to 2.1.17
 - Upgraded `gatsby-plugin-manifest` to 2.2.18
-- Upgraded `gatsby-plugin-offline` to 2.2.10
+- Upgraded `gatsby-plugin-offline` to 3.0.8
 - Upgraded `gatsby-plugin-react-helmet` to 3.1.8
 - Upgraded `gatsby-plugin-sharp` to 2.2.25
 - Upgraded `gatsby-plugin-sitemap` to 2.2.14
@@ -36,6 +36,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `react-helmet` to 5.2.1
 - Upgraded `react-icons` to 3.7.0
 - Upgraded `tailwindcss` to 1.1.2
+- Switched React.Fragment to fragment shorthand as suggested by eslint-plugin-react
+- Add json & jsx to files under the aegis of `prettier`
+- Added a Helmet statement to not defer showing the title when opening a new tab from a link (part of Helmet upgrade)
 
 ### Fixed
 
@@ -60,7 +63,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `eslint-plugin-prettier` to 3.0.1
 - Upgraded `gatsby-plugin-google-analytics` to 2.0.13
 - Upgraded `gatsby-plugin-manifest` to 2.0.17
-- Upgraded `gatsby-plugin-offline` to 3.0.8
+- Upgraded `gatsby-plugin-offline` to 2.0.22
 - Upgraded `gatsby-plugin-react-helmet` to 3.0.6
 - Upgraded `gatsby-plugin-sharp` to 2.0.20
 - Upgraded `gatsby-plugin-sitemap` to 2.0.5
@@ -68,9 +71,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-remark-prismjs` to 3.2.4
 - Upgraded `gatsby-source-filesystem` to 2.0.20
 - Upgraded `gatsby-transformer-remark` to 2.2.4
-- Switched React.Fragment to fragment shorthand as suggested by eslint-plugin-react
-- Add json & jsx to files under the aegis of `prettier`
-- Added a Helmet statement to not defer showing the title when opening a new tab from a link (part of Helmet upgrade)
 
 ## [1.3.4] - 2018-11-18
 
