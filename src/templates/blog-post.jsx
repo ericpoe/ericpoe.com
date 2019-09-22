@@ -11,7 +11,7 @@ const blogPost = ({ data }) => {
     .concat(tags)
     .reduce((sentence, word) => `${sentence}, ${word}`);
   return (
-    <React.Fragment>
+    <>
       <Helmet
         title={post.frontmatter.title}
         meta={[{ name: 'keywords', content: keywords }]}
@@ -33,7 +33,7 @@ const blogPost = ({ data }) => {
           />
         </div>
       </Layout>
-    </React.Fragment>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import Layout from '../components/layout';
 
 const IndexPage = ({ data }) => (
-  <React.Fragment>
+  <>
     <Helmet
       meta={[
         {
@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => (
         ))}
       </div>
     </Layout>
-  </React.Fragment>
+  </>
 );
 
 export const query = graphql`
