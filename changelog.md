@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Upgraded `eslint` to 6.4.0
-- Upgraded `eslint-config-airbnb` to 2.2.0
+- Upgraded `eslint-config-airbnb` to 18.0.1
 - Upgraded `eslint-config-prettier` to 6.3.0
 - Upgraded `eslint-plugin-import` to 2.18.0
 - Upgraded `eslint-plugin-jsx-a11y` to 6.2.3
@@ -68,6 +68,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-remark-prismjs` to 3.2.4
 - Upgraded `gatsby-source-filesystem` to 2.0.20
 - Upgraded `gatsby-transformer-remark` to 2.2.4
+- Switched React.Fragment to fragment shorthand as suggested by eslint-plugin-react
 
 ## [1.3.4] - 2018-11-18
 
