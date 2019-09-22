@@ -70,6 +70,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-transformer-remark` to 2.2.4
 - Switched React.Fragment to fragment shorthand as suggested by eslint-plugin-react
 - Add json & jsx to files under the aegis of `prettier`
+- Added a Helmet statement to not defer showing the title when opening a new tab from a link (part of Helmet upgrade)
 
 ## [1.3.4] - 2018-11-18
 

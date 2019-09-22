@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
@@ -24,6 +24,7 @@ const Layout = ({ children }) => (
         <Helmet
           defaultTitle={data.site.siteMetadata.title}
           titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+          defer={false}
         >
           <html lang="en" />
         </Helmet>
