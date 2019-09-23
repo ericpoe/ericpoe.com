@@ -7,6 +7,7 @@
     "css": "node_modules/.bin/tailwind build ./src/components/tailwind.css -c ./tailwind.config.js -o ./src/components/index.css",
     "build": "yarn css && purgecss -c ./purgecss.config.js -o ./src/components && gatsby build",
     "develop": "yarn css && gatsby develop",
+    "develop:debug": "node --inspect=127.0.0.1:9232 node_modules/.bin/gatsby develop",
     "format": "prettier --write '**/*.{js,json,jsx}'",
     "lint": "eslint '**/*.{js,jsx}'",
     "test": "echo \"Error: no test specified\" && exit 1"
