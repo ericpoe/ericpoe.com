@@ -12,10 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `eslint` to 6.4.0
 - Upgraded `eslint-config-airbnb` to 18.0.1
 - Upgraded `eslint-config-prettier` to 6.3.0
-- Upgraded `eslint-plugin-import` to 2.18.0
-- Upgraded `eslint-plugin-jsx-a11y` to 6.2.3
 - Upgraded `eslint-plugin-prettier` to 3.1.1
-- Upgraded `eslint-plugin-react` to 7.14.2
 - Upgraded `gatsby` to 2.15.20
 - Upgraded `gatsby-plugin-google-analytics` to 2.1.17
 - Upgraded `gatsby-plugin-manifest` to 2.2.18
@@ -27,19 +24,49 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-remark-prismjs` to 3.3.14
 - Upgraded `gatsby-source-filesystem` to 2.1.26
 - Upgraded `gatsby-transformer-remark` to 2.6.24
-- Upgraded `prettier` to 1.18.2
-- Upgraded `prism-themes` to 1.1.0
-- Upgraded `prismjs` to 1.16.0
 - Upgraded `purgecss` to 1.4.0
 - Upgraded `react` to 16.9.0
 - Upgraded `react-dom` to 16.9.0
-- Upgraded `react-helmet` to 5.2.1
-- Upgraded `react-icons` to 3.7.0
 - Upgraded `tailwindcss` to 1.1.2
 - Switched React.Fragment to fragment shorthand as suggested by eslint-plugin-react
 - Add json & jsx to files under the aegis of `prettier`
-- Added a Helmet statement to not defer showing the title when opening a new tab from a link (part of Helmet upgrade)
 - Added a debug option to `yarn develop` -- in VSCode, enable "Debug: Toggle Auto Attach"
+
+### Fixed
+
+- Added a Helmet statement to not defer showing the title when opening a new tab from a link (part of Helmet upgrade)
+
+## [1.3.6] - 2019-07-14
+
+### Changed
+
+- Upgraded `eslint` to 5.16.0
+- Upgraded `eslint-config-airbnb` to 2.2.0
+- Upgraded `eslint-config-prettier` to 4.3.0
+- Upgraded `eslint-plugin-import` to 2.18.0
+- Upgraded `eslint-plugin-jsx-a11y` to 6.2.3
+- Upgraded `eslint-plugin-prettier` to 3.1.0
+- Upgraded `eslint-plugin-react` to 7.14.2
+- Upgraded `gatsby` to 2.13.20
+- Upgraded `gatsby-plugin-google-analytics` to 2.1.4
+- Upgraded `gatsby-plugin-manifest` to 2.2.3
+- Upgraded `gatsby-plugin-offline` to 2.2.4
+- Upgraded `gatsby-plugin-react-helmet` to 3.1.2
+- Upgraded `gatsby-plugin-sharp` to 2.2.7
+- Upgraded `gatsby-plugin-sitemap` to 2.2.3
+- Upgraded `gatsby-remark-images` to 3.1.6
+- Upgraded `gatsby-remark-prismjs` to 3.3.3
+- Upgraded `gatsby-source-filesystem` to 2.1.5
+- Upgraded `gatsby-transformer-remark` to 2.6.5
+- Upgraded `prettier` to 1.18.2
+- Upgraded `prism-themes` to 1.1.0
+- Upgraded `prismjs` to 1.16.0
+- Upgraded `purgecss` to 1.3.0
+- Upgraded `react` to 16.8.6
+- Upgraded `react-dom` to 16.8.6
+- Upgraded `react-helmet` to 5.2.1
+- Upgraded `react-icons` to 3.7.0
+- Upgraded `tailwindcss` to 1.0.5
 
 ### Fixed
 
