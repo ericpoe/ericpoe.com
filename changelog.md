@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Updated `tailwindcss` to 1.3.5
+- Upgraded `purgecss` to 2.1.2
+- Upgraded `tailwindcss` to 1.3.5
 
 ## [1.3.7] - 2019-09-22
 
