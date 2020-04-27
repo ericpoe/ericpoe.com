@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- Upgraded `prettier` to 2.0.5
 - Upgraded `purgecss` to 2.1.2
 - Upgraded `tailwindcss` to 1.3.5
 
