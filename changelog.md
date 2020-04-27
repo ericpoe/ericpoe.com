@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `purgecss` to 2.1.2
 - Upgraded `react` to 16.13.1
 - Upgraded `react-dom` to 16.13.1
+- Upgraded `react-icons` to 3.10.0
 - Upgraded `tailwindcss` to 1.3.5
 
 ## [1.3.7] - 2019-09-22
