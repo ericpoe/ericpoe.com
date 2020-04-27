@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-plugin-google-analytics` 2.2.5
 - Upgraded `gatsby-plugin-manifest` to 2.3.7
 - Upgraded `gatsby-plugin-offline` to 3.1.5
+- Upgraded `gatsby-plugin-react-helmet` to 3.2.5
 - Upgraded `prettier` to 2.0.5
 - Upgraded `prismjs` to 1.20.0
 - Upgraded `prism-themes` to 1.4.0
