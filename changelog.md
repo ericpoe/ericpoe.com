@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-plugin-sharp` to 2.6.0
 - Upgraded `gatsby-plugin-sitemap` to 2.4.0
 - Upgraded `gatsby-remark-images` to 3.3.0
-- Upgraded `gatsby-remark-prismjs` to 3.4.5
+- Upgraded `gatsby-remark-prismjs` to 3.5.0
 - Upgraded `gatsby-source-filesystem` to 2.2.5
 - Upgraded `gatsby-transformer-remark` to 2.7.5
 - Upgraded `prettier` to 2.0.5
