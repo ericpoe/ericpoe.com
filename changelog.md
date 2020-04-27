@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Upgraded `eslint` to 6.8.0
+- Upgraded `eslint-config-airbnb` to 18.1.0
+- Upgraded `eslint-config-prettier` to 6.11.0
+- Upgraded `eslint-plugin-import` to 2.20.2
+- Upgraded `eslint-plugin-prettier` to 3.1.3
+- Upgraded `eslint-plugin-react` to 7.19.0
 - Upgraded `prettier` to 2.0.5
 - Upgraded `purgecss` to 2.1.2
 - Upgraded `tailwindcss` to 1.3.5
