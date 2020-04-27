@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `eslint-plugin-import` to 2.20.2
 - Upgraded `eslint-plugin-prettier` to 3.1.3
 - Upgraded `eslint-plugin-react` to 7.19.0
-- Upgraded `gatsby` to 2.20.36
+- Upgraded `gatsby` to 2.21.0
 - Upgraded `gatsby-plugin-google-analytics` 2.2.5
 - Upgraded `gatsby-plugin-manifest` to 2.3.7
 - Upgraded `gatsby-plugin-offline` to 3.1.5
