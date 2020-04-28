@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.3.8] - 2020-04-2X
 
+### Added
+
+- Set base version of node to fix build errors
+
 ### Changed
 
 - Upgraded `eslint` to 6.8.0
