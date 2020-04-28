@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import Helmet from 'react-helmet';
+import {graphql, Link} from 'gatsby';
+import {Helmet} from 'react-helmet';
 import Layout from '../components/layout';
 
 const IndexPage = ({ data }) => (

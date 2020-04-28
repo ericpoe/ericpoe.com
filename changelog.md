@@ -5,6 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.3.8] - 2020-04-2X
+
+### Added
+
+- Set base version of node to fix build errors
+
+### Changed
+
+- Upgraded `eslint` to 6.8.0
+- Upgraded `eslint-config-airbnb` to 18.1.0
+- Upgraded `eslint-config-prettier` to 6.11.0
+- Upgraded `eslint-plugin-import` to 2.20.2
+- Upgraded `eslint-plugin-prettier` to 3.1.3
+- Upgraded `eslint-plugin-react` to 7.19.0
+- Upgraded `gatsby` to 2.21.0
+- Upgraded `gatsby-plugin-google-analytics` 2.3.0
+- Upgraded `gatsby-plugin-manifest` to 2.4.0
+- Upgraded `gatsby-plugin-offline` to 3.2.0
+- Upgraded `gatsby-plugin-react-helmet` to 3.3.0
+- Upgraded `gatsby-plugin-sharp` to 2.6.0
+- Upgraded `gatsby-plugin-sitemap` to 2.4.0
+- Upgraded `gatsby-remark-images` to 3.3.0
+- Upgraded `gatsby-remark-prismjs` to 3.5.0
+- Upgraded `gatsby-source-filesystem` to 2.3.0
+- Upgraded `gatsby-transformer-remark` to 2.8.0
+- Upgraded `prettier` to 2.0.5
+- Upgraded `prismjs` to 1.20.0
+- Upgraded `prism-themes` to 1.4.0
+- Upgraded `purgecss` to 2.1.2
+- Upgraded `react` to 16.13.1
+- Upgraded `react-dom` to 16.13.1
+- Upgraded `react-helmet` to 6.0.0
+- Upgraded `react-icons` to 3.10.0
+- Upgraded `tailwindcss` to 1.3.5
+
 ## [1.3.7] - 2019-09-22
 
 ### Changed
