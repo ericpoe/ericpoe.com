@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import {Helmet} from 'react-helmet';
+import {graphql, StaticQuery} from 'gatsby';
 
 import Header from './header';
 import Colophon from './colophon';
@@ -19,7 +19,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet
           defaultTitle={data.site.siteMetadata.title}
