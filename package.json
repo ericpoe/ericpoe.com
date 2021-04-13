@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "^2.20.0",
+    "gatsby": "^3.0.0",
     "gatsby-plugin-google-analytics": "^2.0.13",
     "gatsby-plugin-manifest": "^2.0.17",
     "gatsby-plugin-offline": "^3.0.8",
@@ -24,23 +24,23 @@
     "gatsby-remark-prismjs": "^3.2.4",
     "gatsby-source-filesystem": "^2.1.18",
     "gatsby-transformer-remark": "^2.6.19",
-    "prism-themes": "^1.0.1",
-    "prismjs": "^1.17.1",
+    "prism-themes": "^1.6.0",
+    "prismjs": "^1.23.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-helmet": "^6.0.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^3.1.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-gatsby-standard": "^2.0.0",
     "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-react": "^7.14.3",
-    "prettier": "^2.0.5",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.23.2",
+    "prettier": "^2.2.1",
     "purgecss": "^2.1.2",
     "tailwindcss": "^1.1"
   }
