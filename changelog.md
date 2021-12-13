@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Migrated to Gatsby v4
 - Upgraded `eslint` and associated libraries to latest
 - Fixed files based on new `eslint` rules
+- Upgraded `prismjs` and associated libraries to latest
 
 ## [1.3.8] - 2020-04-27
 
