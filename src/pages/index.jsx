@@ -1,6 +1,6 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import { Helmet } from 'react-helmet';
+import {graphql, Link} from 'gatsby';
+import {Helmet} from 'react-helmet';
 import Layout from '../components/layout';
 
 const IndexPage = function IndexPage({ data }) {
@@ -37,7 +37,6 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } } }
     ) {
       totalCount
       edges {
