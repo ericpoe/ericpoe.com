@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.4.1] - 2021-12-29
 
+### Fixed
+
+ - eslint was broken on `gatsby-*.js` files, fixed by replacing `eslint-plugin-react` with `eslint-config-react-app`
+
 ### Removed
 
 - Removed option for draft documents. I was not completing drafts, so this just adds to the complexity of the software.

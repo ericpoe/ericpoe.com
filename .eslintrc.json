@@ -3,7 +3,8 @@
   "extends": [
     "airbnb",
     "gatsby-standard",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "react-app"
   ],
   "env": {
     "browser": true
