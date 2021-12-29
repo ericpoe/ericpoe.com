@@ -1,5 +1,11 @@
 import React from 'react';
-import {FaGithub, FaLinkedin, FaMastodon, FaRavelry, FaTwitter,} from 'react-icons/fa';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaMastodon,
+  FaRavelry,
+  FaTwitter,
+} from 'react-icons/fa';
 
 const Colophon = function Colophon() {
   return (
