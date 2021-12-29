@@ -94,5 +94,6 @@ module.exports = {
         exclude: [],
       },
     },
+    `gatsby-plugin-postcss`,
   ],
 };
