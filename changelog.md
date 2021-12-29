@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Migrated to Gatsby v4
+- Upgraded `gatsby` to v4
 - Upgraded `eslint` and associated libraries to latest
 - Upgraded `tailwindcss` to v3
 - Upgraded `prismjs` and associated libraries to latest
