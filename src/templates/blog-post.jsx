@@ -1,6 +1,6 @@
 import React from 'react';
-import {graphql} from 'gatsby';
-import {Helmet} from 'react-helmet';
+import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 
 const blogPost = ({ data }) => {
@@ -38,7 +38,7 @@ const blogPost = ({ data }) => {
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
