@@ -1,3 +1,5 @@
+const path = require(`path`);
+
 module.exports = {
   siteMetadata: {
     title: 'Eric Poe',
@@ -25,7 +27,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`,
+        path: path.resolve(__dirname, 'src'),
       },
     },
     `gatsby-plugin-sharp`,
@@ -92,5 +94,6 @@ module.exports = {
         exclude: [],
       },
     },
+    `gatsby-plugin-postcss`,
   ],
 };
