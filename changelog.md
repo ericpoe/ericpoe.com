@@ -15,8 +15,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Upgraded `gatsby` to v4
 - Upgraded `eslint` and associated libraries to latest
-- Upgraded `tailwindcss` to v3
 - Upgraded `prismjs` and associated libraries to latest
+- Upgraded `react` and associated libraries to latest
+- Upgraded `tailwindcss` to v3
 
 ### Fixed
 
