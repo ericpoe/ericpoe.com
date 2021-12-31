@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { graphql, StaticQuery } from 'gatsby';
+import {Helmet} from 'react-helmet';
+import {graphql, StaticQuery} from 'gatsby';
 
 import Header from './header';
 import Colophon from './colophon';
-import './index.css';
+import './css/index.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 
 const Layout = function Layout({ children }) {
