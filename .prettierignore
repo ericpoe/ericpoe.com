@@ -1,4 +1,5 @@
-.cache
+.cache/
+public/
+src/components/css/
 package.json
-public
 yarn.lock

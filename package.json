@@ -4,7 +4,7 @@
   "author": "Eric Poe <eric.poe@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "css": "node_modules/.bin/tailwind build -i src/styles/tailwind.css -c ./tailwind.config.js -o ./src/components/index.css",
+    "css": "node_modules/.bin/tailwind build -i src/styles/tailwind.css -c ./tailwind.config.js -o src/components/css/index.css",
     "build": "yarn css && gatsby build",
     "develop": "yarn css && gatsby develop",
     "develop:debug": "node --inspect=127.0.0.1:9232 node_modules/.bin/gatsby develop",
