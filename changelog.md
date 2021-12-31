@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
- - eslint was broken on `gatsby-*.js` files, fixed by replacing `eslint-plugin-react` with `eslint-config-react-app`
+- eslint was broken on `gatsby-*.js` files, fixed by replacing `eslint-plugin-react` with `eslint-config-react-app`
 
 ### Removed
 

@@ -11,6 +11,7 @@ tags:
   - kcwit
   - railsgirls
 ---
+
 I'm very excited. I will be mentoring now- and future- lady devs at [Rails Girls KC](http://railsgirls.com/kansas-city) in early November. My 14-year old daughter will be one of the participants, too! In 1.5 days, the participants will build a simple application using [Ruby on Rails](https://rubyonrails.org/).
 
 Although my primary programming languages are PHP and JavaScript, I feel confident that I can mentor in [Ruby]() and Rails due to my experience with [MVC](https://www.futurehosting.com/blog/what-is-an-mvc-framework/) frameworks ([Symfony](https://symfony.com/) and [Laravel](https://laravel.com/)). I worked with Rails at a hackathon in 2013 and I don't think that is sufficient experience; however, Rails has influenced every MVC framework that followed, so this shouldn't be too foreign to me.

@@ -5,7 +5,7 @@ tags:
   - php
   - phpunit
   - testing
-categories: 
+categories:
   - programming
 date: '2014-12-22T00:00:00Z'
 ---
