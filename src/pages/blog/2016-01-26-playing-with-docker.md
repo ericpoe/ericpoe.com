@@ -41,7 +41,7 @@ drupal_database:
     MYSQL_DATABASE: drupal_db
 ```
 
-The above creates two Docker machines: "drupal8" and "drupal\_database." The "drupal8" Docker machine is linked to the "drupal_database" which is running MariaDB 5.5. To launch this, I just run `docker-compose up` from the directory that contains this `docker-compose.yml` file. This is the equivalent to running:
+The above creates two Docker machines: "drupal8" and "drupal_database." The "drupal8" Docker machine is linked to the "drupal_database" which is running MariaDB 5.5. To launch this, I just run `docker-compose up` from the directory that contains this `docker-compose.yml` file. This is the equivalent to running:
 
 ```
 docker run --name drupal_database \

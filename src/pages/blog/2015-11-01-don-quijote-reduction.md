@@ -1,6 +1,6 @@
 ---
 title: 'Don Quijote - a brief synopsis'
-tags: 
+tags:
   - quixote
   - quijote
 categories:
