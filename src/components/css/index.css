@@ -551,6 +551,12 @@ a {
   justify-content: space-around;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .border-t-4 {
   border-top-width: 4px;
 }

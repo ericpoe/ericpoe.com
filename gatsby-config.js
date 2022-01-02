@@ -13,6 +13,12 @@ module.exports = {
           type: 'website',
           locale: 'en_US',
           url: 'https://ericpoe.com/',
+          images: [
+            {
+              url: 'http://ericpoe.com/images/largeGlassesProfile-clear.png',
+              alt: 'A photo of the author as a young man in oversized fake glasses',
+            },
+          ],
           site_name: 'Eric Poe',
         },
         twitter: {
