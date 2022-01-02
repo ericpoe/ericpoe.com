@@ -1,35 +1,29 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { Helmet } from 'react-helmet';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import Layout from '../components/layout';
 
 const IndexPage = function IndexPage({ data }) {
   return (
-    <>
-      <Helmet
-        meta={[
-          {
-            name: 'description',
-            content: 'List of blog entries for ericpoe.com',
-          },
-        ]}
-      />
-      <Layout>
-        <div id="latestPosts" className="px-2">
-          <h1 className="md:pb-8 md:pt-2">Latest Posts</h1>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <article key={node.id} className="py-2 border-t-2 border-gray-300">
-              <h2>{node.frontmatter.title} </h2>
-              <p className="my-1">
-                <strong>Published:</strong> {node.frontmatter.date}
-              </p>
-              <p className="my-2 leading-normal">{node.excerpt}</p>
-              <Link to={node.fields.slug}>Read more...</Link>
-            </article>
-          ))}
-        </div>
-      </Layout>
-    </>
+    <Layout>
+      <div id="latestPosts" className="px-2">
+        <GatsbySeo
+          title="Eric Poe"
+          description="List of blog entries for ericpoe.com"
+        />
+        <h1 className="md:pb-8 md:pt-2">Latest Posts</h1>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <article key={node.id} className="py-2 border-t-2 border-gray-300">
+            <h2>{node.frontmatter.title} </h2>
+            <p className="my-1">
+              <strong>Published:</strong> {node.frontmatter.date}
+            </p>
+            <p className="my-2 leading-normal">{node.excerpt}</p>
+            <Link to={node.fields.slug}>Read more...</Link>
+          </article>
+        ))}
+      </div>
+    </Layout>
   );
 };
 
