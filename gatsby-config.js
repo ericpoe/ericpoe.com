@@ -6,6 +6,22 @@ module.exports = {
     siteUrl: 'https://www.ericpoe.com',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-next-seo',
+      options: {
+        openGraph: {
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://ericpoe.com/',
+          site_name: 'Eric Poe',
+        },
+        twitter: {
+          handle: '@eric_poe',
+          site: '@eric_poe',
+          cardType: 'summary_large_image',
+        },
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-sitemap`,
