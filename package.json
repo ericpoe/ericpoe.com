@@ -4,6 +4,7 @@
   "author": "Eric Poe <eric.poe@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@reach/router": "^1.3.4",
     "autoprefixer": "^10.4.0",
     "gatsby": "^4.3.0",
     "gatsby-plugin-google-analytics": "^4.3.0",
