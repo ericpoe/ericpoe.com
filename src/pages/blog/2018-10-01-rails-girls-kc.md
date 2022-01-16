@@ -2,7 +2,7 @@
 title: 'Rails Girls KC'
 date: '2018-10-01T03:58:52.375Z'
 lastEdited: '2022-01-02T18:30:26Z'
-featuredImage_URL: images/railsGirlsHeart.png
+featuredImage_Url: images/railsGirlsHeart.png
 featuredImage_Alt: Logo of Rails Girls. A stylized heart in white pixelated blocks on a red background.
 categories:
   - programming
