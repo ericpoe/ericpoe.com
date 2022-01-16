@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import Layout from '../components/layout';
+import BlogTimestamp from './blog-timestamp';
 
 const blogPost = ({ data, location }) => {
   const post = data.markdownRemark;
@@ -35,17 +36,22 @@ const blogPost = ({ data, location }) => {
                 alt: featuredImageAlt,
               },
             ],
+            publishedTime: post.frontmatter.date,
+            modifiedTime: post.frontmatter.lastEdited,
             site_name: 'Eric Poe',
           }}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p id="datePosted" className="pt-2">
-          <strong>{post.frontmatter.date}</strong>
-        </p>
-        <p id="timeToRead">
-          <strong>Time to read: </strong>
-          {post.timeToRead} {post.timeToRead > 1 ? 'minutes' : 'minute'}
-        </p>
+        <section id="DateTimeInfo">
+          <h1>{post.frontmatter.title}</h1>
+          <BlogTimestamp
+            createdAt={post.frontmatter.date}
+            lastEditedAt={post.frontmatter.lastEdited}
+          />
+          <p id="timeToRead">
+            <strong>Time to read:</strong> {post.timeToRead}{' '}
+            {post.timeToRead > 1 ? 'minutes' : 'minute'}
+          </p>
+        </section>
         <div
           id="blogContent"
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -64,6 +70,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY MMMM DD HH:mm")
+        lastEdited(formatString: "YYYY MMMM DD HH:mm")
         categories
         tags
         featuredImage_Url {
