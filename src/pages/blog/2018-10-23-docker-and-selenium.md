@@ -1,7 +1,7 @@
 ---
 title: 'Docker and Selenium'
 date: '2018-10-23T05:01:01.489Z'
-categories: 
+categories:
   - 'programming'
   - 'devops'
 tags:
@@ -10,6 +10,7 @@ tags:
   - 'selenium'
   - 'codeception'
 ---
+
 Yesterday, we started our second "hackathon" at work. We divided up into teams of 3 of various skill sets with the goal of building something that would benefit the organization, the overall project, and/or the team. My team wants to create automated acceptance tests. We are two devs and our QA person.
 
 At first, our QA was concerned that we were trying to program her out of a job. Not the case! When we, as devs, send her tickets to QA, we include the steps that we take to ensure that the feature is complete. She, then, doesn't get time to explore the new feature the way our users would. With automated acceptance testing, we could write the tests to ensure that the feature is complete and then she could explore the feature the way our users do. She seemed happy about that prospect.

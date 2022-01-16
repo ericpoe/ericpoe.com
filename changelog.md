@@ -5,11 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2022-01-15
+
+### Added
+
+- Installed `gatsby-plugin-next-seo` and `react-helmet-async` to make it easier to share links to posts via Twitter and other social media
+
+### Changed
+
+- Updated prettier to also style markdown files
+- Use GatsbySeo instead of Helmet where appropriate
+- Show last-edited date on blog posts that have a last-edited date
+
 ## [1.4.1] - 2021-12-29
 
 ### Fixed
 
- - eslint was broken on `gatsby-*.js` files, fixed by replacing `eslint-plugin-react` with `eslint-config-react-app`
+- eslint was broken on `gatsby-*.js` files, fixed by replacing `eslint-plugin-react` with `eslint-config-react-app`
 
 ### Removed
 
