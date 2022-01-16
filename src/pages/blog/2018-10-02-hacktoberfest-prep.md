@@ -1,13 +1,16 @@
 ---
 title: 'Hacktoberfest Prep'
 date: '2018-10-02T04:44:40.853Z'
-categories: 
+featuredImage_Url: 'images/Hacktoberfest_2018_opengraph_1200x630.png'
+featuredImage_Alt: 'Logo for Hacktoberfest 2018'
+categories:
   - programming
 tags:
   - hacktoberfest
   - git
   - open source
 ---
+
 ![Logo for Hacktoberfest 2018.](images/Hacktoberfest_2018_opengraph_1200x630.png 'Logo courtesy of Hacktoberfest 2018')
 
 The time of [Hacktoberfest](https://hacktoberfest.digitalocean.com/) is upon us! For the entire month of October, every pull request against an open-source repository on Github will count towards one's Hactoberfest rank. Submit at least 5 pull requests and you are eligible to earn a cool t-shirt and, more importantly, you get the experience of helping out an open-source project! Just register your github account on the Hacktoberfest site before the end of October in order to make this month's PRs count. I took part in this in 2016 and 2017 and earned t-shirts both years. The t-shirts are good looking, soft, and comfy.
@@ -34,13 +37,13 @@ Assume repo is "foo/Bar"
 
 1. Fork the "foo/Bar" repo using the "fork" button on the on the Github site.
 1. Clone my fork of the repo in my dev environment
-   * `git clone git@github.com:ericpoe/bar.git`
+   - `git clone git@github.com:ericpoe/bar.git`
 1. Change into the new directory created
-   * `cd !$`
+   - `cd !$`
 1. Add forked repo as my remote upstream repository
-   * `git remote upstream git@github.com:foo/bar.git`
+   - `git remote upstream git@github.com:foo/bar.git`
 1. Create a branch for my contribution
-   * `git checkout -b myHappyContribution`
+   - `git checkout -b myHappyContribution`
 
 To sync my forked repo with the original repo:
 

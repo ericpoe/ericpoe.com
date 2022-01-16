@@ -1,10 +1,9 @@
 ---
 title: Now with Sculpin
-timestamp: 2014-12-28 20:40
 tags:
   - git
   - sculpin
-categories: 
+categories:
   - sysadmin
 date: '2014-12-28T20:40:00Z'
 ---
