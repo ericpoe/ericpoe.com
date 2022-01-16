@@ -5341,10 +5341,10 @@ gatsby-page-utils@^2.5.1:
     lodash "^4.17.21"
     micromatch "^4.0.4"
 
-gatsby-plugin-google-analytics@^4.3.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.4.0.tgz#a4c700b59f5bdb8c8b2276f5e50440d484b14b58"
-  integrity sha512-Z+CW64zo/d1rtyMz1bJ+Ao9apsWeyak5BXNc7piO+FwE7dFdWrAyHrgGmE3YltqFUY8+PS3vmpBv9qn0ZrOSGg==
+gatsby-plugin-google-analytics@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.5.0.tgz#2478612db0f891a326ca0a8612f0b1cc981628c2"
+  integrity sha512-UWyem88KRjvE4yYcUGNESPuacqprZEtaI2NS+CF+kEes/Taf+nSQF+OVJG3Z0FwKNDxJ/QcFZqowbcXvZJAn+Q==
   dependencies:
     "@babel/runtime" "^7.15.4"
     minimatch "3.0.4"
@@ -5453,7 +5453,7 @@ gatsby-plugin-typescript@^4.5.1:
     "@babel/runtime" "^7.15.4"
     babel-plugin-remove-graphql-queries "^4.5.1"
 
-gatsby-plugin-utils@^2.4.0, gatsby-plugin-utils@^2.5.0:
+gatsby-plugin-utils@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-2.5.0.tgz#33c343faa01577df032d4cf53c7c2b04b0b19248"
   integrity sha512-B/JpKTQJQNRVo3b3rRbOgHKV3/i3V5fYLPOGvBU6qHxBtQ9I5YYwXrsLJYX5vl4bEtLtrkiQG9zQyvSSXzJ9Sw==
@@ -5513,7 +5513,7 @@ gatsby-source-filesystem@^4.5.1:
     valid-url "^1.0.9"
     xstate "^4.26.1"
 
-gatsby-telemetry@^3.4.0, gatsby-telemetry@^3.5.1:
+gatsby-telemetry@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-3.5.1.tgz#f5649a63e1dfc64a8fdcdf676a7e69c05c7fa19d"
   integrity sha512-d8w06YPKVKErzDOd+6kqV7XVjW+XClgkyjzZU+TiaLMqxlsXbu/BeplE0NFSfZHh1lBFmhp5AFSW7eDZPi3CkQ==
