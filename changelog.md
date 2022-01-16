@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.5.0] - 2021-12-31
+## [1.5.0] - 2022-01-15
 
 ### Added
 
@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Updated prettier to also style markdown files
 - Use GatsbySeo instead of Helmet where appropriate
+- Show last-edited date on blog posts that have a last-edited date
 
 ## [1.4.1] - 2021-12-29
 
