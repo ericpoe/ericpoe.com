@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - Installed `gatsby-plugin-next-seo` and `react-helmet-async` to make it easier to share links to posts via Twitter and other social media
+- Added markdown frontmatter for `featuredImage_Url` and `featuredImage_Alt` to allow for including a non-default image in social media posts.
 
 ### Changed
 
