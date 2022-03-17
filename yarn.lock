@@ -5386,10 +5386,10 @@ gatsby-page-utils@^2.6.0:
     lodash "^4.17.21"
     micromatch "^4.0.4"
 
-gatsby-plugin-google-analytics@^4.5.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.6.0.tgz#0899703cbf59141450d39a6e608d8054e4952b86"
-  integrity sha512-HjWfYDwCKHs3k5RMvrlrTzJmEtyEnT573npiEOezBvy4MSHUhWRb7phNeHGFKcE7+lDwDfUXxrZrb8L8T6GvKw==
+gatsby-plugin-google-analytics@^4.10.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.10.0.tgz#de836e096eecc0cff0d6ac1b95ebdd9410e00f16"
+  integrity sha512-9BaFwkedIv1JMTPPr4YNax80QJH8+6mHHh34SlrJE2YiYtYu/uYaZTc8LEv+bIHEtafkfAZo2kkjqT7h/3MmMg==
   dependencies:
     "@babel/runtime" "^7.15.4"
     minimatch "3.0.4"
