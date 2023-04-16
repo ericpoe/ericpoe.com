@@ -27,23 +27,25 @@ const IndexPage = function IndexPage({ data }) {
   );
 };
 
-export const query = graphql`{
-  allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
-    totalCount
-    edges {
-      node {
-        id
-        frontmatter {
-          title
-          date(formatString: "YYYY MMMM DD")
+export const query = graphql`
+  {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "YYYY MMMM DD")
+          }
+          fields {
+            slug
+          }
+          excerpt(pruneLength: 256)
         }
-        fields {
-          slug
-        }
-        excerpt(pruneLength: 256)
       }
     }
   }
-}`;
+`;
 
 export default IndexPage;
