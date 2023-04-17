@@ -33,7 +33,7 @@ const Colophon = function Colophon() {
           </li>
           <li id="mastodon">
             <a
-              href="https://mastodon.technology/@ericpoe"
+              href="https://phpc.social/@ericpoe"
               title="Eric Poe's mastodon"
               className="no-underline"
             >

@@ -28,8 +28,8 @@ const IndexPage = function IndexPage({ data }) {
 };
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+  {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       totalCount
       edges {
         node {

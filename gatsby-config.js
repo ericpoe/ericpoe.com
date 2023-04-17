@@ -5,6 +5,7 @@ module.exports = {
     title: 'Eric Poe',
     siteUrl: 'https://www.ericpoe.com',
   },
+  trailingSlash: 'always',
   plugins: [
     {
       resolve: 'gatsby-plugin-next-seo',
