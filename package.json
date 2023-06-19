@@ -7,7 +7,7 @@
     "autoprefixer": "^10.4.14",
     "gatsby": "^5.11.0",
     "gatsby-plugin-google-analytics": "^5.11.0",
-    "gatsby-plugin-manifest": "^5.10.0",
+    "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-next-seo": "^1.10.0",
     "gatsby-plugin-offline": "^6.11.0",
     "gatsby-plugin-postcss": "^6.11.0",
