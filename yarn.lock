@@ -5812,10 +5812,10 @@ gatsby-plugin-next-seo@^1.11.0:
     schema-dts "0.6.0"
     type-fest "^0.15.1"
 
-gatsby-plugin-offline@^6.12.0:
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-6.12.0.tgz#c09bc2f0028df445aa2a463f1fbe4b9bcc87975d"
-  integrity sha512-9F6PFVQiYUsWzcfo3PS1NmK+S/sXJEO60LWSIO0iqjpSv0i+bhqLslshdSWdFQgQIwpIwU0zsWgni/VGe85XBQ==
+gatsby-plugin-offline@^6.12.2:
+  version "6.12.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-6.12.2.tgz#6e5a0d6d7e45209b95c72e4e08a36cac40ec33e2"
+  integrity sha512-4sXJ+RJeYhyw1aN8iyviy+vJtdrndY1VdeA47XouGGH19ZBlJ+77yvcS3eb61hcerO2zzFOclgt4PyJuOGDpXQ==
   dependencies:
     "@babel/runtime" "^7.20.13"
     cheerio "^1.0.0-rc.10"
