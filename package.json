@@ -37,7 +37,7 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.0.3"
+    "prettier": "^3.1.0"
   },
   "scripts": {
     "css": "node_modules/.bin/tailwind build -i src/styles/tailwind.css -c ./tailwind.config.js -o src/components/css/index.css",
