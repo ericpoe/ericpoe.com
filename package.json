@@ -35,9 +35,9 @@
     "prettier": "^3.1.1"
   },
   "scripts": {
-    "css": "node_modules/.bin/tailwind build -i src/styles/tailwind.css -c ./tailwind.config.js -o src/components/css/index.css",
-    "build": "yarn css && gatsby build",
-    "develop": "yarn css && gatsby develop",
+    "css": "tailwind build -i src/styles/tailwind.css -c ./tailwind.config.js -o src/components/css/index.css",
+    "build": "npm run css && gatsby build",
+    "develop": "npm run css && gatsby develop",
     "develop:debug": "node --inspect=127.0.0.1:9232 node_modules/.bin/gatsby develop",
     "format": "prettier --write '**/*.{js,json,jsx,md}'",
     "lint": "eslint '**/*.{js,jsx}'",
