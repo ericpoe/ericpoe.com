@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## Unreleased
+
+### Removed
+
+- `eslint-config-airbnb` because it requires an older version of `eslint`
+- `eslint-config-gatsby-standard` because it requires an older version of `eslint`
+- `gatsby-plugin-next-seo` is not compatible with Gatsby v5 so it is removed.
+- `react-helmet` in favor of built-in Head component
+- `react-helmet-async`
 
 ## [1.6.0] - 2023-04-16
 

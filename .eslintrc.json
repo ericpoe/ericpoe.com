@@ -1,8 +1,6 @@
 {
   "root": true,
   "extends": [
-    "airbnb",
-    "gatsby-standard",
     "plugin:prettier/recommended",
     "react-app"
   ],
