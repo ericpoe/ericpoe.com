@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, StaticQuery } from 'gatsby';
-
 import Header from './header';
 import Colophon from './colophon';
 import './css/index.css';
@@ -22,13 +21,6 @@ const Layout = function Layout({ children }) {
       `}
       render={(data) => (
         <>
-          <Helmet
-            defaultTitle={data.site.siteMetadata.title}
-            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-            defer={false}
-          >
-            <html lang="en" />
-          </Helmet>
           <Header siteTitle={data.site.siteMetadata.title} />
           <section
             id="children"
@@ -53,3 +45,10 @@ Layout.propTypes = {
 };
 
 export default Layout;
+
+export const Head = ({ data }) => (
+  <>
+    <html lang="en" />
+    <title>${data.site.siteMetadata.title}</title>
+  </>
+);
