@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { SEO } from '../components/seo';
 import BlogTimestamp from './blog-timestamp';
-import { siteMetadata } from '../../gatsby-config';
+import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 const blogPost = ({ data, location }) => {
   const post = data.markdownRemark;
@@ -86,17 +86,15 @@ export const query = graphql`
 
 export default blogPost;
 
-export const Head = ({ location, params, data, pageContext }) => (
-  console.log('My data: %o', data),
-  console.log('My params: %o', params),
-  console.log('My location: %o', location),
-  console.log('My pagContext: %o', pageContext),
+export const Head = ({ location, params, data, pageContext, siteMetadata }) => (
+  (siteMetadata = useSiteMetadata()),
   (
     <SEO
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.excerpt}
-
-      // image={data.markdownRemark.frontmatter.featuredImageUrl ? data.markdownRemark.frontmatter.featuredImageUrl : siteMetadata.image}
+      pathname={location.pathname}
+      articleImage={data.markdownRemark.frontmatter.featuredImage_Url.publicURL}
+      articleImageAlt={data.markdownRemark.frontmatter.featuredImage_Alt}
     />
   )
 );
