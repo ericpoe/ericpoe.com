@@ -1,8 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import Layout from '../components/layout';
+import { SEO } from '../components/seo';
 import BlogTimestamp from './blog-timestamp';
+import { siteMetadata } from '../../gatsby-config';
 
 const blogPost = ({ data, location }) => {
   const post = data.markdownRemark;
@@ -21,7 +22,7 @@ const blogPost = ({ data, location }) => {
   return (
     <Layout>
       <div className="leading-normal text-lg">
-        <GatsbySeo
+        {/* <SEO
           title={post.frontmatter.title}
           description={post.excerpt || ''}
           metaTags={[{ name: 'keywords', content: keywords }]}
@@ -40,7 +41,7 @@ const blogPost = ({ data, location }) => {
             modifiedTime: post.frontmatter.lastEdited,
             site_name: 'Eric Poe',
           }}
-        />
+        /> */}
         <section id="DateTimeInfo">
           <h1>{post.frontmatter.title}</h1>
           <BlogTimestamp
@@ -84,3 +85,18 @@ export const query = graphql`
 `;
 
 export default blogPost;
+
+export const Head = ({ location, params, data, pageContext }) => (
+  console.log('My data: %o', data),
+  console.log('My params: %o', params),
+  console.log('My location: %o', location),
+  console.log('My pagContext: %o', pageContext),
+  (
+    <SEO
+      title={data.markdownRemark.frontmatter.title}
+      description={data.markdownRemark.excerpt}
+
+      // image={data.markdownRemark.frontmatter.featuredImageUrl ? data.markdownRemark.frontmatter.featuredImageUrl : siteMetadata.image}
+    />
+  )
+);

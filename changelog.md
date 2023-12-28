@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `react-helmet` in favor of built-in Head component
 - `react-helmet-async`
 
+### Changed
+
+- Migrated from `gatsby-plugin-next-seo` and `react-helmet` to built-in Gatsby tools: `SEO` and `Head` respectively.
+- Migrated from using Yarn to using npm primarily due to familiarity since I use npm at work. Consequently, this updated almost every package.
+
 ## [1.6.0] - 2023-04-16
 
 ### Changed

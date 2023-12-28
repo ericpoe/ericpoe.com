@@ -4,32 +4,12 @@ module.exports = {
   siteMetadata: {
     title: 'Eric Poe',
     siteUrl: 'https://www.ericpoe.com',
+    twitterUsername: `@eric_poe`,
+    image: '/images/largeGlassesProfile-clear.png',
+    description: 'A monument to a self-inflated ego',
   },
   trailingSlash: 'always',
   plugins: [
-    {
-      resolve: 'gatsby-plugin-next-seo',
-      options: {
-        openGraph: {
-          type: 'website',
-          locale: 'en_US',
-          url: 'https://ericpoe.com/',
-          images: [
-            {
-              url: 'http://ericpoe.com/images/largeGlassesProfile-clear.png',
-              alt: 'A photo of the author as a young man in oversized fake glasses',
-            },
-          ],
-          site_name: 'Eric Poe',
-        },
-        twitter: {
-          handle: '@eric_poe',
-          site: '@eric_poe',
-          cardType: 'summary_large_image',
-        },
-      },
-    },
-    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-sitemap`,
     },
