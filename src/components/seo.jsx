@@ -57,7 +57,8 @@ export const SEO = ({
       <meta name="og:url" content={seo.url} />
       <meta name="og:type" content={seo.type} />
       <meta name="og:article:published_time" content={seo.articleCreatedAt} />
-      <meta name="og:article:modified_time " content={seo.articleUpdatedAt} />
+      <meta name="og:article:modified_time" content={seo.articleUpdatedAt} />
+      <meta name="og:article:tag" content={seo.keywords} />
       <meta name="og:site_name" content={seo.siteName} />
 
       <link
