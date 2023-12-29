@@ -85,7 +85,7 @@ export const Head = ({ location, params, data, pageContext }) => {
           data.markdownRemark.frontmatter.featuredImage_Url?.publicURL
         }
         articleImageAlt={data.markdownRemark.frontmatter.featuredImage_Alt}
-        type="link"
+        type="article"
         locale="en_US"
         articleCreatedAt={createdAt}
         articleUpdatedAt={updatedAt}
