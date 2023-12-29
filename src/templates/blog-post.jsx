@@ -3,22 +3,10 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { SEO } from '../components/seo';
 import BlogTimestamp from './blog-timestamp';
-import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 const blogPost = ({ data, location }) => {
   const post = data.markdownRemark;
-  const categories = post.frontmatter.categories || [];
-  const tags = post.frontmatter.tags || [];
-  const keywords = categories
-    .concat(tags)
-    .reduce((sentence, word) => `${sentence}, ${word}`);
-  const baseUrl = 'https://ericpoe.com';
-  const featuredImageUrl = post.frontmatter.featuredImage_Url
-    ? baseUrl + post.frontmatter.featuredImage_Url.publicURL
-    : `${baseUrl}/images/largeGlassesProfile-clear.png`;
-  const featuredImageAlt =
-    post.frontmatter.featuredImage_Alt ||
-    'A photo of the author as a young man in oversized fake glasses';
+
   return (
     <Layout>
       <div className="leading-normal text-lg">
@@ -75,8 +63,6 @@ export const query = graphql`
 export default blogPost;
 
 export const Head = ({ location, params, data, pageContext }) => {
-  const siteMetadata = useSiteMetadata();
-
   const post = data.markdownRemark;
   const categories = post.frontmatter.categories || [];
   const tags = post.frontmatter.tags || [];
