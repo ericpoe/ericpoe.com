@@ -2,8 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### [1.7.0] - 2023-12-39
+
+### Added
+
+- Header with [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) and [Open Graph](https://ogp.me/) meta tags
+
+### Changed
+
+- Migrated from `gatsby-plugin-next-seo` and `react-helmet` to built-in Gatsby tools: `SEO` and `Head` respectively.
+- Migrated from using Yarn to using npm primarily due to familiarity since I use npm at work. Consequently, this updated almost every package.
+- Renamed "Last Edited" to "Updated" in blog timestamp
+- Showing all timestamps in GMT time rather than unknown TZ
+- Migrate from deprecated `StaticQuery` to React's `useStaticQuery`. This will make it easier to upgrade to Gatsby v6 when it comes out.
+
+### Removed
+
+- `eslint-config-airbnb` because it requires an older version of `eslint`
+- `eslint-config-gatsby-standard` because it requires an older version of `eslint`
+- `gatsby-plugin-next-seo` is not compatible with Gatsby v5 so it is removed.
+- `react-helmet` in favor of built-in Head component
+- `react-helmet-async`
 
 ## [1.6.0] - 2023-04-16
 

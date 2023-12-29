@@ -1,16 +1,12 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import Layout from '../components/layout';
+import { SEO } from '../components/seo';
 
 const IndexPage = function IndexPage({ data }) {
   return (
     <Layout>
       <div id="latestPosts" className="px-2">
-        <GatsbySeo
-          title="Eric Poe"
-          description="List of blog entries for ericpoe.com"
-        />
         <h1 className="md:pb-8 md:pt-2">Latest Posts</h1>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <article key={node.id} className="py-2 border-t-2 border-gray-300">
@@ -49,3 +45,7 @@ export const query = graphql`
 `;
 
 export default IndexPage;
+
+export const Head = () => (
+  <SEO title="Eric Poe" description="List of blog entries for ericpoe.com" />
+);
