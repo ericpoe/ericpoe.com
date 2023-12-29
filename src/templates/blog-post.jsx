@@ -96,7 +96,7 @@ export const Head = ({ location, params, data, pageContext }) => {
         keywords={keywords}
         pathname={location.pathname}
         articleImage={
-          data.markdownRemark.frontmatter.featuredImage_Url.publicURL
+          data.markdownRemark.frontmatter.featuredImage_Url?.publicURL
         }
         articleImageAlt={data.markdownRemark.frontmatter.featuredImage_Alt}
         type="article"
