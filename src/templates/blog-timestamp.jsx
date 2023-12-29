@@ -8,7 +8,7 @@ function BlogTimestamp({ createdAt, lastEditedAt }) {
           <strong>Created:</strong> {createdAt}
         </p>
         <p id="lastEditedAt">
-          <strong>Last Edited:</strong> {lastEditedAt}
+          <strong>Updated:</strong> {lastEditedAt}
         </p>
       </div>
     );
