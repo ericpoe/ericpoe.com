@@ -56,6 +56,8 @@ export const SEO = ({
       <meta name="og:image:alt" content={seo.imageAlt} />
       <meta name="og:url" content={seo.url} />
       <meta name="og:type" content={seo.type} />
+      {/* <Fallback to "link" for Mastodon and other clients that don't recognize "article"> */}
+      <meta name="og:type" content={seo.type === 'article' ? 'link' : null} />
       <meta name="og:article:published_time" content={seo.articleCreatedAt} />
       <meta name="og:article:modified_time" content={seo.articleUpdatedAt} />
       <meta name="og:article:tag" content={seo.keywords} />
