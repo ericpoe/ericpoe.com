@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Migrated from using Yarn to using npm primarily due to familiarity since I use npm at work. Consequently, this updated almost every package.
 - Renamed "Last Edited" to "Updated" in blog timestamp
 - Showing all timestamps in GMT time rather than unknown TZ
+- Migrate from deprecated `StaticQuery` to React's `useStaticQuery`. This will make it easier to upgrade to Gatsby v6 when it comes out.
 
 ### Removed
 
