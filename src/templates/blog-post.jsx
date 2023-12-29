@@ -86,15 +86,28 @@ export const query = graphql`
 
 export default blogPost;
 
-export const Head = ({ location, params, data, pageContext, siteMetadata }) => (
-  (siteMetadata = useSiteMetadata()),
-  (
-    <SEO
-      title={data.markdownRemark.frontmatter.title}
-      description={data.markdownRemark.excerpt}
-      pathname={location.pathname}
-      articleImage={data.markdownRemark.frontmatter.featuredImage_Url.publicURL}
-      articleImageAlt={data.markdownRemark.frontmatter.featuredImage_Alt}
-    />
-  )
-);
+export const Head = ({ location, params, data, pageContext }) => {
+  const siteMetadata = useSiteMetadata();
+
+  const post = data.markdownRemark;
+  const categories = post.frontmatter.categories || [];
+  const tags = post.frontmatter.tags || [];
+  const keywords = categories
+    .concat(tags)
+    .reduce((sentence, word) => `${sentence}, ${word}`);
+
+  return (
+    <>
+      <SEO
+        title={data.markdownRemark.frontmatter.title}
+        description={data.markdownRemark.excerpt}
+        keywords={keywords}
+        pathname={location.pathname}
+        articleImage={
+          data.markdownRemark.frontmatter.featuredImage_Url.publicURL
+        }
+        articleImageAlt={data.markdownRemark.frontmatter.featuredImage_Alt}
+      />
+    </>
+  );
+};

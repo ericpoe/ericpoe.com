@@ -4,6 +4,7 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 export const SEO = ({
   title,
   description,
+  keywords,
   pathname,
   articleImage,
   articleImageAlt,
@@ -20,6 +21,7 @@ export const SEO = ({
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
+    keywords: keywords || '',
     image: `${siteUrl}${articleImage || image}`,
     imageAlt: articleImageAlt,
     url: `${siteUrl}${pathname || ``}`,
@@ -31,6 +33,7 @@ export const SEO = ({
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+      <meta name="keywords" content={seo.keywords} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:url" content={seo.url} />
