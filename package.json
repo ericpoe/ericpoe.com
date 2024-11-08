@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^10.4.20",
-    "gatsby": "^5.13.7",
+    "gatsby": "^5.14.0",
     "gatsby-plugin-google-analytics": "^5.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-offline": "^6.13.3",
