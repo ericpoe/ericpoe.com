@@ -6,7 +6,7 @@ tags:
   - a11y
 categories:
   - programming
-  - colophon
+  - meta
 date: '2018-09-03T22:30:52Z'
 ---
 
