@@ -4,8 +4,8 @@ import {
   FaLinkedin,
   FaMastodon,
   FaRavelry,
-  FaTwitter,
 } from 'react-icons/fa';
+import {FaBluesky} from 'react-icons/fa6'
 
 const Colophon = function Colophon() {
   return (
@@ -22,13 +22,13 @@ const Colophon = function Colophon() {
               <FaGithub />
             </a>
           </li>
-          <li id="twitter">
+          <li id="bluesky">
             <a
-              href="https://twitter.com/eric_poe"
-              title="Eric Poe's twitter"
+              href="https://bsky.app/profile/ericpoe.bsky.social"
+              title="Eric Poe's bluesky"
               className="no-underline"
             >
-              <FaTwitter />
+              <FaBluesky/>
             </a>
           </li>
           <li id="mastodon">
