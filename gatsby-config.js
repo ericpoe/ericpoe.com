@@ -9,6 +9,9 @@ module.exports = {
     twitterUsername: `@eric_poe`,
     image: '/images/largeGlassesProfile-clear.png',
   },
+  flags: {
+    DEV_SSR: true
+  },
   trailingSlash: 'always',
   plugins: [
     {
