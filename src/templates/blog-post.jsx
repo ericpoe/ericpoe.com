@@ -13,27 +13,16 @@ const blogPost = ({ data, location }) => {
         <section id="DateTimeInfo">
           <h1>{post.frontmatter.title}</h1>
           <BlogTimestamp
-            createdAt={new Date(
-              Date.parse(post.frontmatter.date),
-            ).toUTCString()}
+            createdAt={new Date(Date.parse(post.frontmatter.date)).toUTCString()}
             lastEditedAt={
-              post.frontmatter.lastEdited
-                ? new Date(
-                    Date.parse(post.frontmatter.lastEdited),
-                  ).toUTCString()
-                : null
+              post.frontmatter.lastEdited ? new Date(Date.parse(post.frontmatter.lastEdited)).toUTCString() : null
             }
           />
           <p id="timeToRead">
-            <strong>Time to read:</strong> {post.timeToRead}{' '}
-            {post.timeToRead > 1 ? 'minutes' : 'minute'}
+            <strong>Time to read:</strong> {post.timeToRead} {post.timeToRead > 1 ? 'minutes' : 'minute'}
           </p>
         </section>
-        <div
-          id="blogContent"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          className="leading-normal pt-4"
-        />
+        <div id="blogContent" dangerouslySetInnerHTML={{ __html: post.html }} className="leading-normal pt-4" />
       </div>
     </Layout>
   );
@@ -66,13 +55,9 @@ export const Head = ({ location, params, data, pageContext }) => {
   const post = data.markdownRemark;
   const categories = post.frontmatter.categories || [];
   const tags = post.frontmatter.tags || [];
-  const keywords = categories
-    .concat(tags)
-    .reduce((sentence, word) => `${sentence}, ${word}`);
+  const keywords = categories.concat(tags).reduce((sentence, word) => `${sentence}, ${word}`);
   const createdAt = new Date(Date.parse(post.frontmatter.date)).toISOString();
-  const updatedAt = post.frontmatter.lastEdited
-    ? new Date(Date.parse(post.frontmatter.lastEdited)).toISOString()
-    : '';
+  const updatedAt = post.frontmatter.lastEdited ? new Date(Date.parse(post.frontmatter.lastEdited)).toISOString() : '';
 
   return (
     <>
@@ -81,9 +66,7 @@ export const Head = ({ location, params, data, pageContext }) => {
         description={data.markdownRemark.excerpt}
         keywords={keywords}
         pathname={location.pathname}
-        articleImage={
-          data.markdownRemark.frontmatter.featuredImage_Url?.publicURL
-        }
+        articleImage={data.markdownRemark.frontmatter.featuredImage_Url?.publicURL}
         articleImageAlt={data.markdownRemark.frontmatter.featuredImage_Alt}
         type="article"
         locale="en_US"

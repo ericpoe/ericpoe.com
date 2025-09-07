@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  FaGithub,
-  FaLinkedin,
-  FaMastodon,
-  FaRavelry,
-} from 'react-icons/fa';
-import {FaBluesky} from 'react-icons/fa6'
+import { FaGithub, FaLinkedin, FaMastodon, FaRavelry } from 'react-icons/fa';
+import { FaBluesky } from 'react-icons/fa6';
 
 const Colophon = function Colophon() {
   return (
@@ -14,29 +9,17 @@ const Colophon = function Colophon() {
       <section id="socialLinks">
         <ul className="list-reset flex justify-around">
           <li id="github">
-            <a
-              href="https://github.com/ericpoe"
-              title="Eric Poe's github account"
-              className="no-underline"
-            >
+            <a href="https://github.com/ericpoe" title="Eric Poe's github account" className="no-underline">
               <FaGithub />
             </a>
           </li>
           <li id="bluesky">
-            <a
-              href="https://bsky.app/profile/ericpoe.bsky.social"
-              title="Eric Poe's bluesky"
-              className="no-underline"
-            >
-              <FaBluesky/>
+            <a href="https://bsky.app/profile/ericpoe.bsky.social" title="Eric Poe's bluesky" className="no-underline">
+              <FaBluesky />
             </a>
           </li>
           <li id="mastodon">
-            <a
-              href="https://phpc.social/@ericpoe"
-              title="Eric Poe's mastodon"
-              className="no-underline"
-            >
+            <a href="https://phpc.social/@ericpoe" title="Eric Poe's mastodon" className="no-underline">
               <FaMastodon />
             </a>
           </li>
@@ -50,11 +33,7 @@ const Colophon = function Colophon() {
             </a>
           </li>
           <li id="linkedin">
-            <a
-              href="https://www.linkedin.com/in/ericpoe/"
-              title="Eric Poe's LinkedIn"
-              className="no-underline"
-            >
+            <a href="https://www.linkedin.com/in/ericpoe/" title="Eric Poe's LinkedIn" className="no-underline">
               <FaLinkedin />
             </a>
           </li>
@@ -63,17 +42,11 @@ const Colophon = function Colophon() {
       <section id="colophonInfo">
         <p className="mt-6">
           This site is built using{' '}
-          <a
-            href="https://www.gatsbyjs.org/"
-            title="main site for gatsbyjs.org"
-          >
+          <a href="https://www.gatsbyjs.org/" title="main site for gatsbyjs.org">
             Gatsby
           </a>
           ,{' '}
-          <a
-            href="https://tailwindcss.com/"
-            title="main site for tailwindcss.com"
-          >
+          <a href="https://tailwindcss.com/" title="main site for tailwindcss.com">
             TailwindCSS
           </a>
           , and a{' '}
@@ -86,12 +59,8 @@ const Colophon = function Colophon() {
           .
         </p>
         <p className="mt-2">
-          Corrections or curious to see how this was put together? Check out the
-          latest version of this site at its{' '}
-          <a
-            href="https://github.com/ericpoe/ericpoe.com"
-            title="github repository for this site"
-          >
+          Corrections or curious to see how this was put together? Check out the latest version of this site at its{' '}
+          <a href="https://github.com/ericpoe/ericpoe.com" title="github repository for this site">
             github repo
           </a>
           .

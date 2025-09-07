@@ -67,10 +67,7 @@ const blogPost = ({ data }) => {
             <strong>Time to read: </strong>
             {post.timeToRead} {post.timeToRead > 1 ? 'minutes' : 'minute'}
           </p>
-          <div
-            id="blogContent"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <div id="blogContent" dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
       </Layout>
     </React.Fragment>
@@ -97,10 +94,7 @@ const blogPost = ({ data }) => {
             <strong>Time to read: </strong>
             {post.timeToRead} {post.timeToRead > 1 ? 'minutes' : 'minute'}
           </p>
-          <div
-            id="blogContent"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <div id="blogContent" dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
       </Layout>
     </>

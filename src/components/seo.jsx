@@ -39,14 +39,14 @@ export const SEO = ({
   return (
     <>
       <title>{seo.title}</title>
-      <meta name="locale" property='og:locale' content="en_US" />
-      <meta name="title" property='og:title' content={seo.title} />
+      <meta name="locale" property="og:locale" content="en_US" />
+      <meta name="title" property="og:title" content={seo.title} />
       <meta name="description" property="og:description" content={seo.description} />
       <meta name="url" property="og:url" content={seo.url} />
       <meta name="image" property="og:image" content={seo.image} />
       <meta name="og:image:alt" content={seo.imageAlt} />
       <meta name="keywords" property="og:article:tag" content={seo.keywords} />
-      <meta name="publish_date" property='og:publish_date' content={seo.articleCreatedAt} />
+      <meta name="publish_date" property="og:publish_date" content={seo.articleCreatedAt} />
       <meta name="author" property="og:author_name" content="Eric Poe" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />

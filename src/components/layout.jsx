@@ -20,10 +20,7 @@ const Layout = function Layout({ children }) {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <section
-        id="children"
-        className="flex flex-col flex-1 max-w-4xl mx-auto w-full px-4 py-1 md:p-4"
-      >
+      <section id="children" className="flex flex-col flex-1 max-w-4xl mx-auto w-full px-4 py-1 md:p-4">
         {children}
       </section>
       <section
