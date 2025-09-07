@@ -14,11 +14,6 @@ tags:
 
 ![Image of a painted limestone carving of the upper half of Shakespeare, who is bald with a fringe of hair about the ears. He is wearing a red shirt, a black vest, and a white collar. He is holding a quill pen in his right hand and a sheet of paper in his left hand.](images/Bust_of_Shakespeare_at_Shakespeares_funerary_monument.jpg "The bust of Shakespeare at Shakespeare's funerary monument inside of Holy Trinity Church at Stratford-upon-Avon")
 
-For more information about this image: 
-
-- [Bust of Shakespeare at Shakespeare's funerary monument](https://en.wikipedia.org/wiki/Shakespeare%27s_funerary_monument)
-- Image attribute: [Sicinius - Own work, CC BY-SA 4.0](https://commons.wikimedia.org/w/index.php?curid=130243814)
-
 ### Background
 I am a recovering English Lit major. I graduated with a degree in information technology, not with a liberal arts degree in English literature. However, one of the classes that just killed me as an English major was Shakespeare. We had to read a thousand plays and sonnets and write papers about them -- papers like "compare and contrast Mercutio, Rosencrantz, and boiled broccoli." I bombed the class but walked away with a love of The Tempest, Hamlet, Henry V, and the sonnets. I still have my Complete Works of Shakespeare textbook -- or at least one I traded it in for, and a handful of Arden or Oxford Shakespeare plays.
 
@@ -31,3 +26,10 @@ I found a nice reading-order list from [Benjamin McEvoy on reading the complete 
 The first play I study will be _[Hamlet](https://en.wikipedia.org/wiki/Hamlet)_, from the [1994 Arden Shakespeare collection](https://www.goodreads.com/book/show/1385107.Hamlet). When I am finished with it, I'd like to watch it as a play or as a movie.
 
 Today is Day 1.
+
+### Image Attribution and Information
+
+For more information about the image at the top of this page:
+
+- [Bust of Shakespeare at Shakespeare's funerary monument](https://en.wikipedia.org/wiki/Shakespeare%27s_funerary_monument)
+- Image attribute: [Sicinius - Own work, CC BY-SA 4.0](https://commons.wikimedia.org/w/index.php?curid=130243814)
