@@ -46,6 +46,4 @@ export const query = graphql`
 
 export default IndexPage;
 
-export const Head = () => (
-  <SEO title="Eric Poe" description="List of blog entries for ericpoe.com" />
-);
+export const Head = () => <SEO title="Eric Poe" description="List of blog entries for ericpoe.com" />;

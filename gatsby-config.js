@@ -10,7 +10,7 @@ module.exports = {
     image: '/images/largeGlassesProfile-clear.png',
   },
   flags: {
-    DEV_SSR: true
+    DEV_SSR: true,
   },
   trailingSlash: 'always',
   plugins: [

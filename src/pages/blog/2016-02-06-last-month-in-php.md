@@ -111,7 +111,6 @@ Feb 18: 08:00 PM CST
 We will have a busy session next month!
 
 - [John Kary](https://twitter.com/johnkary) will present "Rethinking Loops" &mdash; dealing with functional programming in PHP. This is the same talk that he will give at:
-
   - [Lone Star PHP](http://lonestarphp.com/sessions/#rethinking-loops)
   - [Midwest PHP](http://2016.midwestphp.org/session/rethinking-loops/)
 
