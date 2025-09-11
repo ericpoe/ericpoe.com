@@ -60,6 +60,11 @@
     text-decoration: underline;
   }
 
+  blockquote {
+    padding-left: theme(padding.4);
+    font-style: italic;
+  }
+
   .___gatsby {
     @apply flex;
     @apply flex-col;
