@@ -4,6 +4,13 @@ import readingTime from 'reading-time';
 import BlogTimestamp from '../../components/BlogTimestamp.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+
 const { slug } = Astro.params;
 const posts = await getCollection('blog');
 const post = posts.find((entry) => entry.slug === slug);
