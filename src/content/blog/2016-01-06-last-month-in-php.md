@@ -1,12 +1,12 @@
 ---
 title: 'Last Month in PHP: 2015 December'
-tags:
-  - php
-  - last-month-in-php
-  - kcphpug
+date: '2016-01-06T22:02:00Z'
 categories:
   - programming
-date: '2016-01-06T22:02:00Z'
+tags:
+  - kcphpug
+  - last-month-in-php
+  - php
 ---
 
 From a [KCPUG](http://kcpug.org/) lightning talk given on [06 Jan 2016](http://www.slideshare.net/poeeric/last-month-in-php-december-2015)

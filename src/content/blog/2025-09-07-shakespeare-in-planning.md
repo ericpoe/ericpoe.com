@@ -1,15 +1,18 @@
 ---
-title: 'Shakespeare in Planning'
+title: Shakespeare in Planning
 date: '2025-09-07T17:51:37Z'
-featuredImage_Url: 'images/Bust_of_Shakespeare_at_Shakespeares_funerary_monument.jpg'
-featuredImage_Alt: 'Image of a painted limestone carving of the upper half of Shakespeare, who is bald with a fringe of hair about the ears. He is wearing a red shirt, a black vest, and a white collar. He is holding a quill pen in his right hand and a sheet of paper in his left hand.'
 categories:
-  - 'reading'
+  - words
 tags:
-  - 'read'
-  - 'study'
-  - 'shakespeare'
-  - 'hamlet'
+  - hamlet
+  - reading
+  - shakespeare
+  - study
+featuredImage_Url: images/Bust_of_Shakespeare_at_Shakespeares_funerary_monument.jpg
+featuredImage_Alt: Image of a painted limestone carving of the upper half of Shakespeare,
+  who is bald with a fringe of hair about the ears. He is wearing a red shirt, a black
+  vest, and a white collar. He is holding a quill pen in his right hand and a sheet
+  of paper in his left hand.
 ---
 
 ![Image of a painted limestone carving of the upper half of Shakespeare, who is bald with a fringe of hair about the ears. He is wearing a red shirt, a black vest, and a white collar. He is holding a quill pen in his right hand and a sheet of paper in his left hand.](images/Bust_of_Shakespeare_at_Shakespeares_funerary_monument.jpg "The bust of Shakespeare at Shakespeare's funerary monument inside of Holy Trinity Church at Stratford-upon-Avon")

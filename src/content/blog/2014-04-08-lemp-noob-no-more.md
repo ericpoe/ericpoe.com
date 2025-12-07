@@ -1,13 +1,14 @@
 ---
 title: LEMP noob, no more!
+date: '2014-04-08T00:00:00Z'
+categories:
+  - tech
 tags:
+  - lamp
+  - lemp
   - linux
   - nginx
-  - lemp
-  - lamp
-categories:
   - sysadmin
-date: '2014-04-08T00:00:00Z'
 ---
 
 For years, I have prided myself on knowing how to set up a LAMP (Linux, Apache, MySQL, PHP/Perl/Python) server in linux OSes based on Debian, RedHat, and SuSE.

@@ -1,12 +1,12 @@
 ---
 title: 'Last Month in PHP: 2016 March'
-tags:
-  - php
-  - last-month-in-php
-  - kcphpug
+date: '2016-04-04T21:19:00Z'
 categories:
   - programming
-date: '2016-04-04T21:19:00Z'
+tags:
+  - kcphpug
+  - last-month-in-php
+  - php
 ---
 
 From a [KCPUG](http://kcpug.org/) lightning talk being given on [06 Apr 2016]().

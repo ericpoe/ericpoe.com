@@ -1,13 +1,13 @@
 ---
 title: A TDD FizzBuzz Kata
+date: '2014-12-22T00:00:00Z'
+categories:
+  - programming
 tags:
   - kata
   - php
   - phpunit
   - testing
-categories:
-  - programming
-date: '2014-12-22T00:00:00Z'
 ---
 
 ## Kata

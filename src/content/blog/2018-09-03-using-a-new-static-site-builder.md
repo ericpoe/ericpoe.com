@@ -1,13 +1,13 @@
 ---
 title: 'GatsbyJS: Using a New Static Site-Builder'
-tags:
-  - gatsby
-  - react
-  - a11y
+date: '2018-09-03T22:30:52Z'
 categories:
   - programming
+tags:
+  - a11y
+  - gatsbyjs
   - meta
-date: '2018-09-03T22:30:52Z'
+  - reactjs
 ---
 
 I had been searching for a new static-site generator for some time. I was delving into [Grav](https://getgrav.org/), which is more of a flat-file CMS than a static-site generator and is pretty awesome. Unfortunately, I couldn't make Grav work for my needs.

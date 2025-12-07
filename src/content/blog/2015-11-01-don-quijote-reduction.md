@@ -1,11 +1,12 @@
 ---
-title: 'Don Quijote - a brief synopsis'
-tags:
-  - quixote
-  - quijote
-categories:
-  - literature
+title: Don Quijote - a brief synopsis
 date: '2015-11-01T22:18:00Z'
+categories:
+  - words
+tags:
+  - literature
+  - quijote
+  - quixote
 ---
 
 My 6th grader asked me this evening about the classic novel, _Don Quixote_. "Like, what's it _about_, Dad?"

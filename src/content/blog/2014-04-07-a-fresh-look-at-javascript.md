@@ -1,11 +1,11 @@
 ---
 title: A Fresh Look At Javascript
-tags:
-  - javascript
+date: '2014-04-07T00:00:00Z'
 categories:
   - programming
+tags:
   - book review
-date: '2014-04-07T00:00:00Z'
+  - javascript
 ---
 
 After studying [Dart](https://www.dartlang.org/) for a month, I wondered which problems Dart was attempting to resolve. I then realized that my knowledge of JavaScript was not good enough to know why Google had created Dart as a JavaScript alternative. As much as I enjoyed Dart, I decided to dive back in to JavaScript with a fresh look.

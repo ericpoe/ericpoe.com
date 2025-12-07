@@ -1,12 +1,12 @@
 ---
 title: 'Bite of PHP: Heredoc vs. Nowdoc'
-tags:
-  - php
-  - learning
+date: '2015-04-23T07:42:00Z'
 categories:
   - programming
-  - Bite of PHP
-date: '2015-04-23T07:42:00Z'
+tags:
+  - bite-of-php
+  - learning
+  - php
 ---
 
 ## Heredoc

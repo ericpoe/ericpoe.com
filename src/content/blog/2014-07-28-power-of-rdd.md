@@ -1,11 +1,11 @@
 ---
 title: Power of RDD
-tags:
-  - pair-programming
-  - learning
+date: '2014-07-28T00:00:00Z'
 categories:
   - programming
-date: '2014-07-28T00:00:00Z'
+tags:
+  - learning
+  - pair-programming
 ---
 
 We hired a new guy at work. I was officially the new guy for 2 months, now we have someone new.

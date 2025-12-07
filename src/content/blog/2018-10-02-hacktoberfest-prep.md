@@ -1,14 +1,14 @@
 ---
-title: 'Hacktoberfest Prep'
+title: Hacktoberfest Prep
 date: '2018-10-02T04:44:40.853Z'
-featuredImage_Url: 'images/Hacktoberfest_2018_opengraph_1200x630.png'
-featuredImage_Alt: 'Logo for Hacktoberfest 2018'
 categories:
   - programming
 tags:
-  - hacktoberfest
   - git
+  - hacktoberfest
   - open-source
+featuredImage_Url: images/Hacktoberfest_2018_opengraph_1200x630.png
+featuredImage_Alt: Logo for Hacktoberfest 2018
 ---
 
 ![Logo for Hacktoberfest 2018.](images/Hacktoberfest_2018_opengraph_1200x630.png 'Logo courtesy of Hacktoberfest 2018')

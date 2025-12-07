@@ -22,6 +22,8 @@
 - Use Prettier (project config) for formatting and ESLint with the Astro plugin.
 - Indentation: 2 spaces; favor descriptive camelCase for vars/functions and PascalCase for components.
 - Tailwind for utility-first styling; centralize custom tokens in `tailwind.config.js` to avoid ad-hoc inline styles.
+- Blog frontmatter order must be: `title`, `date`, `categories`, `tags`, `featuredImage_Url`, `featuredImage_Alt`, then any other keys.
+- Tags are lowercase kebab-case only; keep them alphabetized in frontmatter.
 
 ## Testing Guidelines
 

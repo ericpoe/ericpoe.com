@@ -1,12 +1,12 @@
 ---
 title: 'Lone Star PHP 2015: Day 0'
-tags:
-  - php
-  - learning
-  - conferences
+date: '2015-04-27T19:06:00Z'
 categories:
   - programming
-date: '2015-04-27T19:06:00Z'
+tags:
+  - conferences
+  - learning
+  - php
 ---
 
 The first day of Lone Star 2015 was devoted to training. The workshop track I took was geared towards unit testing.

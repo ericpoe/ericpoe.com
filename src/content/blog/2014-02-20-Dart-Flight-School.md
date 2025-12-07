@@ -1,11 +1,11 @@
 ---
 title: Dart Flight School
+date: '2014-02-20T00:00:00Z'
+categories:
+  - programming
 tags:
   - dartlang
   - javascript
-categories:
-  - programming
-date: '2014-02-20T00:00:00Z'
 ---
 
 This evening, I attended the [Dart Flight School](https://www.dartlang.org/events/2014/flight-school/) at the Google Fiber Space in Kansas City. Dart Flight School is a global event occurring throughout February.

@@ -1,12 +1,12 @@
 ---
-title: 'Seeing Something I Created Get Used'
+title: Seeing Something I Created Get Used
 date: '2018-09-06T04:13:56Z'
-tags:
-  - docker
-  - open-source
-  - gratitude
 categories:
   - programming
+tags:
+  - docker
+  - gratitude
+  - open-source
 ---
 
 A coworker sent me a screen-grab of a forum post where someone stated that they used an [experimental Docker image](https://hub.docker.com/r/ericpoe/grav-fpm/) that I had built to help them with their local dev work. I don't even remember how to make that Docker image work for local dev and the build is currently broken; but now I want to fix the build and figure out how to use the image so I can provide some nice instructions in a `README`.

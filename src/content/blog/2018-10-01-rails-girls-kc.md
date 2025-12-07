@@ -1,18 +1,19 @@
 ---
-title: 'Rails Girls KC'
+title: Rails Girls KC
 date: '2018-10-01T03:58:52.375Z'
-lastEdited: '2022-01-02T18:30:26Z'
-featuredImage_Url: images/railsGirlsHeart.png
-featuredImage_Alt: Logo of Rails Girls. A stylized heart in white pixelated blocks on a red background.
 categories:
   - programming
 tags:
-  - mentoring
-  - ruby
-  - rails
   - kansas-city-women-in-technology
   - kcwit
+  - mentoring
+  - rails
   - railsgirls
+  - ruby
+featuredImage_Url: images/railsGirlsHeart.png
+featuredImage_Alt: Logo of Rails Girls. A stylized heart in white pixelated blocks
+  on a red background.
+lastEdited: '2022-01-02T18:30:26Z'
 ---
 
 [![Logo of Rails Girls. A stylized heart in white pixelated blocks on a red background.](images/railsGirlsHeart.png 'Image credit: Rails Girls')](http://railsgirls.com/)
