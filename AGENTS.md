@@ -14,6 +14,7 @@
 - Build production bundle: `npm run build` (runs Tailwind build then `gatsby build`).
 - CSS-only rebuild: `npm run css` (helpful when adjusting Tailwind config).
 - Lint: `npm run lint`; Format: `npm run format`.
+- After any code or content edits, run both lint and format before handing changes off.
 - No automated tests exist; `npm test` currently fails intentionally—add frameworks before relying on it.
 
 ## Coding Style & Naming Conventions
