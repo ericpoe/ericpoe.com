@@ -1,6 +1,8 @@
 ---
 title: Power of RDD
 tags:
+  - pair-programming
+  - learning
 categories:
   - programming
 date: '2014-07-28T00:00:00Z'

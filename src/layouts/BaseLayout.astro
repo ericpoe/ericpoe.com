@@ -1,0 +1,49 @@
+---
+import Analytics from '../components/Analytics.astro';
+import Colophon from '../components/Colophon.astro';
+import Header from '../components/Header.astro';
+import Seo from '../components/Seo.astro';
+import '../styles/global.css';
+
+const {
+  title,
+  description,
+  keywords,
+  pathname,
+  articleImage,
+  articleImageAlt,
+  articleCreatedAt,
+  articleUpdatedAt,
+  type,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <Seo
+      title={title}
+      description={description}
+      keywords={keywords}
+      pathname={pathname}
+      articleImage={articleImage}
+      articleImageAlt={articleImageAlt}
+      articleCreatedAt={articleCreatedAt}
+      articleUpdatedAt={articleUpdatedAt}
+      type={type}
+    />
+    <Analytics />
+  </head>
+  <body>
+    <Header />
+    <main className="flex flex-col flex-1 max-w-4xl mx-auto w-full px-4 py-4 md:py-6">
+      <slot />
+    </main>
+    <footer className="flex flex-col max-w-5xl mx-auto w-full px-4 py-4 md:py-6 border-t-4 border-indigo-900">
+      <Colophon />
+    </footer>
+  </body>
+</html>

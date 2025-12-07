@@ -10,7 +10,7 @@ tags:
   - mentoring
   - ruby
   - rails
-  - Kansas City Women in Technology
+  - kansas-city-women-in-technology
   - kcwit
   - railsgirls
 ---

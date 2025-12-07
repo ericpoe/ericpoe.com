@@ -1,6 +1,9 @@
 ---
 title: Programming As Story-Telling
 tags:
+  - shakespeare
+  - writing
+  - macbeth
 categories:
   - programming
 date: '2014-08-15T20:00:00Z'

@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import readingTime from 'reading-time';
+import BlogTimestamp from '../../components/BlogTimestamp.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const { slug } = Astro.params;
+const posts = await getCollection('blog');
+const post = posts.find((entry) => entry.slug === slug);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await post.render();
+const createdAt = post.data.date.toISOString();
+const updatedAt = post.data.lastEdited?.toISOString();
+const timeToRead = Math.max(1, Math.round(readingTime(post.body).minutes));
+const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].join(', ');
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={`${post.body.replace(/\s+/g, ' ').slice(0, 157)}...`}
+  pathname={`/blog/${post.slug}/`}
+  keywords={keywords}
+  articleImage={post.data.featuredImage_Url}
+  articleImageAlt={post.data.featuredImage_Alt}
+  articleCreatedAt={createdAt}
+  articleUpdatedAt={updatedAt}
+  type="article"
+>
+  <section className="leading-normal text-lg">
+    <div id="DateTimeInfo">
+      <h1>{post.data.title}</h1>
+      <BlogTimestamp
+        createdAt={new Date(createdAt).toUTCString()}
+        lastEditedAt={updatedAt ? new Date(updatedAt).toUTCString() : undefined}
+      />
+      <p id="timeToRead" className="mt-2">
+        <strong>Time to read:</strong>
+        {timeToRead}
+        {timeToRead > 1 ? 'minutes' : 'minute'}
+      </p>
+    </div>
+
+    {
+      post.data.featuredImage_Url && (
+        <figure className="my-4">
+          <img
+            src={post.data.featuredImage_Url.src}
+            alt={post.data.featuredImage_Alt ?? post.data.title}
+            className="w-full rounded"
+          />
+          {post.data.featuredImage_Alt && <figcaption>{post.data.featuredImage_Alt}</figcaption>}
+        </figure>
+      )
+    }
+
+    <div id="blogContent" className="leading-normal pt-4 space-y-4">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>
