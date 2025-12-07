@@ -1,10 +1,46 @@
 ---
-const { src, alt, caption } = Astro.props;
+import { Image } from 'astro:assets';
 
-const resolvedSrc = typeof src === 'string' ? src : src?.src;
+const {
+  src,
+  alt,
+  caption,
+  loading = 'lazy',
+  decoding = 'async',
+  sizes = '100vw',
+  format,
+  width,
+  height,
+} = Astro.props;
+
+const isImageMetadata = typeof src === 'object' && src !== null && 'src' in src && 'width' in src && 'height' in src;
+const resolvedSrc = typeof src === 'string' ? src : (src as any)?.src;
 ---
 
 <figure class="my-4">
-  <img src={resolvedSrc} alt={alt} class="w-full rounded" />
+  {
+    isImageMetadata ? (
+      <Image
+        src={src}
+        alt={alt}
+        class="w-full rounded"
+        loading={loading}
+        decoding={decoding}
+        sizes={sizes}
+        format={format}
+      />
+    ) : (
+      <img
+        src={resolvedSrc}
+        alt={alt}
+        class="w-full rounded"
+        loading={loading}
+        decoding={decoding}
+        sizes={sizes}
+        width={width}
+        height={height}
+      />
+    )
+  }
   {caption && <figcaption class="mt-2 text-sm text-gray-700" set:html={caption} />}
 </figure>

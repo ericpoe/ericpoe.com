@@ -10,7 +10,7 @@ tags:
   - rails
   - railsgirls
   - ruby
-featuredImage_Url: images/railsGirlsHeart.png
+featuredImage_Url: ./images/railsGirlsHeart.png
 featuredImage_Alt: Logo of Rails Girls. A stylized heart in white pixelated blocks
   on a red background.
 lastEdited: '2022-01-02T18:30:26Z'
