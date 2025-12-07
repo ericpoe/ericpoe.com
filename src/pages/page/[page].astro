@@ -1,13 +1,28 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { formatTitleMla } from '../utils/titleCase';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatTitleMla } from '../../utils/titleCase';
 
-const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const pageSize = 10;
-const pageNumber = 1;
-const totalPages = Math.ceil(allPosts.length / pageSize);
-const posts = allPosts.slice(0, pageSize);
+export async function getStaticPaths() {
+  const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const pageSize = 10;
+  const totalPages = Math.ceil(allPosts.length / pageSize);
+
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+    const pageNumber = index + 2; // start at page 2
+    const start = (pageNumber - 1) * pageSize;
+    return {
+      params: { page: String(pageNumber) },
+      props: {
+        pageNumber,
+        totalPages,
+        posts: allPosts.slice(start, start + pageSize),
+      },
+    };
+  });
+}
+
+const { pageNumber, totalPages, posts } = Astro.props;
 
 const formatDate = (date: Date) =>
   date.toLocaleDateString('en-US', {
@@ -59,7 +74,7 @@ const summarize = (body: string) => {
 };
 ---
 
-<BaseLayout pathname="/">
+<BaseLayout pathname={`/page/${pageNumber}/`}>
   <section id="latestPosts" class="max-w-3xl w-full mx-auto px-4 md:px-6 py-10 md:py-12 space-y-8 md:space-y-10">
     <h1 class="text-3xl md:text-4xl font-semibold">Latest Posts</h1>
     <div class="space-y-10">
@@ -86,17 +101,15 @@ const summarize = (body: string) => {
       }
     </div>
     <div class="flex items-center justify-between pt-4 text-indigo-800 font-semibold">
-      {pageNumber > 1 ? (
-        <a class="hover:text-indigo-900" href={pageNumber === 2 ? '/' : `/page/${pageNumber - 1}/`}>
-          ← Previous page
-        </a>
-      ) : (
-        <span />
-      )}
-      {pageNumber < totalPages && (
+      <a class="hover:text-indigo-900" href={pageNumber === 2 ? '/' : `/page/${pageNumber - 1}/`}>
+        ← Previous page
+      </a>
+      {pageNumber < totalPages ? (
         <a class="hover:text-indigo-900" href={`/page/${pageNumber + 1}/`}>
           Next page →
         </a>
+      ) : (
+        <span />
       )}
     </div>
   </section>

@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import readingTime from 'reading-time';
 import BlogTimestamp from '../../components/BlogTimestamp.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatTitleMla } from '../../utils/titleCase';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -27,7 +28,7 @@ const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].jo
 ---
 
 <BaseLayout
-  title={post.data.title}
+  title={formatTitleMla(post.data.title)}
   description={`${post.body.replace(/\s+/g, ' ').slice(0, 157)}...`}
   pathname={`/blog/${post.slug}/`}
   keywords={keywords}
@@ -39,7 +40,7 @@ const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].jo
 >
   <section class="leading-normal text-lg">
     <div id="DateTimeInfo">
-      <h1>{post.data.title}</h1>
+      <h1>{formatTitleMla(post.data.title)}</h1>
       <BlogTimestamp
         createdAt={new Date(createdAt).toUTCString()}
         lastEditedAt={updatedAt ? new Date(updatedAt).toUTCString() : undefined}
