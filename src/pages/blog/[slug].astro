@@ -51,19 +51,6 @@ const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].jo
       </p>
     </div>
 
-    {
-      post.data.featuredImage_Url && (
-        <figure class="my-4">
-          <img
-            src={post.data.featuredImage_Url.src}
-            alt={post.data.featuredImage_Alt ?? post.data.title}
-            class="w-full rounded"
-          />
-          {post.data.featuredImage_Alt && <figcaption>{post.data.featuredImage_Alt}</figcaption>}
-        </figure>
-      )
-    }
-
     <div id="blogContent" class="leading-normal pt-4 space-y-4">
       <Content />
     </div>
