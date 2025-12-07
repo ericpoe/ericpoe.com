@@ -1,0 +1,21 @@
+---
+/* eslint-disable no-unused-vars, no-undef */
+const trackingId = 'UA-56604616-1';
+const isProd = import.meta.env.PROD;
+---
+
+{
+  isProd && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`} />
+      <script is:inline>
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+if (navigator.doNotTrack !== '1' && window.doNotTrack !== '1') {
+  gtag('js', new Date());
+  gtag('config', 'UA-56604616-1', { anonymize_ip: true });
+}`}
+      </script>
+    </>
+  )
+}

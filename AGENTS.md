@@ -2,31 +2,30 @@
 
 ## Project Structure & Module Organization
 
-- Gatsby site rooted in `src`; main app code in `src/pages`, shared layouts/components in `src/components`, hooks in `src/hooks`, templates in `src/templates`, and global styles in `src/styles`.
-- Static assets live in `static` (copied as-is) and `src/images` (processed by Gatsby).
-- Tailwind input is `src/styles/tailwind.css`; compiled CSS is written to `src/components/css/index.css` by the `css` script.
+- Astro site rooted in `src`; pages live in `src/pages`, shared layouts/components in `src/layouts` and `src/components`, blog content in `src/content/blog`, and global styles in `src/styles`.
+- Static assets live in `public` and are served as-is; blog images that ship with posts are under `src/content/blog/images`.
+- Tailwind input is `src/styles/global.css` and is wired through the Astro Tailwind integration.
 
 ## Build, Test, and Development Commands
 
-- Install dependencies: `npm install` (Gatsby CLI may be needed globally for convenience).
-- Local dev server: `npm run develop` (builds Tailwind first, then starts Gatsby with hot reload).
-- Debug dev server: `npm run develop:debug` (Node inspector on `127.0.0.1:9232`).
-- Build production bundle: `npm run build` (runs Tailwind build then `gatsby build`).
-- CSS-only rebuild: `npm run css` (helpful when adjusting Tailwind config).
-- Lint: `npm run lint`; Format: `npm run format`.
+- Install dependencies: `npm install`.
+- Local dev server: `npm run dev`.
+- Build production bundle: `npm run build` (runs `astro build`).
+- Preview production build locally: `npm run preview`.
+- Lint: `npm run lint`; Format: `npm run format`; Type/markup check: `npm run check`.
 - After any code or content edits, run both lint and format before handing changes off.
-- No automated tests exist; `npm test` currently fails intentionally—add frameworks before relying on it.
+- No automated tests exist yet.
 
 ## Coding Style & Naming Conventions
 
-- JavaScript/JSX with React 18; prefer functional components and hooks.
-- Use Prettier (project config) for formatting and ESLint with `eslint-config-react-app`/`prettier` to avoid style drift.
-- Indentation: 2 spaces; favor descriptive camelCase for vars/functions, PascalCase for components, kebab-case for file names in `src/pages`.
+- Astro + React islands as needed; prefer `.astro` components for static content.
+- Use Prettier (project config) for formatting and ESLint with the Astro plugin.
+- Indentation: 2 spaces; favor descriptive camelCase for vars/functions and PascalCase for components.
 - Tailwind for utility-first styling; centralize custom tokens in `tailwind.config.js` to avoid ad-hoc inline styles.
 
 ## Testing Guidelines
 
-- No test harness yet; when adding, align with Jest/React Testing Library conventions.
+- No test harness yet; when adding, align with Jest/React Testing Library or Astro’s testing recommendations.
 - Name future test files `*.test.js` beside the unit under test; prefer component-level tests over snapshots.
 - Keep fixtures small and colocated; prefer msw for network mocking if needed.
 
@@ -35,9 +34,9 @@
 - Use short, imperative commit messages (matches existing history: e.g., “Add entry for 2025-10-05”, “Fix language used for name”).
 - Keep commits focused (one logical change); include context in the body if behavior changes or migrations are involved.
 - PRs should describe the change, impact, and manual verification (commands run, screenshots for UI tweaks); link related issues/notes when available.
-- Before opening a PR: run `npm run lint`, ensure `npm run build` succeeds, and regenerate Tailwind output if styles changed.
+- Before opening a PR: run `npm run lint` and ensure `npm run build` succeeds.
 
 ## Security & Configuration Tips
 
 - Secrets and API keys should not be committed; use environment variables and `.env.*` files ignored by git.
-- When adding plugins or loaders, review `gatsby-config.js` for site metadata, manifest, and analytics settings to keep deployments consistent.
+- When adding integrations or loaders, review `astro.config.mjs` and related configs to keep deployments consistent.

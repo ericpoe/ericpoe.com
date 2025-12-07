@@ -2,7 +2,7 @@
 title: 'Last Month in PHP: 2015 December'
 tags:
   - php
-  - last month in php
+  - last-month-in-php
   - kcphpug
 categories:
   - programming

@@ -2,7 +2,9 @@
 .cache
 .config
 node_modules
+.astro
 
 # Build directory
 /public
+/dist
 .DS_Store

@@ -2,7 +2,7 @@
 title: 'Last Month in PHP: 2016 March'
 tags:
   - php
-  - last month in php
+  - last-month-in-php
   - kcphpug
 categories:
   - programming

@@ -1,30 +1,21 @@
 {
   "root": true,
-  "extends": ["plugin:prettier/recommended", "react-app"],
-  "env": {
-    "browser": true
-  },
-  "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "detect"
+  "extends": ["eslint:recommended", "plugin:astro/recommended"],
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      }
     },
-    "import/core-modules": ["prop-types"]
-  },
-  "rules": {
-    "no-unused-expressions": [
-      "error",
-      {
-        "allowTaggedTemplates": true
+    {
+      "files": ["*.ts", "*.js"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "sourceType": "module"
       }
-    ],
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["to"],
-        "aspects": ["noHref", "invalidHref", "preferButton"]
-      }
-    ]
-  }
+    }
+  ]
 }

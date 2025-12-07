@@ -1,0 +1,62 @@
+---
+import { FaGithub, FaLinkedin, FaMastodon, FaRavelry } from 'react-icons/fa';
+import { FaBluesky } from 'react-icons/fa6';
+---
+
+<h2 className="flex justify-center pb-1 my-1">Colophon</h2>
+<section id="socialLinks">
+  <ul className="list-reset flex justify-around text-2xl">
+    <li id="github">
+      <a href="https://github.com/ericpoe" title="Eric Poe's GitHub account" className="no-underline">
+        <FaGithub aria-hidden="true" />
+        <span className="sr-only">GitHub</span>
+      </a>
+    </li>
+    <li id="bluesky">
+      <a href="https://bsky.app/profile/ericpoe.bsky.social" title="Eric Poe's Bluesky" className="no-underline">
+        <FaBluesky aria-hidden="true" />
+        <span className="sr-only">Bluesky</span>
+      </a>
+    </li>
+    <li id="mastodon">
+      <a href="https://phpc.social/@ericpoe" title="Eric Poe's Mastodon" className="no-underline">
+        <FaMastodon aria-hidden="true" />
+        <span className="sr-only">Mastodon</span>
+      </a>
+    </li>
+    <li id="ravelry">
+      <a
+        href="https://www.ravelry.com/projects/ericpoe"
+        title="Eric Poe's fabric projects on Ravelry"
+        className="no-underline"
+      >
+        <FaRavelry aria-hidden="true" />
+        <span className="sr-only">Ravelry</span>
+      </a>
+    </li>
+    <li id="linkedin">
+      <a href="https://www.linkedin.com/in/ericpoe/" title="Eric Poe's LinkedIn" className="no-underline">
+        <FaLinkedin aria-hidden="true" />
+        <span className="sr-only">LinkedIn</span>
+      </a>
+    </li>
+  </ul>
+</section>
+<section id="colophonInfo" className="mt-6 space-y-2 leading-relaxed">
+  <p>
+    This site is built with <a href="https://astro.build/">Astro</a>,{' '}
+    <a href="https://tailwindcss.com/">Tailwind CSS</a>, and a{' '}
+    <a
+      href="https://github.com/ericpoe/ericpoe.com/blob/master/package.json"
+      title="This site's JavaScript requirements"
+    >
+      whole bunch of other fun stuff
+    </a>
+    .
+  </p>
+  <p>
+    Corrections or curious to see how this was put together? Check out the latest version of this site at its{' '}
+    <a href="https://github.com/ericpoe/ericpoe.com" title="GitHub repository for this site"> GitHub repo </a>
+    .
+  </p>
+</section>

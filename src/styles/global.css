@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply flex min-h-screen flex-col bg-white font-sans text-gray-800;
+  }
+
+  h1 {
+    @apply text-4xl font-semibold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: theme('padding.4');
+  }
+
+  ul.list-reset {
+    list-style-type: none;
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: theme('padding.4');
+  }
+
+  a {
+    color: theme('colors.indigo.800');
+    text-decoration: underline;
+  }
+
+  blockquote {
+    padding-left: theme('padding.4');
+    font-style: italic;
+  }
+
+  #blogContent p {
+    @apply mb-3;
+  }
+
+  #blogContent figcaption {
+    @apply text-right italic;
+  }
+}

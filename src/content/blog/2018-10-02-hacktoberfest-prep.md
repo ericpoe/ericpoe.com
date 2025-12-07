@@ -8,7 +8,7 @@ categories:
 tags:
   - hacktoberfest
   - git
-  - open source
+  - open-source
 ---
 
 ![Logo for Hacktoberfest 2018.](images/Hacktoberfest_2018_opengraph_1200x630.png 'Logo courtesy of Hacktoberfest 2018')

@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.0] - 2025-12-07
+
+### Added
+
+- Rebuilt site with Astro, Tailwind integration, and content collections for blog posts.
+- New Astro components/layouts for header, footer/colophon, SEO metadata, analytics, and blog timestamp.
+- Manifest and icon now served from `public/` with trailing-slash routing.
+
+### Changed
+
+- Migrated all Markdown posts and images into `src/content/blog` using Astro content schema.
+- Updated build/dev tooling (`npm run dev/build/preview/check`) plus lint/format scripts for Astro and TypeScript.
+- Refreshed project docs (`AGENTS.md`, `README.md`) to describe the Astro setup.
+
+### Removed
+
+- Gatsby-specific config, templates, and components; legacy static output and Gatsby build scripts.
+
 ### [1.7.0] - 2023-12-39
 
 ### Added

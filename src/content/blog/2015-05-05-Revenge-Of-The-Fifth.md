@@ -1,7 +1,7 @@
 ---
 title: 'Revenge of the Fifth'
 tags:
-  - star wars
+  - star-wars
   - binary
 categories:
   - humor
