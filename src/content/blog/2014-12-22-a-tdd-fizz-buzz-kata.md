@@ -175,7 +175,7 @@ In other words, we need to create the 'FizzBuzz' class. We will create just enou
 
 `FizzBuzz.php`:
 
-```PHP
+```php
 <?php
 class FizzBuzz
 {
@@ -187,7 +187,7 @@ Then we tell 'FizzBuzzTest.php' where to find this class.
 
 `FizzBuzzTest.php`:
 
-```PHP
+```php
 <?php
 include ('vendor/autoload.php');
 include ('FizzBuzz.php'); // The new line
@@ -247,7 +247,7 @@ Let's add just enough to the 'FizzBuzz' class to make it pass this test.
 
 `FizzBuzz.php`:
 
-```PHP
+```php
 <?php
 class FizzBuzz
 {
@@ -285,7 +285,7 @@ That's an easy enough problem to resolve. Again, we just edit enough of 'FizzBuz
 
 `FizzBuzz.php`:
 
-```PHP
+```php
 <?php
 class FizzBuzz
 {
