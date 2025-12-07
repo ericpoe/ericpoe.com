@@ -1,10 +1,10 @@
 ---
-title: 'Git-stash Magic'
+title: Git-stash Magic
 date: '2018-09-09T17:57:27Z'
-tags:
-  - git
 categories:
   - programming
+tags:
+  - git
 ---
 
 On July 2nd of this year, I [discovered an amazing `git-stash` option](https://twitter.com/eric_poe/status/1013859363067449345) that lets me see the git-diff between what I currently have and what is in the stash: `git stash show -p`.

@@ -1,13 +1,13 @@
 ---
 title: My Year of Code
+date: '2015-11-13T01:07:00Z'
+categories:
+  - programming
 tags:
-  - php
   - javascript
   - learning
   - omphaloskepsis
-categories:
-  - programming
-date: '2015-11-13T01:07:00Z'
+  - php
 ---
 
 2015 was my year to really dive into PHP. Up until this year, PHP was hobby language for me -- much as Python, Haskell, C++, Dart, JavaScript, and Java have been hobby languages. Granted, last year I finally took a job where PHP is where I spend half of my time.

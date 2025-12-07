@@ -1,12 +1,14 @@
 ---
-title: 'Announcing the Return of the Half-Wit'
+title: Announcing the Return of the Half-Wit
 date: '2024-11-11T22:34:30Z'
-featuredImage_Url: 'images/Generic-Blog-Post.png'
-featuredImage_Alt: "Bird's-eye view of a wireless Mac keyboard on a rough, weathered wood-plank desk. Superimposed over the image is the word 'Blog' in script. Next to the keyboard is a latte and and a potted barrel cactus"
 categories:
-  - 'meta'
+  - words
 tags:
-  - 'writing'
+  - writing
+featuredImage_Url: images/Generic-Blog-Post.png
+featuredImage_Alt: Bird's-eye view of a wireless Mac keyboard on a rough, weathered
+  wood-plank desk. Superimposed over the image is the word 'Blog' in script. Next
+  to the keyboard is a latte and and a potted barrel cactus
 ---
 
 ![Image of a bird's-eye view of a wireless Mac keyboard on a rough, weathered wood-plank desk. Superimposed over the image is the word 'Blog' in script. Next to the keyboard is a latte and and a potted barrel cactus that is dangerously too close to the coffee](images/Generic-Blog-Post.png 'Yeah, you see how precariously close that cactus is to the café con leche?')

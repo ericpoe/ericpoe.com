@@ -1,11 +1,11 @@
 ---
 title: Code Like You Need Protection
-tags:
-  - python
-  - api
+date: '2014-02-14T00:00:00Z'
 categories:
   - programming
-date: '2014-02-14T00:00:00Z'
+tags:
+  - api
+  - python
 ---
 
 ## Background

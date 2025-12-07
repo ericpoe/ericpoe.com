@@ -1,14 +1,14 @@
 ---
-title: 'Docker and Selenium'
+title: Docker and Selenium
 date: '2018-10-23T05:01:01.489Z'
 categories:
-  - 'programming'
-  - 'devops'
+  - tech
 tags:
-  - 'testing'
-  - 'docker'
-  - 'selenium'
-  - 'codeception'
+  - codeception
+  - devops
+  - docker
+  - selenium
+  - testing
 ---
 
 Yesterday, we started our second "hackathon" at work. We divided up into teams of 3 of various skill sets with the goal of building something that would benefit the organization, the overall project, and/or the team. My team wants to create automated acceptance tests. We are two devs and our QA person.

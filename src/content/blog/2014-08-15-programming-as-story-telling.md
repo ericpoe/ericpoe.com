@@ -1,12 +1,12 @@
 ---
 title: Programming As Story-Telling
-tags:
-  - shakespeare
-  - writing
-  - macbeth
+date: '2014-08-15T20:00:00Z'
 categories:
   - programming
-date: '2014-08-15T20:00:00Z'
+tags:
+  - macbeth
+  - shakespeare
+  - writing
 ---
 
 I was recently talking with a non-programmer friend of mine about teaching our kids how to code. I told him about my long and winding road to loving programming. He told me that he just doesn’t get how anything so tedious as programming can hold anyone’s interest for more than 5 minutes. Visual design, on the other hand, he finds utterly fascinating.

@@ -1,11 +1,12 @@
 ---
 title: so much depends upon a fresh doughnut
-tags:
-  - poetry
-  - parody
-categories:
-  - writing
 date: '2015-08-12T18:43:00Z'
+categories:
+  - words
+tags:
+  - parody
+  - poetry
+  - writing
 ---
 
 <figure>

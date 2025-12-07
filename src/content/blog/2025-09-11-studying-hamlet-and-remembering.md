@@ -1,13 +1,13 @@
 ---
-title: 'Studying Hamlet and remembering'
+title: Studying Hamlet and remembering
 date: '2025-09-11T01:55:27Z'
 categories:
-  - 'reading'
+  - words
 tags:
-  - 'read'
-  - 'study'
-  - 'shakespeare'
-  - 'hamlet'
+  - hamlet
+  - reading
+  - shakespeare
+  - study
 ---
 
 Damn. Damn. Damn. ("Good Times", Season 4, ep 1)

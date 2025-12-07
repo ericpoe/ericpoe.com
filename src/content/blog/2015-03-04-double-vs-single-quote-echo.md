@@ -1,12 +1,12 @@
 ---
 title: 'Bite of PHP: Double vs Single Quote Echo'
-tags:
-  - php
-  - learning
+date: '2015-03-04T22:50:24Z'
 categories:
   - programming
-  - Bite of PHP
-date: '2015-03-04T22:50:24Z'
+tags:
+  - bite-of-php
+  - learning
+  - php
 ---
 
 In PHP, we have two ways of formatting an echo statement: we can choose to

@@ -1,11 +1,11 @@
 ---
-title: 'Keeping Open-Source Branches in Sync'
+title: Keeping Open-Source Branches in Sync
 date: '2019-07-23T04:15:23.291Z'
 categories:
-  - 'programming'
+  - programming
 tags:
-  - 'open-source'
-  - 'git'
+  - git
+  - open-source
 ---
 
 When working with contributing to open-source software, one typically works from a forked repository of the original repository. Depending on the frequency of updates to the original repository, it is very easy for both repositories to become out-of-sync very quickly.

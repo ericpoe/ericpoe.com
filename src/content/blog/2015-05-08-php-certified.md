@@ -1,11 +1,11 @@
 ---
 title: 'Leveled Up: PHP Certified'
-tags:
-  - php
-  - certification
+date: '2015-05-08T14:17:00Z'
 categories:
   - programming
-date: '2015-05-08T14:17:00Z'
+tags:
+  - certification
+  - php
 ---
 
 On Wednesday, I took an extended lunch break in order to take the Zend PHP Certification test at a local Pearson VUE Testing Center.

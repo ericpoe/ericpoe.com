@@ -1,15 +1,18 @@
 ---
-title: 'A month of Hamlet'
+title: A month of Hamlet
 date: '2025-10-05T20:21:11Z'
 categories:
-  - 'reading'
+  - words
 tags:
-  - 'read'
-  - 'study'
-  - 'shakespeare'
-  - 'hamlet'
-featuredImage_Url: 'images/passenger57.jpg'
-featuredImage_Alt: 'Image of two Black actors, Wesley Snipes and Alex Datcher, wearing business attire. They are in the tight galley of a passenger airplane and she is looking at him while he holding a phone to his ear and looking off screen. He is saying, "Always bet on black."'
+  - hamlet
+  - reading
+  - shakespeare
+  - study
+featuredImage_Url: images/passenger57.jpg
+featuredImage_Alt: Image of two Black actors, Wesley Snipes and Alex Datcher, wearing
+  business attire. They are in the tight galley of a passenger airplane and she is
+  looking at him while he holding a phone to his ear and looking off screen. He is
+  saying, "Always bet on black."
 ---
 
 ![Image of two Black actors, Wesley Snipes and Alex Datcher, wearing business attire. They are in the tight galley of a passenger airplane and she is looking at him while he holding a phone to his ear and looking off screen. He is saying, "Always bet on black." ](images/passenger57.jpg 'Wesley Snipes reminds you that gambling is a serious matter (have a problem? Call 1-800-522-4700) and that Hamlet always wears black.') -- Image from [Alex on Film](https://alexonfilm.com/2014/10/24/passenger-57-1992/)

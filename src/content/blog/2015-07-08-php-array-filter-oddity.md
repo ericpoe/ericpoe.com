@@ -1,11 +1,11 @@
 ---
 title: PHP's Array_Filter Oddity
-tags:
-  - php
-  - community
+date: '2015-07-08T22:42:00Z'
 categories:
   - programming
-date: '2015-07-08T22:42:00Z'
+tags:
+  - community
+  - php
 ---
 
 I was studying the [`array_filter`](http://php.net/manual/en/function.array-filter.php) in PHP and was enjoying coming up with a test that could help me learn better `array_filter` magic. For instance, to filter all words whose first letter is a vowel, I created this PHPUnit test:

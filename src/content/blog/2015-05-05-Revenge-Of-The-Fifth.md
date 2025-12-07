@@ -1,11 +1,12 @@
 ---
-title: 'Revenge of the Fifth'
-tags:
-  - star-wars
-  - binary
-categories:
-  - humor
+title: Revenge of the Fifth
 date: '2015-05-05T12:05:00Z'
+categories:
+  - words
+tags:
+  - binary
+  - humor
+  - star-wars
 ---
 
 Today is the unofficial Star-Wars-fan holiday known as the Revenge of the Fifth.

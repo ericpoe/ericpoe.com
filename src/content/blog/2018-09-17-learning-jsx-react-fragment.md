@@ -4,10 +4,10 @@ date: '2018-09-17T04:53:36Z'
 categories:
   - programming
 tags:
-  - javascript
-  - reactjs
-  - jsx
   - gatsbyjs
+  - javascript
+  - jsx
+  - reactjs
 ---
 
 As I build this site using [gatsbyjs](https://www.gatsbyjs.org/), I find myself learning new things every day.

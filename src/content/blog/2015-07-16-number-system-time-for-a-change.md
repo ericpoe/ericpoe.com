@@ -1,12 +1,13 @@
 ---
 title: 'Number System: Time for a change?'
-tags:
-  - math
-  - learning
-  - Chinese
-categories:
-  - education
 date: '2015-07-16T22:42:00Z'
+categories:
+  - words
+tags:
+  - Chinese
+  - education
+  - learning
+  - math
 ---
 
 ## Introduction

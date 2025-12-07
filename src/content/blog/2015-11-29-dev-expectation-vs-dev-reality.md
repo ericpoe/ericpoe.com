@@ -1,11 +1,11 @@
 ---
 title: 'Expectation vs Reality: my first 1.5 years of professional programming'
-tags:
-  - omphaloskepsis
-  - career
+date: '2015-11-29T19:04:00Z'
 categories:
   - programming
-date: '2015-11-29T19:04:00Z'
+tags:
+  - career
+  - omphaloskepsis
 ---
 
 I have been a professional developer for over a year and a half now.
