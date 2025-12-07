@@ -15,7 +15,14 @@ featuredImage_Alt: 'Cartoon image by @tpope: Parody of Mac vs PC commercials fro
 lastEdited: '2022-01-02T18:30:26Z'
 ---
 
-![Cartoon image by @tpope: Parody of Mac vs PC commercials from the early 2000s. One man represents Vim and the other represents emacs. A third man appears and claims to represent Atom. The first two men are then seen beating up the Atom man.](images/vim-emacs-atomio.png 'Image credit: Tim Pope @pope')
+import Figure from '../../components/Figure.astro';
+import vimEmacsAtomio from './images/vim-emacs-atomio.png';
+
+<Figure
+  src={vimEmacsAtomio}
+  alt="Cartoon image by @tpope: Parody of Mac vs PC commercials from the early 2000s. One man represents Vim and the other represents emacs. A third man appears and claims to represent Atom. The first two men are then seen beating up the Atom man."
+  caption='Image credit: <a href="https://twitter.com/tpope">@tpope</a>'
+/>
 
 Last week, I gave a short demo of the [Atom.io](https://atom.io) text editor to the [Kansas City PHP User Group](https://kcphpug.org/). I realized after-the-fact that I had presented the early-release as an IDE, when I should have presented it as a fancy text-editor.
 

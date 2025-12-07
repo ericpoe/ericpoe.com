@@ -11,7 +11,14 @@ featuredImage_Alt: Bird's-eye view of a wireless Mac keyboard on a rough, weathe
   to the keyboard is a latte and and a potted barrel cactus
 ---
 
-![Image of a bird's-eye view of a wireless Mac keyboard on a rough, weathered wood-plank desk. Superimposed over the image is the word 'Blog' in script. Next to the keyboard is a latte and and a potted barrel cactus that is dangerously too close to the coffee](images/Generic-Blog-Post.png 'Yeah, you see how precariously close that cactus is to the café con leche?')
+import Figure from '../../components/Figure.astro';
+import genericBlogPost from './images/Generic-Blog-Post.png';
+
+<Figure
+  src={genericBlogPost}
+  alt="Image of a bird's-eye view of a wireless Mac keyboard on a rough, weathered wood-plank desk. Superimposed over the image is the word 'Blog' in script. Next to the keyboard is a latte and and a potted barrel cactus that is dangerously too close to the coffee"
+  caption="Yeah, you see how precariously close that cactus is to the café con leche?"
+/>
 
 After a break of ... (checks notes... that can't be right...) ... a long time, I am returning to updating this thing.
 
@@ -44,4 +51,5 @@ And yet, so much has improved since then, including:
 
 I have plans for this site. I want to experiment with a few things, including moving to a new framework since Gatsby seems to be only in maintenance mode.
 
-I would also like to share more about what I'm working on and what I'm studying or discover that I find interesting. Perhaps and old-school blog but without as much <accr title='Personally Identifiable Information'>PII</a> in regards to others.
+I would also like to share more about what I'm working on and what I'm studying or discover that I find interesting. Perhaps and old-school blog but without as much <accr title='Personally Identifiable Information'>PII</accr> in regards to others.
+Stay tuned

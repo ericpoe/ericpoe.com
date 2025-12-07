@@ -1,0 +1,10 @@
+---
+const { src, alt, caption } = Astro.props;
+
+const resolvedSrc = typeof src === 'string' ? src : src?.src;
+---
+
+<figure class="my-4">
+  <img src={resolvedSrc} alt={alt} class="w-full rounded" />
+  {caption && <figcaption class="mt-2 text-sm text-gray-700" set:html={caption} />}
+</figure>

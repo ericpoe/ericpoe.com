@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Rebuilt site with Astro, Tailwind integration, and content collections for blog posts.
 - New Astro components/layouts for header, footer/colophon, SEO metadata, analytics, and blog timestamp.
+- MDX support and a reusable Figure component for accessible images with captions/links; posts converted to use it.
 - Manifest and icon now served from `public/` with trailing-slash routing.
 
 ### Changed

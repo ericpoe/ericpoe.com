@@ -13,9 +13,13 @@ const formatDate = (date: Date) =>
 
 const summarize = (body: string) => {
   const clean = body
+    .replace(/^import .*$/gm, '')
+    .replace(/<Figure[\s\S]*?\/>/g, '')
     .replace(/!\[.*?\]\(.*?\)/g, '')
     .replace(/\[(.*?)\]\(.*?\)/g, '$1')
+    .replace(/^#{1,6}\s*/gm, '')
     .replace(/[`#*>_-]/g, '')
+    .replace(/<\/?[^>]+>/g, '')
     .replace(/\s+/g, ' ')
     .trim();
   const words = clean.split(' ').slice(0, 60).join(' ');
