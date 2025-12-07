@@ -4,7 +4,7 @@
   "author": "Eric Poe <eric.poe@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.4.22",
     "gatsby": "^5.15.0",
     "gatsby-plugin-google-analytics": "^5.15.0",
     "gatsby-plugin-manifest": "^5.15.0",
@@ -24,7 +24,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.18"
   },
   "devDependencies": {
     "eslint-config-prettier": "^10.1.8",
@@ -32,7 +32,7 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.5.4",
-    "prettier": "^3.6.2"
+    "prettier": "^3.7.4"
   },
   "scripts": {
     "css": "tailwind build -i src/styles/tailwind.css -c ./tailwind.config.js -o src/components/css/index.css",
