@@ -15,12 +15,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - New Astro components/layouts for header, footer/colophon, SEO metadata, analytics, and blog timestamp.
 - MDX support and a reusable Figure component for accessible images with captions/links; posts converted to use it.
 - Manifest and icon now served from `public/` with trailing-slash routing.
+- ESLint migrated to flat config for v9; new `eslint.config.mjs` with Astro JS/TS support.
+
+### Added
+
+- Rebuilt site with Astro, Tailwind integration, and content collections for blog posts.
+- New Astro components/layouts for header, footer/colophon, SEO metadata, analytics, and blog timestamp.
+- MDX support and a reusable Figure component for accessible images with captions/links; posts converted to use it.
+- Manifest and icon now served from `public/` with trailing-slash routing.
 
 ### Changed
 
 - Migrated all Markdown posts and images into `src/content/blog` using Astro content schema.
 - Updated build/dev tooling (`npm run dev/build/preview/check`) plus lint/format scripts for Astro and TypeScript.
 - Refreshed project docs (`AGENTS.md`, `README.md`) to describe the Astro setup.
+- Upgraded Astro to v5 (with @astrojs/mdx, react, tailwind, sitemap matching).
+- Upgraded React/ReactDOM to v19 and refreshed lint/tooling (ESLint 9, @typescript-eslint, Astro lint plugin).
+- Normalized `featuredImage_Url` paths to local `./images/...` for content schema resolution.
+- Figure component now uses Astro Image for imports and supports optional format/sizing props.
+- Pagination pages redirect unknown page numbers to 404.
 
 ### Removed
 
