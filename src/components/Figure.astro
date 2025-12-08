@@ -27,7 +27,7 @@ const resolvedSrc = typeof src === 'string' ? src : (src as any)?.src;
         loading={loading}
         decoding={decoding}
         sizes={sizes}
-        format={format}
+        {...(format ? { format } : {})}
       />
     ) : (
       <img
