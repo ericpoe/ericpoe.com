@@ -27,6 +27,7 @@ const storageKey = 'color-scheme';
   const apply = (mode) => {
     const effectiveDark = mode === 'dark' || (mode === 'system' && prefersDark.matches);
     root.classList.toggle('dark', effectiveDark);
+    root.dataset.theme = effectiveDark ? 'dark' : 'light';
     if (mode === 'system') {
       localStorage.removeItem(storageKey);
     } else {
