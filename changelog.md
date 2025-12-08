@@ -39,6 +39,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Header theme toggle redesigned for better accessibility (focus-visible styles, live status text, reduced-motion support) and updated sun icon.
 - Dark-mode aware code styling uses Solarized light/dark via Shiki and respects explicit `data-theme`.
 - Menu/link colors aligned in dark mode to match the site title.
+- Added Tailwind Typography plugin with custom code/pre colors; applied `prose` styling to summaries and post content while scoping link styling to content areas.
 
 ### Removed
 

@@ -33,12 +33,6 @@
     padding-left: theme('padding.4');
   }
 
-  a {
-    color: theme('colors.indigo.800');
-    @apply dark:text-indigo-300;
-    text-decoration: underline;
-  }
-
   blockquote {
     padding-left: theme('padding.4');
     font-style: italic;

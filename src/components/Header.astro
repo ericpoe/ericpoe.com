@@ -6,13 +6,9 @@ import { formatTitleMla } from '../utils/titleCase';
 import ThemeToggle from './ThemeToggle.astro';
 
 const posts = await getCollection('blog');
-const categories = Array.from(
-  new Set(
-    posts
-      .flatMap((post) => post.data.categories ?? [])
-      .filter(Boolean)
-  )
-).sort((a, b) => a.localeCompare(b));
+const categories = Array.from(new Set(posts.flatMap((post) => post.data.categories ?? []).filter(Boolean))).sort(
+  (a, b) => a.localeCompare(b),
+);
 ---
 
 <nav class="bg-indigo-900 m-0 py-5 px-6 w-full">
@@ -20,7 +16,9 @@ const categories = Array.from(
     <a href="/" class="!text-gray-100 no-underline text-4xl md:text-5xl">
       {siteMetadata.title}
     </a>
-    <div class="flex items-center gap-6 text-base md:text-3xl text-gray-100 dark:text-gray-100 flex-wrap justify-center flex-1">
+    <div
+      class="flex items-center gap-6 text-base md:text-3xl text-gray-100 dark:text-gray-100 flex-wrap justify-center flex-1"
+    >
       {
         categories.map((cat) => {
           const slug = slugify(cat);

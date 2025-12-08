@@ -6,13 +6,7 @@ import { slugify } from '../../../../utils/slugify';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  const categories = Array.from(
-    new Set(
-      posts
-        .flatMap((post) => post.data.categories ?? [])
-        .filter(Boolean)
-    )
-  );
+  const categories = Array.from(new Set(posts.flatMap((post) => post.data.categories ?? []).filter(Boolean)));
 
   const paths = [];
 
@@ -112,7 +106,10 @@ const summarize = (body: string) => {
             <p class="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
               <strong>Published:</strong> {formatDate(post.data.date)}
             </p>
-            <p class="mt-3 text-base md:text-lg leading-7 text-gray-900 dark:text-gray-100" set:html={summarize(post.body)} />
+            <p
+              class="mt-3 text-base md:text-lg leading-7 text-gray-900 dark:text-gray-100 prose prose-slate dark:prose-invert max-w-none"
+              set:html={summarize(post.body)}
+            />
             <a
               class="mt-4 inline-block font-semibold text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
               href={`/blog/${post.slug}/`}
@@ -124,16 +121,24 @@ const summarize = (body: string) => {
       }
     </div>
     <div class="flex items-center justify-between pt-4 text-indigo-800 dark:text-indigo-200 font-semibold">
-      <a class="hover:text-indigo-900 dark:hover:text-indigo-100" href={pageNumber === 2 ? `/category/${categorySlug}/` : `/category/${categorySlug}/page/${pageNumber - 1}/`}>
+      <a
+        class="hover:text-indigo-900 dark:hover:text-indigo-100"
+        href={pageNumber === 2 ? `/category/${categorySlug}/` : `/category/${categorySlug}/page/${pageNumber - 1}/`}
+      >
         ← Previous page
       </a>
-      {pageNumber < totalPages ? (
-        <a class="hover:text-indigo-900 dark:hover:text-indigo-100" href={`/category/${categorySlug}/page/${pageNumber + 1}/`}>
-          Next page →
-        </a>
-      ) : (
-        <span />
-      )}
+      {
+        pageNumber < totalPages ? (
+          <a
+            class="hover:text-indigo-900 dark:hover:text-indigo-100"
+            href={`/category/${categorySlug}/page/${pageNumber + 1}/`}
+          >
+            Next page →
+          </a>
+        ) : (
+          <span />
+        )
+      }
     </div>
   </section>
 </BaseLayout>
