@@ -5,16 +5,18 @@ const storageKey = 'color-scheme';
 <button
   id="themeToggle"
   type="button"
-  class="relative w-12 h-20 rounded-full bg-indigo-800 border border-indigo-700 shadow-inner flex items-stretch justify-center p-1 transition-colors hover:bg-indigo-700"
+  class="relative w-12 h-20 rounded-full bg-indigo-800 border border-indigo-700 shadow-inner flex items-stretch justify-center p-1 transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
   aria-label="Toggle color scheme"
+  aria-live="polite"
 >
-  <span class="sr-only">Toggle dark mode</span>
-  <div id="themeTrack" class="flex flex-col justify-start w-full h-full transition-all duration-200 ease-out">
+  <span class="sr-only" id="themeToggleLabel">Toggle color scheme</span>
+  <div id="themeTrack" class="flex flex-col justify-start w-full h-full transition-all duration-200 ease-out motion-reduce:transition-none">
     <div
       id="themeKnob"
-      class="h-9 rounded-full bg-white text-indigo-800 flex items-center justify-center shadow-md transition-all duration-200 ease-out"
+      class="h-9 rounded-full bg-white text-indigo-800 flex items-center justify-center shadow-md transition-all duration-200 ease-out motion-reduce:transition-none"
     ></div>
   </div>
+  <span class="sr-only" id="themeToggleStatus"></span>
 </button>
 
 <script>
@@ -47,6 +49,8 @@ const storageKey = 'color-scheme';
     </svg>
   `;
 
+  const status = document.getElementById('themeToggleStatus');
+
   const getStored = () => localStorage.getItem(storageKey) || 'system';
 
   const setVisual = (effectiveDark) => {
@@ -55,7 +59,11 @@ const storageKey = 'color-scheme';
     if (knob) {
       knob.innerHTML = effectiveDark ? moon : sun;
     }
-    btn?.setAttribute('aria-pressed', effectiveDark ? 'true' : 'false');
+    const pressed = effectiveDark ? 'true' : 'false';
+    btn?.setAttribute('aria-pressed', pressed);
+    if (status) {
+      status.textContent = effectiveDark ? 'Dark mode on' : 'Dark mode off';
+    }
   };
 
   const apply = (mode) => {
