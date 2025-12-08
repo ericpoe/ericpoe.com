@@ -27,9 +27,10 @@
 
 ## Testing Guidelines
 
-- No test harness yet; when adding, align with Jest/React Testing Library or Astro’s testing recommendations.
-- Name future test files `*.test.js` beside the unit under test; prefer component-level tests over snapshots.
-- Keep fixtures small and colocated; prefer msw for network mocking if needed.
+- Unit/component tests use Vitest (jsdom) with Testing Library helpers; place tests under `tests/unit` using `*.test.ts`.
+- End-to-end tests use Playwright; place specs under `tests/e2e`.
+- Commands: `npm run test` / `npm run test:unit` for unit tests, `npm run test:e2e` (or `npm run test:e2e:ui`) for E2E. Run lint and unit tests before PRs; run E2E when changing routes/layouts.
+- Keep fixtures small and colocated; prefer msw-style mocks if HTTP mocking is needed later.
 
 ## Commit & Pull Request Guidelines
 
