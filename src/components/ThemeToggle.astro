@@ -1,5 +1,5 @@
 ---
-const storageKey = 'color-scheme';
+
 ---
 
 <button
@@ -55,9 +55,12 @@ const storageKey = 'color-scheme';
 
   const status = document.getElementById('themeToggleStatus');
 
-  const getStored = () => localStorage.getItem(storageKey) || 'system';
+  const normalizeMode = (value: string | null): 'light' | 'dark' | 'system' =>
+    value === 'light' || value === 'dark' || value === 'system' ? value : 'system';
 
-  const setVisual = (effectiveDark) => {
+  const getStored = (): 'light' | 'dark' | 'system' => normalizeMode(localStorage.getItem(storageKey));
+
+  const setVisual = (effectiveDark: boolean) => {
     track?.classList.remove('justify-start', 'justify-end');
     track?.classList.add(effectiveDark ? 'justify-end' : 'justify-start');
     if (knob) {
@@ -70,7 +73,7 @@ const storageKey = 'color-scheme';
     }
   };
 
-  const apply = (mode) => {
+  const apply = (mode: 'light' | 'dark' | 'system') => {
     const effectiveDark = mode === 'dark' || (mode === 'system' && prefersDark.matches);
     root.classList.toggle('dark', effectiveDark);
     root.dataset.theme = effectiveDark ? 'dark' : 'light';
@@ -79,11 +82,15 @@ const storageKey = 'color-scheme';
     } else {
       localStorage.setItem(storageKey, mode);
     }
-    btn.dataset.mode = mode;
+
+    if (btn) {
+      btn.dataset.mode = mode;
+    }
+
     setVisual(effectiveDark);
   };
 
-  let current = getStored();
+  let current: 'light' | 'dark' | 'system' = getStored();
   apply(current);
 
   btn?.addEventListener('click', () => {
