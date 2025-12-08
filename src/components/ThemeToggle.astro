@@ -1,0 +1,53 @@
+---
+const storageKey = 'color-scheme';
+---
+
+<button
+  id="themeToggle"
+  type="button"
+  class="text-base md:text-lg font-medium text-white/90 bg-indigo-800 hover:bg-indigo-700 rounded px-3 py-2 transition-colors"
+  aria-label="Toggle color scheme"
+>
+  Theme: system
+</button>
+
+<script>
+  const storageKey = 'color-scheme';
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+
+  const labels = {
+    light: 'Theme: light',
+    dark: 'Theme: dark',
+    system: 'Theme: system',
+  };
+
+  const getStored = () => localStorage.getItem(storageKey) || 'system';
+  const apply = (mode) => {
+    const effectiveDark = mode === 'dark' || (mode === 'system' && prefersDark.matches);
+    root.classList.toggle('dark', effectiveDark);
+    if (mode === 'system') {
+      localStorage.removeItem(storageKey);
+    } else {
+      localStorage.setItem(storageKey, mode);
+    }
+    btn.textContent = labels[mode] ?? labels.system;
+    btn.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+    btn.dataset.mode = mode;
+  };
+
+  let current = getStored();
+  apply(current);
+
+  btn?.addEventListener('click', () => {
+    current = current === 'light' ? 'dark' : current === 'dark' ? 'system' : 'light';
+    apply(current);
+  });
+
+  prefersDark.addEventListener('change', () => {
+    if (!localStorage.getItem(storageKey)) {
+      apply('system');
+    }
+  });
+</script>

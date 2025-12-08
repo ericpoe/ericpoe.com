@@ -30,18 +30,22 @@ const summarize = (body: string) => {
 
 <BaseLayout pathname="/blog/">
   <div id="blogListing" class="px-2">
-    <h1 class="md:pb-8 md:pt-2">All Posts</h1>
+    <h1 class="md:pb-8 md:pt-2 dark:text-indigo-100">All Posts</h1>
     {
       posts.map((post) => (
         <article class="py-2 border-t-2 border-gray-300" id={post.slug}>
           <h2>
-            <a href={`/blog/${post.slug}/`}>{formatTitleMla(post.data.title)}</a>
+            <a class="text-indigo-900 dark:text-indigo-200" href={`/blog/${post.slug}/`}>
+              {formatTitleMla(post.data.title)}
+            </a>
           </h2>
-          <p class="my-1">
+          <p class="my-1 text-gray-700 dark:text-gray-300">
             <strong>Published:</strong> {formatDate(post.data.date)}
           </p>
-          <p class="my-2 leading-normal">{summarize(post.body)}</p>
-          <a href={`/blog/${post.slug}/`}>Read more...</a>
+          <p class="my-2 leading-normal text-gray-900 dark:text-gray-100">{summarize(post.body)}</p>
+          <a class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200" href={`/blog/${post.slug}/`}>
+            Read more...
+          </a>
         </article>
       ))
     }

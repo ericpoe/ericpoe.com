@@ -1,9 +1,13 @@
 ---
 import { siteMetadata } from '../data/siteMetadata';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<nav class="bg-indigo-900 text-4xl md:text-5xl m-0 py-5 px-6 w-full">
-  <a href="/" class="text-gray-100 no-underline">
-    {siteMetadata.title}
-  </a>
+<nav class="bg-indigo-900 m-0 py-5 px-6 w-full">
+  <div class="flex items-center justify-between gap-4">
+    <a href="/" class="text-gray-100 no-underline text-4xl md:text-5xl">
+      {siteMetadata.title}
+    </a>
+    <ThemeToggle />
+  </div>
 </nav>
