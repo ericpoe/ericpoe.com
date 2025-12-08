@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - MDX support and a reusable Figure component for accessible images with captions/links; posts converted to use it.
 - Manifest and icon now served from `public/` with trailing-slash routing.
 - Testing stack added: Vitest (jsdom) with Testing Library for units, Playwright for E2E, and npm scripts to run them.
+- Added `npm run check` usage to workflows; Astro check validates content collections and types.
 - ESLint migrated to flat config for v9; new `eslint.config.mjs` with Astro JS/TS support.
 - Tag listings with pagination (`/tag/[tag]/` and `/tag/[tag]/page/[page]/`), plus “Tagged with” chips on posts linking to those pages.
 - Category navigation links in the header and category listing pages (with pagination) for each category.

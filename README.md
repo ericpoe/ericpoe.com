@@ -16,7 +16,7 @@ Open the local dev server URL printed by Astro to view the site.
 - `npm run dev` — start the dev server
 - `npm run build` — production build
 - `npm run preview` — preview the production build locally
-- `npm run check` — Astro type/markup check
+- `npm run check` — Astro type/markup check (content collection validation and type diagnostics)
 - `npm run lint` — ESLint for `.astro`, `.ts`, and `.js`
 - `npm run format` — Prettier formatting
 - `npm run test` / `npm run test:unit` — Vitest unit tests (jsdom, Testing Library)
