@@ -63,6 +63,7 @@ const lowerWords = new Set([
   'upon',
   'within',
   'without',
+  'vs',
 ]);
 
 const isAcronym = (word: string) => word.length > 1 && word === word.toUpperCase() && /[A-Z]/.test(word);
