@@ -53,15 +53,15 @@ const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].jo
       </p>
     </div>
 
-    <div id="blogContent" class="leading-normal pt-4 space-y-4">
+    <div id="blogContent" class="leading-normal pt-4 space-y-4 prose prose-slate dark:prose-invert max-w-none">
       <Content />
     </div>
-    {post.data.tags?.length ? (
-      <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700">
-        <p class="text-base font-semibold text-gray-800 dark:text-gray-100">Tagged with:</p>
-        <div class="flex flex-wrap gap-2 mt-2">
-          {
-            post.data.tags.map((tag) => {
+    {
+      post.data.tags?.length ? (
+        <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <p class="text-base font-semibold text-gray-800 dark:text-gray-100">Tagged with:</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            {post.data.tags.map((tag) => {
               const tagSlug = slugify(tag);
               return (
                 <a
@@ -71,10 +71,10 @@ const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].jo
                   {tag.replace(/-/g, ' ')}
                 </a>
               );
-            })
-          }
+            })}
+          </div>
         </div>
-      </div>
-    ) : null}
+      ) : null
+    }
   </section>
 </BaseLayout>

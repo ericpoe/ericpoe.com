@@ -10,11 +10,15 @@ const storageKey = 'color-scheme';
   aria-live="polite"
 >
   <span class="sr-only" id="themeToggleLabel">Toggle color scheme</span>
-  <div id="themeTrack" class="flex flex-col justify-start w-full h-full transition-all duration-200 ease-out motion-reduce:transition-none">
+  <div
+    id="themeTrack"
+    class="flex flex-col justify-start w-full h-full transition-all duration-200 ease-out motion-reduce:transition-none"
+  >
     <div
       id="themeKnob"
       class="h-9 rounded-full bg-white text-indigo-800 flex items-center justify-center shadow-md transition-all duration-200 ease-out motion-reduce:transition-none"
-    ></div>
+    >
+    </div>
   </div>
   <span class="sr-only" id="themeToggleStatus"></span>
 </button>
