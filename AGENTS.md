@@ -12,9 +12,9 @@
 - Local dev server: `npm run dev`.
 - Build production bundle: `npm run build` (runs `astro build`).
 - Preview production build locally: `npm run preview`.
-- Lint: `npm run lint`; Format: `npm run format`; Type/markup check: `npm run check`.
-- After any code or content edits, run both lint and format before handing changes off.
-- No automated tests exist yet.
+- Lint: `npm run lint`; Format: `npm run format`; Type/markup check: `npm run check` (Astro content schema + type diagnostics).
+- Tests: `npm run test` / `npm run test:unit` (Vitest + Testing Library), `npm run test:e2e` (Playwright).
+- After any code or content edits, run lint, `npm run check`, and unit tests before handing changes off. Run E2E when changing layouts/routes.
 
 ## Coding Style & Naming Conventions
 

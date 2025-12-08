@@ -5,7 +5,7 @@ import { formatTitleMla } from '../utils/titleCase';
 
 const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const pageSize = 10;
-const pageNumber = 1;
+const pageNumber: number = 1;
 const totalPages = Math.ceil(allPosts.length / pageSize);
 const posts = allPosts.slice(0, pageSize);
 
