@@ -46,6 +46,22 @@
   #blogContent figcaption {
     @apply text-right italic;
   }
+
+  #blogContent a {
+    @apply text-indigo-900 dark:text-indigo-200 no-underline;
+  }
+
+  #blogContent a:hover {
+    @apply underline;
+  }
+
+  #colophonInfo a {
+    @apply text-indigo-900 dark:text-indigo-200 no-underline;
+  }
+
+  #colophonInfo a:hover {
+    @apply underline;
+  }
   :root[data-theme='dark'] .astro-code,
   .dark .astro-code,
   :root[data-theme='dark'] .astro-code span,
