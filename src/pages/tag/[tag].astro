@@ -115,7 +115,10 @@ const summarize = (body: string) => {
       <span></span>
       {
         totalPages > 1 && (
-          <a class="hover:text-indigo-900 dark:hover:text-indigo-100" href={`/tag/${tagSlug}/page/2/`}>
+          <a
+            class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
+            href={`/tag/${tagSlug}/page/2/`}
+          >
             Next page →
           </a>
         )
