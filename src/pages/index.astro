@@ -65,7 +65,7 @@ const summarize = (body: string) => {
     <div class="space-y-10">
       {
         posts.map((post) => (
-          <article class="border-b border-gray-200 pb-8 last:border-b-0" id={post.slug}>
+          <article class="border-b border-gray-300 pb-8 last:border-b-0" id={post.slug}>
             <h2 class="text-xl md:text-2xl font-semibold text-indigo-900 dark:text-indigo-200">
               <a class="no-underline hover:underline" href={`/blog/${post.slug}/`}>
                 {formatTitleMla(post.data.title)}
@@ -90,7 +90,10 @@ const summarize = (body: string) => {
     <div class="flex items-center justify-between pt-4 text-indigo-800 font-semibold">
       {
         pageNumber > 1 ? (
-          <a class="hover:text-indigo-900" href={pageNumber === 2 ? '/' : `/page/${pageNumber - 1}/`}>
+          <a
+            class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
+            href={pageNumber === 2 ? '/' : `/page/${pageNumber - 1}/`}
+          >
             ← Previous page
           </a>
         ) : (
@@ -99,7 +102,10 @@ const summarize = (body: string) => {
       }
       {
         pageNumber < totalPages && (
-          <a class="hover:text-indigo-900" href={`/page/${pageNumber + 1}/`}>
+          <a
+            class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
+            href={`/page/${pageNumber + 1}/`}
+          >
             Next page →
           </a>
         )
