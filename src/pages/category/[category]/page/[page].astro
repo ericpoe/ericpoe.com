@@ -1,4 +1,5 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { formatTitleMla } from '../../../../utils/titleCase';
@@ -6,9 +7,18 @@ import { slugify } from '../../../../utils/slugify';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  const categories = Array.from(new Set(posts.flatMap((post) => post.data.categories ?? []).filter(Boolean)));
+  const categories = Array.from(
+    new Set<string>(
+      posts
+        .flatMap((post) => post.data.categories ?? [])
+        .filter((cat): cat is string => typeof cat === 'string' && cat.trim().length > 0),
+    ),
+  );
 
-  const paths = [];
+  const paths: Array<{
+    params: { category: string; page: string };
+    props: { categoryName: string; categorySlug: string; pageNumber: number; totalPages: number; posts: any };
+  }> = [];
 
   for (const cat of categories) {
     const slug = slugify(cat);
@@ -35,7 +45,13 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { categoryName, categorySlug, pageNumber, totalPages, posts } = Astro.props;
+const { categoryName, categorySlug, pageNumber, totalPages, posts } = Astro.props as {
+  categoryName: string;
+  categorySlug: string;
+  pageNumber: number;
+  totalPages: number;
+  posts: CollectionEntry<'blog'>[];
+};
 
 if (!posts?.length) {
   return Astro.redirect('/404');
