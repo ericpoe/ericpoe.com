@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="HTTP 404: Page not found" pathname="/404">
+  <section class="leading-normal text-lg space-y-6">
+    <h1 class="text-3xl md:text-4xl font-semibold text-indigo-900 dark:text-indigo-100">HTTP 404: Page not found</h1>
+    <p class="text-gray-900 dark:text-gray-100">
+      The page you were looking for does not exist. It may have been moved or removed.
+    </p>
+    <a
+      href="/"
+      class="inline-block font-semibold text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200 no-underline hover:underline"
+    >
+      ← Return home
+    </a>
+  </section>
+</BaseLayout>

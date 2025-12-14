@@ -1,0 +1,115 @@
+---
+
+---
+
+<button
+  id="themeToggle"
+  type="button"
+  class="relative w-12 h-20 rounded-full bg-indigo-800 border border-indigo-700 shadow-inner flex items-stretch justify-center p-1 transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+  aria-label="Toggle color scheme"
+  aria-live="polite"
+>
+  <span class="sr-only" id="themeToggleLabel">Toggle color scheme</span>
+  <div
+    id="themeTrack"
+    class="flex flex-col justify-start w-full h-full transition-all duration-200 ease-out motion-reduce:transition-none"
+  >
+    <div
+      id="themeKnob"
+      class="h-9 rounded-full bg-white text-indigo-800 flex items-center justify-center shadow-md transition-all duration-200 ease-out motion-reduce:transition-none"
+    >
+    </div>
+  </div>
+  <span class="sr-only" id="themeToggleStatus"></span>
+</button>
+
+<script>
+  const storageKey = 'color-scheme';
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const track = document.getElementById('themeTrack');
+  const knob = document.getElementById('themeKnob');
+
+  const sun = `
+    <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
+      <circle cx="12" cy="12" r="4" fill="currentColor" />
+      <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="12" y1="1.5" x2="12" y2="4" />
+        <line x1="12" y1="20" x2="12" y2="22.5" />
+        <line x1="1.5" y1="12" x2="4" y2="12" />
+        <line x1="20" y1="12" x2="22.5" y2="12" />
+        <line x1="4.8" y1="4.8" x2="6.5" y2="6.5" />
+        <line x1="17.5" y1="17.5" x2="19.2" y2="19.2" />
+        <line x1="4.8" y1="19.2" x2="6.5" y2="17.5" />
+        <line x1="17.5" y1="6.5" x2="19.2" y2="4.8" />
+      </g>
+    </svg>
+  `;
+
+  const moon = `
+    <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
+      <path fill="currentColor" d="M20.354 15.354a1 1 0 0 0-1.066-.242A8 8 0 0 1 8.888 4.712a1 1 0 0 0-.242-1.066A1 1 0 0 0 7 4a10 10 0 1 0 13 13a1 1 0 0 0 .354-1.646Z"/>
+    </svg>
+  `;
+
+  const status = document.getElementById('themeToggleStatus');
+
+  const normalizeMode = (value: string | null): 'light' | 'dark' | 'system' =>
+    value === 'light' || value === 'dark' || value === 'system' ? value : 'system';
+
+  const getStored = (): 'light' | 'dark' | 'system' => normalizeMode(localStorage.getItem(storageKey));
+
+  const setVisual = (effectiveDark: boolean) => {
+    track?.classList.remove('justify-start', 'justify-end');
+    track?.classList.add(effectiveDark ? 'justify-end' : 'justify-start');
+    if (knob) {
+      knob.innerHTML = effectiveDark ? moon : sun;
+    }
+    const pressed = effectiveDark ? 'true' : 'false';
+    btn?.setAttribute('aria-pressed', pressed);
+    if (status) {
+      status.textContent = effectiveDark ? 'Dark mode on' : 'Dark mode off';
+    }
+  };
+
+  const apply = (mode: 'light' | 'dark' | 'system') => {
+    const effectiveDark = mode === 'dark' || (mode === 'system' && prefersDark.matches);
+    root.classList.toggle('dark', effectiveDark);
+    root.dataset.theme = effectiveDark ? 'dark' : 'light';
+    if (mode === 'system') {
+      localStorage.removeItem(storageKey);
+    } else {
+      localStorage.setItem(storageKey, mode);
+    }
+
+    if (btn) {
+      btn.dataset.mode = mode;
+    }
+
+    setVisual(effectiveDark);
+  };
+
+  let current: 'light' | 'dark' | 'system' = getStored();
+  apply(current);
+
+  btn?.addEventListener('click', () => {
+    const effectiveDark = btn.dataset.mode === 'dark' || (btn.dataset.mode === 'system' && prefersDark.matches);
+    current = effectiveDark ? 'light' : 'dark';
+    apply(current);
+  });
+
+  prefersDark.addEventListener('change', () => {
+    if (!localStorage.getItem(storageKey)) {
+      apply('system');
+    } else if (getStored() === 'system') {
+      apply('system');
+    }
+  });
+</script>
+
+<style>
+  #themeToggle {
+    min-width: 3rem;
+  }
+</style>

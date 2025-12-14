@@ -1,0 +1,7 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": ["src", "tests", "playwright.config.ts", "vitest.config.ts", "vitest.setup.ts"]
+}

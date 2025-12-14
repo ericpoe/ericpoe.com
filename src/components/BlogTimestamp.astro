@@ -1,0 +1,22 @@
+---
+interface Props {
+  createdAt: string;
+  lastEditedAt?: string;
+}
+
+const { createdAt, lastEditedAt }: Props = Astro.props;
+---
+
+<div id="blog-timestamp">
+  <p id="createdAt">
+    <strong>Created:</strong>
+    {createdAt}
+  </p>
+  {
+    lastEditedAt && (
+      <p id="lastEditedAt">
+        <strong>Updated:</strong> {lastEditedAt}
+      </p>
+    )
+  }
+</div>
