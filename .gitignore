@@ -1,6 +1,5 @@
 # Project dependencies
 .cache
-.config
 node_modules
 .astro
 
