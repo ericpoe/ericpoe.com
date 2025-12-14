@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Removed header-link to non-existent webmanifest
+
 ## [2.0.0] - 2025-12-14
 
 ### Added
