@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.0.0] - 2025-12-08
+## [2.0.0] - 2025-12-14
 
 ### Added
 
@@ -20,13 +20,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - ESLint migrated to flat config for v9; new `eslint.config.mjs` with Astro JS/TS support.
 - Tag listings with pagination (`/tag/[tag]/` and `/tag/[tag]/page/[page]/`), plus “Tagged with” chips on posts linking to those pages.
 - Category navigation links in the header and category listing pages (with pagination) for each category.
-
-### Added
-
-- Rebuilt site with Astro, Tailwind integration, and content collections for blog posts.
-- New Astro components/layouts for header, footer/colophon, SEO metadata, analytics, and blog timestamp.
-- MDX support and a reusable Figure component for accessible images with captions/links; posts converted to use it.
-- Manifest and icon now served from `public/` with trailing-slash routing.
 
 ### Changed
 
@@ -48,7 +41,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Gatsby-specific config, templates, and components; legacy static output and Gatsby build scripts.
 
-### [1.7.0] - 2023-12-39
+## [1.7.0] - 2023-12-29
 
 ### Added
 
@@ -251,7 +244,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-source-filesystem` to 2.0.20
 - Upgraded `gatsby-transformer-remark` to 2.2.4
 
-## [1.3.4] - 2018-11-18
+## [v1.3.4] - 2018-11-18
 
 ### Changed
 
@@ -274,7 +267,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - upgraded `react-dom` to 16.6.3
 - upgraded `tailwindcss` to 0.7.2
 
-## [1.3.3] - 2018-10-25
+## [v1.3.3] - 2018-10-25
 
 ### Changed
 
@@ -292,7 +285,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `react-dom` to 16.6.0
 - Upgraded `react-icons` to 3.2.2
 
-## [1.3.2] - 2018-10-01
+## [v1.3.2] - 2018-10-01
 
 ### Changed
 
@@ -304,7 +297,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-remark-prismjs` to 3.0.1
 - Upgraded `gatsby-transformer-remark` to 2.1.5
 
-## [1.3.1] - 2018-09-26
+## [v1.3.1] - 2018-09-26
 
 ### Changed
 
@@ -319,7 +312,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `prettier` to 1.14.3
 - Upgraded `eslint-config-prettier` to 3.1.0
 
-## [1.3.0] - 2018-09-26
+## [v1.3.0] - 2018-09-26
 
 ### Added
 
@@ -330,7 +323,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Renamed certain divs to their HTML5 semantic-web equivalents
 - Merged styles
 
-## [1.2.4] - 2018-09-17
+## [v1.2.4] - 2018-09-17
 
 ### Changed
 
@@ -350,13 +343,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `react` to 16.5.1
 - Upgraded `react-dom` to 16.5.1
 
-## [1.2.3] - 2018-09-17
+## [v1.2.3] - 2018-09-17
 
 ### Changed
 
 - Personalized web manifest
 
-## [1.2.2] - 2018-09-16
+## [v1.2.2] - 2018-09-16
 
 ### Added
 
@@ -367,7 +360,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - site metadata that should be unique for each page
 
-## [1.2.1] - 2018-09-12
+## [v1.2.1] - 2018-09-12
 
 ### Changed
 
@@ -378,7 +371,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `gatsby-source-filesystem` to the latest v2 rc
 - Upgraded `gatsby-transformer-remark` to the latest v2 rc
 
-## [1.2.0] - 2018-09-11
+## [v1.2.0] - 2018-09-11
 
 ### Changed
 
@@ -389,14 +382,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `tailwindcss` - For CSS styling
 - `purgecss` - To ensure the minimum amount of CSS is downloaded to the user's browser
 
-## [1.1.1] - 2018-09-09
+## [v1.1.1] - 2018-09-09
 
 ### Changed
 
 - Upgraded `react` to 16.5.0
 - Upgraded `react-dom` to 16.5.0
 
-## [1.1.0] - 2018-09-07
+## [v1.1.0] - 2018-09-07
 
 ### Changed
 
@@ -413,7 +406,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `gatsby-remark-images` and `gatsby-plugin-sharp` to be able to use images in markdown
 - `gatsby-plug-sitemap` for SEO stuff
 
-## [1.0.2] - 2018-09-06
+## [v1.0.2] - 2018-09-06
 
 ### Changed
 
@@ -423,14 +416,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Upgraded `eslint-config-gatsby-standard` from 1.2.2 to 2.0.0
   - Takes care of the deprecation error messages while linting. Yay!
 
-## [1.0.1] - 2018-09-04
+## [v1.0.1] - 2018-09-04
 
 ### Changed
 
 - Date format is converted to Zulu time and is displayed in Big Endian style. Today's date would be 2018-09-04 23:02
 - Moved draft filter from generator to graphql
 
-## [1.0] - 2018-09-03
+## [v1.0] - 2018-09-03
 
 ### Added
 
@@ -457,3 +450,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 
 - npm-based lock file since this project is using yarn instead
+
+[Unreleased]: https://github.com/ericpoe/ericpoe.com/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/ericpoe/ericpoe.com/compare/1.7.0...2.0.0
+[1.7.0]: https://github.com/ericpoe/ericpoe.com/compare/1.6.0...1.7.0
+[1.6.0]: https://github.com/ericpoe/ericpoe.com/compare/1.5.0...1.6.0
+[1.5.0]: https://github.com/ericpoe/ericpoe.com/compare/1.4.1...1.5.0
+[1.4.1]: https://github.com/ericpoe/ericpoe.com/compare/1.4.0...1.4.1
+[1.4.0]: https://github.com/ericpoe/ericpoe.com/compare/1.3.8...1.4.0
+[1.3.8]: https://github.com/ericpoe/ericpoe.com/compare/1.3.7...1.3.8
+[1.3.7]: https://github.com/ericpoe/ericpoe.com/compare/1.3.6...1.3.7
+[1.3.6]: https://github.com/ericpoe/ericpoe.com/compare/1.3.5...1.3.6
+[1.3.5]: https://github.com/ericpoe/ericpoe.com/compare/v1.3.4...1.3.5
+[v1.3.4]: https://github.com/ericpoe/ericpoe.com/compare/v1.3.3...v1.3.4
+[v1.3.3]: https://github.com/ericpoe/ericpoe.com/compare/v1.3.2...v1.3.3
+[v1.3.2]: https://github.com/ericpoe/ericpoe.com/compare/v1.3.1...v1.3.2
+[v1.3.1]: https://github.com/ericpoe/ericpoe.com/compare/v1.3.0...v1.3.1
+[v1.3.0]: https://github.com/ericpoe/ericpoe.com/compare/v1.2.4...v1.3.0
+[v1.2.4]: https://github.com/ericpoe/ericpoe.com/compare/v1.2.3...v1.2.4
+[v1.2.3]: https://github.com/ericpoe/ericpoe.com/compare/v1.2.2...v1.2.3
+[v1.2.2]: https://github.com/ericpoe/ericpoe.com/compare/v1.2.1...v1.2.2
+[v1.2.1]: https://github.com/ericpoe/ericpoe.com/compare/v1.2.0...v1.2.1
+[v1.2.0]: https://github.com/ericpoe/ericpoe.com/compare/v1.1.1...v1.2.0
+[v1.1.1]: https://github.com/ericpoe/ericpoe.com/compare/v1.1.0...v1.1.1
+[v1.1.0]: https://github.com/ericpoe/ericpoe.com/compare/v1.0.2...v1.1.0
+[v1.0.2]: https://github.com/ericpoe/ericpoe.com/compare/v1.0.1...v1.0.2
+[v1.0.1]: https://github.com/ericpoe/ericpoe.com/compare/v1.0...v1.0.1
+[v1.0]: https://github.com/ericpoe/ericpoe.com/releases/tag/v1.0
