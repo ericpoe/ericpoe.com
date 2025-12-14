@@ -1,18 +1,26 @@
 ---
-const trackingId = 'UA-56604616-1';
+const measurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 const isProd = import.meta.env.PROD;
+const shouldLoad = Boolean(isProd && measurementId);
 ---
 
 {
-  isProd && (
+  shouldLoad && (
     <>
-      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`} />
-      <script is:inline>
-        {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-if (navigator.doNotTrack !== '1' && window.doNotTrack !== '1') {
-  gtag('js', new Date());
-  gtag('config', 'UA-56604616-1', { anonymize_ip: true });
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} />
+      <script is:inline data-measurement-id={measurementId}>
+        {`const currentScript = document.currentScript;
+const gaMeasurementId = currentScript?.dataset.measurementId;
+if (!gaMeasurementId) {
+  console.warn('GA measurement ID missing; analytics not initialized.');
+} else {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  const dntEnabled = navigator.doNotTrack === '1' || window.doNotTrack === '1';
+  if (!dntEnabled) {
+    gtag('js', new Date());
+    gtag('config', gaMeasurementId, { anonymize_ip: true });
+  }
 }`}
       </script>
     </>
