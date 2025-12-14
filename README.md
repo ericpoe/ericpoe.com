@@ -1,6 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83c84a3d-5799-480f-b2ec-af18ee4c452e/deploy-status)](https://app.netlify.com/projects/optimistic-almeida-e676c5/deploys)
+
 # ericpoe.com
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/83c84a3d-5799-480f-b2ec-af18ee4c452e/deploy-status)](https://app.netlify.com/projects/optimistic-almeida-e676c5/deploys)
 Personal site and blog for Eric Poe, now built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
 
 ## Getting started
