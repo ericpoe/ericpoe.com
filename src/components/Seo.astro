@@ -7,7 +7,7 @@ type MaybeImage = ImageMetadata | string | undefined;
 interface Props {
   title?: string;
   description?: string;
-  keywords?: string;
+  keywords?: string | string[];
   pathname?: string;
   articleImage?: MaybeImage;
   articleImageAlt?: string;
@@ -29,6 +29,13 @@ const {
 }: Props = Astro.props;
 
 const url = new URL(pathname, siteMetadata.siteUrl).toString();
+const keywordList =
+  typeof keywords === 'string'
+    ? keywords
+        .split(',')
+        .map((keyword) => keyword.trim())
+        .filter(Boolean)
+    : (keywords ?? []);
 const imagePath =
   typeof articleImage === 'string'
     ? articleImage
@@ -41,15 +48,24 @@ const imageAlt = articleImageAlt ?? title;
 
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="locale" property="og:locale" content="en_US" />
-<meta name="title" property="og:title" content={title} />
-<meta name="description" property="og:description" content={description} />
-<meta name="url" property="og:url" content={url} />
-<meta name="image" property="og:image" content={image} />
-<meta name="og:image:alt" content={imageAlt} />
-<meta name="keywords" property="og:article:tag" content={keywords} />
-<meta name="publish_date" property="og:publish_date" content={articleCreatedAt} />
-<meta name="author" property="og:author_name" content="Eric Poe" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={image} />
+<meta property="og:image:alt" content={imageAlt} />
+<meta property="og:publish_date" content={articleCreatedAt} />
+<meta property="og:author_name" content="Eric Poe" />
+{
+  keywordList.length ? (
+    <>
+      <meta name="keywords" content={keywordList.join(', ')} />
+      {keywordList.map((keyword) => (
+        <meta property="article:tag" content={keyword} />
+      ))}
+    </>
+  ) : null
+}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:url" content={url} />

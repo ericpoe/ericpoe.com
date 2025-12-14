@@ -4,7 +4,7 @@ date: '2015-07-16T22:42:00Z'
 categories:
   - words
 tags:
-  - Chinese
+  - chinese
   - education
   - learning
   - math
