@@ -1,29 +1,35 @@
-# gatsby-starter-default
+# ericpoe.com
 
-The default Gatsby starter.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83c84a3d-5799-480f-b2ec-af18ee4c452e/deploy-status)](https://app.netlify.com/projects/optimistic-almeida-e676c5/deploys)
+Personal site and blog for Eric Poe, now built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
-
-## Install
-
-Make sure that you have the Gatsby CLI program installed:
-
-```sh
-npm install --global gatsby-cli
-```
-
-Install node packages:
+## Getting started
 
 ```sh
 npm install
+npm run dev
 ```
 
-Develop:
+Open the local dev server URL printed by Astro to view the site.
 
-```sh
-npm run develop
-```
+## Scripts
 
-## Deploy
+- `npm run dev` — start the dev server
+- `npm run build` — production build
+- `npm run preview` — preview the production build locally
+- `npm run check` — Astro type/markup check (content collection validation and type diagnostics)
+- `npm run lint` — ESLint for `.astro`, `.ts`, and `.js`
+- `npm run format` — Prettier formatting
+- `npm run test` / `npm run test:unit` — Vitest unit tests (jsdom, Testing Library)
+- `npm run test:e2e` — Playwright end-to-end tests (starts the dev server automatically)
+- `npm run test:e2e:ui` — Playwright’s interactive test runner
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+## Testing
+
+- Unit/component tests use [Vitest](https://vitest.dev/) with jsdom and Testing Library. Run with `npm run test` or `npm run test:unit`.
+- End-to-end tests use [Playwright](https://playwright.dev/). Run with `npm run test:e2e` (or `npm run test:e2e:ui` for the UI runner). The command will start the dev server if needed.
+- Coverage (from Vitest) lands in `coverage/`. Playwright artifacts (reports, traces) land under `playwright-report/` and `test-results/` and are git-ignored.
+
+## Content
+
+Blog posts live in `src/content/blog`. Images used inside posts live in `src/content/blog/images`. Static assets that should pass through unchanged live in `public`.

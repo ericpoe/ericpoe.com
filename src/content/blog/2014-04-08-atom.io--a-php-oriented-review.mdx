@@ -1,0 +1,37 @@
+---
+title: atom.io - A PHP-Oriented Review
+date: '2014-04-08T00:00:00Z'
+categories:
+  - programming
+tags:
+  - atomio
+  - ide
+  - php
+featuredImage_Url: ./images/vim-emacs-atomio.png
+featuredImage_Alt: 'Cartoon image by @tpope: Parody of Mac vs PC commercials from
+  the early 2000s. One man represents Vim and the other represents emacs. A third
+  man appears and claims to represent Atom. The first two men are then seen beating
+  up the Atom man.'
+lastEdited: '2022-01-02T18:30:26Z'
+---
+
+import Figure from '../../components/Figure.astro';
+import vimEmacsAtomio from './images/vim-emacs-atomio.png';
+
+<Figure
+  src={vimEmacsAtomio}
+  alt="Cartoon image by @tpope: Parody of Mac vs PC commercials from the early 2000s. One man represents Vim and the other represents emacs. A third man appears and claims to represent Atom. The first two men are then seen beating up the Atom man."
+  caption='Image credit: <a href="https://twitter.com/tpope">@tpope</a>'
+/>
+
+Last week, I gave a short demo of the [Atom.io](https://atom.io) text editor to the [Kansas City PHP User Group](https://kcphpug.org/). I realized after-the-fact that I had presented the early-release as an IDE, when I should have presented it as a fancy text-editor.
+
+Coming from using [PHPStorm](https://www.jetbrains.com/phpstorm/) as my primary PHP IDE, Atom seems like a cute, yet unintelligent cousin.
+
+I tried to find things to like about it from a PHP point-of-view. After enabling autocomplete and PHP snippets, I could appreciate the Atom.io text editor as just a text editor. Code completion is currently maddening in that it shows absolutely everything ever typed; therefore, it shows nothing of value. The code snippets were more interesting. Creating a foreach loop stub in PHP was as simple as typing `foreach <tab>`. If I were in a `<?php ... ?>` segment, I would get a nice foreach loop stub within which to fill in the blanks; yet, if I were in an `<html>...</html>` segment, I would get a nice `<?php foreach ... ?>` stub within which to fill in the blanks. I appreciate that the PHP, JavaScript, and HTML stubbing is container-aware.
+
+From a PHP point-of-view, that was the only positive which I could find for the Atom.io text editor. I made certain to explain that the editor is not yet ready for Prime Time nor are its PHP flavorings fully fleshed out. The editor holds great promise for PHP and code-in-general, but until it can fulfill that promise, I will prefer [VIM](https://www.vim.org/) for editing text and PHPStorm for a PHP IDE.
+
+After my largely negative review, I was still able to hand out at least 2 invites.
+
+I look forward to what comes next for Atom.io.
