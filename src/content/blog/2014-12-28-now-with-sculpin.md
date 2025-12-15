@@ -2,9 +2,11 @@
 title: Now with Sculpin
 date: '2014-12-28T20:40:00Z'
 categories:
+  - programming
   - tech
 tags:
   - git
+  - meta
   - sculpin
   - sysadmin
 ---
