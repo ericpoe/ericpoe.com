@@ -56,4 +56,4 @@ Taking the bait, I asked it my oft-repeated question from September: "Compare an
 
 ***
 
-One thing that makes me wary about this technology is that it misquotes and misattributes. The first item I tried to verify from this resopnse about Mercutio is 'earning him the title of "courageous captain of compliments"' which comes from [Romeo and Juliet 2.4.20-21](https://www.folger.edu/explore/shakespeares-works/romeo-and-juliet/read/2/4/#line-2.4.20), as Mercutio is describing Tybalt. Even though it is much less likely to hallucinate since it contains all of its source material, it still misses basics like a poor student.
+One thing that makes me wary about this technology is that it misquotes and misattributes. The first item I tried to verify from this resopnse about Mercutio is "earning him the title of 'courageous captain of compliments'" which comes from [Romeo and Juliet 2.4.20-21](https://www.folger.edu/explore/shakespeares-works/romeo-and-juliet/read/2/4/#line-2.4.20), as Mercutio is describing Tybalt. Even though NotebookLM is much less likely to hallucinate since it contains all of its source material, it still misses basics like a poor student.
