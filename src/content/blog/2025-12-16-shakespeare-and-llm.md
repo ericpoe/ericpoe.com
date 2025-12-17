@@ -53,3 +53,7 @@ Taking the bait, I asked it my oft-repeated question from September: "Compare an
 | **Temperature** | Mercutio is characterized by **"hot" blood and fire** ("hot a Jack in thy mood"); Rosencrantz pursues the "heat" of royal rewards. | Boiled broccoli, by contrast, suggests **"cold" or prepared food**, unlike the spontaneous "sharp sauce" of wit, or often contrasted with hot, desirable things (like "hot and rebellious liquors"). |
 >
 > Ultimately, both Mercutio and Rosencrantz demonstrate the *human* experience of being "made" by the world—Mercutio is "made" by passion, and Rosencrantz is "made" by patronage—while broccoli, representing the natural sphere, is merely a product waiting to be consumed or judged.
+
+***
+
+One thing that makes me wary about this technology is that it misquotes and misattributes. The first item I tried to verify from this resopnse about Mercutio is 'earning him the title of "courageous captain of compliments"' which comes from [Romeo and Juliet 2.4.20-21](https://www.folger.edu/explore/shakespeares-works/romeo-and-juliet/read/2/4/#line-2.4.20), as Mercutio is describing Tybalt. Even though it is much less likely to hallucinate since it contains all of its source material, it still misses basics like a poor student.
