@@ -4,6 +4,9 @@
   "license": "MIT",
   "author": "Eric Poe <eric.poe@gmail.com>",
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "build": "astro build",
     "check": "astro check",
