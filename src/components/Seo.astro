@@ -1,8 +1,6 @@
 ---
-import type { ImageMetadata } from 'astro';
 import { siteMetadata } from '../data/siteMetadata';
-
-type MaybeImage = ImageMetadata | string | undefined;
+import { buildCanonicalUrl, parseKeywords, resolveImageUrl, resolveImageAlt, type MaybeImage } from '../utils/seo';
 
 interface Props {
   title?: string;
@@ -28,22 +26,10 @@ const {
   type = 'website',
 }: Props = Astro.props;
 
-const url = new URL(pathname, siteMetadata.siteUrl).toString();
-const keywordList =
-  typeof keywords === 'string'
-    ? keywords
-        .split(',')
-        .map((keyword) => keyword.trim())
-        .filter(Boolean)
-    : (keywords ?? []);
-const imagePath =
-  typeof articleImage === 'string'
-    ? articleImage
-    : articleImage && 'src' in articleImage
-      ? articleImage.src
-      : siteMetadata.image;
-const image = new URL(imagePath, siteMetadata.siteUrl).toString();
-const imageAlt = articleImageAlt ?? title;
+const url = buildCanonicalUrl(pathname);
+const keywordList = parseKeywords(keywords);
+const image = resolveImageUrl(articleImage);
+const imageAlt = resolveImageAlt(articleImageAlt, title);
 ---
 
 <title>{title}</title>
