@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import Analytics from '../components/Analytics.astro';
 import Colophon from '../components/Colophon.astro';
 import Header from '../components/Header.astro';
@@ -35,6 +36,7 @@ const {
       type={type}
     />
     <Analytics />
+    <ClientRouter />
   </head>
   <body>
     <Header />
