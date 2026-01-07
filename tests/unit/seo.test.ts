@@ -1,10 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  buildCanonicalUrl,
-  parseKeywords,
-  resolveImageUrl,
-  resolveImageAlt,
-} from '../../src/utils/seo';
+import { buildCanonicalUrl, parseKeywords, resolveImageUrl, resolveImageAlt } from '../../src/utils/seo';
 import { siteMetadata } from '../../src/data/siteMetadata';
 
 describe('buildCanonicalUrl', () => {
@@ -25,11 +20,7 @@ describe('buildCanonicalUrl', () => {
 
 describe('parseKeywords', () => {
   it('parses comma-separated string', () => {
-    expect(parseKeywords('javascript, typescript, react')).toEqual([
-      'javascript',
-      'typescript',
-      'react',
-    ]);
+    expect(parseKeywords('javascript, typescript, react')).toEqual(['javascript', 'typescript', 'react']);
   });
 
   it('trims whitespace from keywords', () => {
@@ -57,9 +48,7 @@ describe('parseKeywords', () => {
 
 describe('resolveImageUrl', () => {
   it('uses string path directly', () => {
-    expect(resolveImageUrl('/images/custom.png')).toBe(
-      'https://www.ericpoe.com/images/custom.png',
-    );
+    expect(resolveImageUrl('/images/custom.png')).toBe('https://www.ericpoe.com/images/custom.png');
   });
 
   it('extracts src from ImageMetadata object', () => {
@@ -73,9 +62,7 @@ describe('resolveImageUrl', () => {
   });
 
   it('falls back to site default image when undefined', () => {
-    expect(resolveImageUrl(undefined)).toBe(
-      `https://www.ericpoe.com${siteMetadata.image}`,
-    );
+    expect(resolveImageUrl(undefined)).toBe(`https://www.ericpoe.com${siteMetadata.image}`);
   });
 });
 

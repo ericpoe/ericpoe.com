@@ -22,6 +22,7 @@ Run a single E2E test: `npx playwright test tests/e2e/home.spec.ts`
 This is an **Astro static site** (ericpoe.com) using file-based routing with React islands for interactivity.
 
 ### Content Flow
+
 Blog posts (`src/content/blog/*.md`) → Content Collection validation → Dynamic routes (`[slug].astro`) → Static HTML
 
 ### Key Patterns
@@ -31,6 +32,7 @@ Blog posts (`src/content/blog/*.md`) → Content Collection validation → Dynam
 **Dark Mode**: CSS class-based (`dark:` utilities). The `ThemeToggle.astro` component handles client-side persistence.
 
 **Content Collections**: Blog schema enforces:
+
 - Tags must be lowercase kebab-case (validated via regex)
 - Tags must be alphabetically sorted in frontmatter
 - Frontmatter order: `title`, `date`, `categories`, `tags`, `featuredImage_Url`, `featuredImage_Alt`
