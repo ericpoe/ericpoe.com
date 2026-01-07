@@ -13,7 +13,7 @@ export interface SeoInput {
 }
 
 export function buildCanonicalUrl(pathname: string = '/'): string {
-  return new URL(pathname, siteMetadata.siteUrl).toString();
+  return new globalThis.URL(pathname, siteMetadata.siteUrl).toString();
 }
 
 export function parseKeywords(keywords: string | string[] | undefined): string[] {
@@ -32,7 +32,7 @@ export function resolveImageUrl(articleImage: MaybeImage): string {
       : articleImage && 'src' in articleImage
         ? articleImage.src
         : siteMetadata.image;
-  return new URL(imagePath, siteMetadata.siteUrl).toString();
+  return new globalThis.URL(imagePath, siteMetadata.siteUrl).toString();
 }
 
 export function resolveImageAlt(articleImageAlt: string | undefined, title: string): string {
