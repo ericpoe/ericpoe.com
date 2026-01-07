@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- RSS feed at `/rss.xml` using `@astrojs/rss` for feed readers
+- View Transitions via Astro's `<ClientRouter />` for smooth page-to-page navigation
+- SEO utility module (`src/utils/seo.ts`) with testable functions for URL building, keyword parsing, and image resolution
+- Expanded unit tests for `slugify` and `formatTitleMla` utilities covering edge cases
+- New test suite for SEO utilities (`tests/unit/seo.test.ts`)
+- GitHub Actions workflows for CI: unit tests (`unit-tests.yml`) and E2E tests (`e2e-tests.yml`)
+
+### Changed
+
+- Refactored `Seo.astro` component to use extracted utility functions for better testability
+
 ### Fixed
 
 - Removed header-link to non-existent webmanifest
