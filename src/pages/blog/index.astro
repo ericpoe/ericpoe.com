@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { summarize } from '../../utils/summarize';
 import { formatTitleMla } from '../../utils/titleCase';
 
 const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -11,21 +12,6 @@ const formatDate = (date: Date) =>
     month: 'long',
     day: '2-digit',
   });
-
-const summarize = (body: string) => {
-  const clean = body
-    .replace(/^import .*$/gm, '')
-    .replace(/<Figure[\s\S]*?\/>/g, '')
-    .replace(/!\[.*?\]\(.*?\)/g, '')
-    .replace(/\[(.*?)\]\(.*?\)/g, '$1')
-    .replace(/^#{1,6}\s*/gm, '')
-    .replace(/[`#*>_-]/g, '')
-    .replace(/<\/?[^>]+>/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const words = clean.split(' ').slice(0, 60).join(' ');
-  return clean.length > words.length ? `${words}…` : words;
-};
 ---
 
 <BaseLayout pathname="/blog/">
