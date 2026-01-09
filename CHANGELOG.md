@@ -9,9 +9,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- GitHub Actions workflow for code quality checks (`code-quality.yml`) including type checking, linting, formatting, and Node version validation
+- Post summaries in RSS feed using new `summarize` utility that extracts plain-text from markdown/MDX content
+
 ### Changed
 
-### Fixed
+- CI workflows now use `.nvmrc` as single source of truth for Node version instead of hardcoded values
+- Moved type check and linter steps from `unit-tests.yml` to dedicated `code-quality.yml` workflow
+- Updated `jsdom` dev dependency from v26 to v27
+- Added `engines.node` constraint (`>=24`) to `package.json`
 
 ## [2.1.0] - 2026-01-07
 
