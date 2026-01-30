@@ -27,10 +27,8 @@
   const storageKey = 'color-scheme';
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
   const root = document.documentElement;
-  const btn = document.getElementById('themeToggle');
-  const track = document.getElementById('themeTrack');
-  const knob = document.getElementById('themeKnob');
 
+  // These are hardcoded SVG constants, not user input - safe to use with innerHTML
   const sun = `
     <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
       <circle cx="12" cy="12" r="4" fill="currentColor" />
@@ -53,57 +51,76 @@
     </svg>
   `;
 
-  const status = document.getElementById('themeToggleStatus');
-
   const normalizeMode = (value: string | null): 'light' | 'dark' | 'system' =>
     value === 'light' || value === 'dark' || value === 'system' ? value : 'system';
 
   const getStored = (): 'light' | 'dark' | 'system' => normalizeMode(localStorage.getItem(storageKey));
 
-  const setVisual = (effectiveDark: boolean) => {
-    track?.classList.remove('justify-start', 'justify-end');
-    track?.classList.add(effectiveDark ? 'justify-end' : 'justify-start');
-    if (knob) {
-      knob.innerHTML = effectiveDark ? moon : sun;
-    }
-    const pressed = effectiveDark ? 'true' : 'false';
-    btn?.setAttribute('aria-pressed', pressed);
-    if (status) {
-      status.textContent = effectiveDark ? 'Dark mode on' : 'Dark mode off';
-    }
-  };
+  function setKnobIcon(knob: HTMLElement, effectiveDark: boolean) {
+    // Using innerHTML with hardcoded SVG constants (not user input)
+    knob.innerHTML = effectiveDark ? moon : sun;
+  }
 
-  const apply = (mode: 'light' | 'dark' | 'system') => {
-    const effectiveDark = mode === 'dark' || (mode === 'system' && prefersDark.matches);
-    root.classList.toggle('dark', effectiveDark);
-    root.dataset.theme = effectiveDark ? 'dark' : 'light';
-    if (mode === 'system') {
-      localStorage.removeItem(storageKey);
-    } else {
-      localStorage.setItem(storageKey, mode);
-    }
+  function initThemeToggle() {
+    const btn = document.getElementById('themeToggle');
+    const track = document.getElementById('themeTrack');
+    const knob = document.getElementById('themeKnob');
+    const status = document.getElementById('themeToggleStatus');
 
-    if (btn) {
+    if (!btn || !track || !knob) return;
+
+    const setVisual = (effectiveDark: boolean) => {
+      track.classList.remove('justify-start', 'justify-end');
+      track.classList.add(effectiveDark ? 'justify-end' : 'justify-start');
+      setKnobIcon(knob, effectiveDark);
+      btn.setAttribute('aria-pressed', effectiveDark ? 'true' : 'false');
+      if (status) {
+        status.textContent = effectiveDark ? 'Dark mode on' : 'Dark mode off';
+      }
+    };
+
+    const apply = (mode: 'light' | 'dark' | 'system') => {
+      const effectiveDark = mode === 'dark' || (mode === 'system' && prefersDark.matches);
+      root.classList.toggle('dark', effectiveDark);
+      root.dataset.theme = effectiveDark ? 'dark' : 'light';
+      if (mode === 'system') {
+        localStorage.removeItem(storageKey);
+      } else {
+        localStorage.setItem(storageKey, mode);
+      }
       btn.dataset.mode = mode;
-    }
+      setVisual(effectiveDark);
+    };
 
-    setVisual(effectiveDark);
-  };
-
-  let current: 'light' | 'dark' | 'system' = getStored();
-  apply(current);
-
-  btn?.addEventListener('click', () => {
-    const effectiveDark = btn.dataset.mode === 'dark' || (btn.dataset.mode === 'system' && prefersDark.matches);
-    current = effectiveDark ? 'light' : 'dark';
+    let current: 'light' | 'dark' | 'system' = getStored();
     apply(current);
-  });
 
+    btn.onclick = () => {
+      const effectiveDark = btn.dataset.mode === 'dark' || (btn.dataset.mode === 'system' && prefersDark.matches);
+      current = effectiveDark ? 'light' : 'dark';
+      apply(current);
+    };
+  }
+
+  // Run on initial load and after each client-side navigation
+  document.addEventListener('astro:page-load', initThemeToggle);
+
+  // Handle system preference changes
   prefersDark.addEventListener('change', () => {
-    if (!localStorage.getItem(storageKey)) {
-      apply('system');
-    } else if (getStored() === 'system') {
-      apply('system');
+    const stored = getStored();
+    if (stored === 'system' || !localStorage.getItem(storageKey)) {
+      const effectiveDark = prefersDark.matches;
+      root.classList.toggle('dark', effectiveDark);
+      root.dataset.theme = effectiveDark ? 'dark' : 'light';
+      const knob = document.getElementById('themeKnob');
+      const track = document.getElementById('themeTrack');
+      const btn = document.getElementById('themeToggle');
+      if (knob && track && btn) {
+        track.classList.remove('justify-start', 'justify-end');
+        track.classList.add(effectiveDark ? 'justify-end' : 'justify-start');
+        setKnobIcon(knob, effectiveDark);
+        btn.setAttribute('aria-pressed', effectiveDark ? 'true' : 'false');
+      }
     }
   });
 </script>

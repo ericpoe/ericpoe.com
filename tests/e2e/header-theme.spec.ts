@@ -52,3 +52,52 @@ test('header links share the same theming as the site title in light and dark mo
   const categoryColorDark = await getColor(firstCategory);
   expect(categoryColorDark).toBe(titleColorDark);
 });
+
+test('theme toggle renders correctly after client-side navigation', async ({ page }) => {
+  await page.goto('/');
+  const toggle = page.getByRole('button', { name: /toggle color scheme/i });
+
+  // Verify toggle has icon on initial load (svg should be present in knob)
+  const knob = page.locator('#themeKnob');
+  await expect(knob.locator('svg')).toBeVisible();
+
+  // Navigate to a category page via client-side navigation
+  await page.getByRole('link', { name: 'Programming' }).click();
+  await expect(page).toHaveURL(/\/category\/programming\//);
+
+  // Verify toggle still has icon after navigation
+  await expect(toggle).toBeVisible();
+  await expect(knob.locator('svg')).toBeVisible();
+  await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+
+  // Verify toggle is still functional after navigation
+  await toggle.click();
+  await expect.poll(() => getRootIsDark(page)).toBe(true);
+  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+});
+
+test('theme state persists across client-side navigation', async ({ page }) => {
+  await page.goto('/');
+  const toggle = page.getByRole('button', { name: /toggle color scheme/i });
+
+  // Switch to dark mode
+  await toggle.click();
+  await expect.poll(() => getRootIsDark(page)).toBe(true);
+  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+
+  // Navigate to another page
+  await page.getByRole('link', { name: 'Programming' }).click();
+  await expect(page).toHaveURL(/\/category\/programming\//);
+
+  // Verify dark mode persists after navigation
+  await expect.poll(() => getRootIsDark(page)).toBe(true);
+  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+
+  // Navigate back home
+  await page.getByRole('link', { name: 'Eric Poe' }).click();
+  await expect(page).toHaveURL('/');
+
+  // Verify dark mode still persists
+  await expect.poll(() => getRootIsDark(page)).toBe(true);
+  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+});
