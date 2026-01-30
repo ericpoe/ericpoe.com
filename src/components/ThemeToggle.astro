@@ -116,9 +116,10 @@
       setKnobIcon(knob, mode);
       btn.setAttribute('aria-pressed', mode === 'dark' ? 'true' : mode === 'system' ? 'mixed' : 'false');
       if (status) {
-        const statusText = mode === 'system'
-          ? `System preference (${effectiveDark ? 'dark' : 'light'})`
-          : `${mode.charAt(0).toUpperCase() + mode.slice(1)} mode`;
+        const statusText =
+          mode === 'system'
+            ? `System preference (${effectiveDark ? 'dark' : 'light'})`
+            : `${mode.charAt(0).toUpperCase() + mode.slice(1)} mode`;
         status.textContent = statusText;
       }
     };
