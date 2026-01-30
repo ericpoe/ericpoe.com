@@ -39,7 +39,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.2",
     "@typescript-eslint/parser": "^8.53.1",
-    "astro": "^5.16.15",
+    "astro": "^5.17.1",
     "astro-eslint-parser": "^1.0.4",
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
