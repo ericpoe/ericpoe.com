@@ -13,21 +13,30 @@ const getRootIsDark = (page: import('@playwright/test').Page) =>
 const getColor = async (locator: import('@playwright/test').Locator) =>
   locator.evaluate((el) => getComputedStyle(el as HTMLElement).color);
 
-test('theme toggle switches light/dark and updates aria state', async ({ page }) => {
+test('theme toggle cycles through light, system, and dark modes', async ({ page }) => {
   await page.goto('/');
   const toggle = page.getByRole('button', { name: /toggle color scheme/i });
 
+  // Start in light mode
   await expect(toggle).toHaveAttribute('aria-label', /toggle color scheme/i);
   await expect(toggle).toHaveAttribute('aria-pressed', 'false');
   await expect.poll(() => getRootIsDark(page)).toBe(false);
 
+  // Click 1: light → system
   await toggle.click();
-  await expect.poll(() => getRootIsDark(page)).toBe(true);
-  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
-
-  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-pressed', 'mixed');
+  // System mode follows OS preference (light in test environment)
   await expect.poll(() => getRootIsDark(page)).toBe(false);
+
+  // Click 2: system → dark
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+  await expect.poll(() => getRootIsDark(page)).toBe(true);
+
+  // Click 3: dark → light (cycle complete)
+  await toggle.click();
   await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+  await expect.poll(() => getRootIsDark(page)).toBe(false);
 });
 
 test('header links share the same theming as the site title in light and dark modes', async ({ page }) => {
@@ -35,6 +44,7 @@ test('header links share the same theming as the site title in light and dark mo
 
   const titleLink = page.getByRole('link', { name: /eric poe/i });
   const firstCategory = page.locator('nav').getByRole('link').nth(1);
+  const toggle = page.getByRole('button', { name: /toggle color scheme/i });
 
   await expect(titleLink).toBeVisible();
   await expect(firstCategory).toBeVisible();
@@ -44,8 +54,9 @@ test('header links share the same theming as the site title in light and dark mo
   const categoryColorLight = await getColor(firstCategory);
   expect(categoryColorLight).toBe(titleColorLight);
 
-  // Switch to dark mode and ensure colors still match.
-  await page.getByRole('button', { name: /toggle color scheme/i }).click();
+  // Switch to dark mode (light → system → dark = 2 clicks)
+  await toggle.click(); // system
+  await toggle.click(); // dark
   await expect.poll(() => getRootIsDark(page)).toBe(true);
 
   const titleColorDark = await getColor(titleLink);
@@ -70,8 +81,10 @@ test('theme toggle renders correctly after client-side navigation', async ({ pag
   await expect(knob.locator('svg')).toBeVisible();
   await expect(toggle).toHaveAttribute('aria-pressed', 'false');
 
-  // Verify toggle is still functional after navigation
-  await toggle.click();
+  // Verify toggle is still functional after navigation (light → system → dark)
+  await toggle.click(); // system
+  await expect(toggle).toHaveAttribute('aria-pressed', 'mixed');
+  await toggle.click(); // dark
   await expect.poll(() => getRootIsDark(page)).toBe(true);
   await expect(toggle).toHaveAttribute('aria-pressed', 'true');
 });
@@ -80,8 +93,9 @@ test('theme state persists across client-side navigation', async ({ page }) => {
   await page.goto('/');
   const toggle = page.getByRole('button', { name: /toggle color scheme/i });
 
-  // Switch to dark mode
-  await toggle.click();
+  // Switch to dark mode (light → system → dark)
+  await toggle.click(); // system
+  await toggle.click(); // dark
   await expect.poll(() => getRootIsDark(page)).toBe(true);
   await expect(toggle).toHaveAttribute('aria-pressed', 'true');
 
@@ -100,4 +114,23 @@ test('theme state persists across client-side navigation', async ({ page }) => {
   // Verify dark mode still persists
   await expect.poll(() => getRootIsDark(page)).toBe(true);
   await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+});
+
+test('system mode persists across navigation and shows correct icon', async ({ page }) => {
+  await page.goto('/');
+  const toggle = page.getByRole('button', { name: /toggle color scheme/i });
+  const knob = page.locator('#themeKnob');
+
+  // Switch to system mode (light → system)
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-pressed', 'mixed');
+  await expect(knob.locator('svg')).toBeVisible();
+
+  // Navigate to another page
+  await page.getByRole('link', { name: 'Programming' }).click();
+  await expect(page).toHaveURL(/\/category\/programming\//);
+
+  // Verify system mode persists with icon
+  await expect(toggle).toHaveAttribute('aria-pressed', 'mixed');
+  await expect(knob.locator('svg')).toBeVisible();
 });
