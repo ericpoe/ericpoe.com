@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - GitHub Actions workflow for code quality checks (`code-quality.yml`) including type checking, linting, formatting, and Node version validation
 - Post summaries in RSS feed using new `summarize` utility that extracts plain-text from markdown/MDX content
+- RSS feed link in Colophon (footer) for easy feed discovery
+- Three-state theme toggle: light → system → dark, where system mode respects OS preference
+- New system mode icon showing small sun (upper-left) and moon (lower-right) with diagonal divider
+- E2E tests for theme toggle navigation persistence and three-state cycle
+
+### Fixed
+
+- Theme toggle not rendering correctly after client-side navigation (now uses `astro:page-load` event to reinitialize)
 
 ### Changed
 

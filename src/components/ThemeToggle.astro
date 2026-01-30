@@ -27,10 +27,8 @@
   const storageKey = 'color-scheme';
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
   const root = document.documentElement;
-  const btn = document.getElementById('themeToggle');
-  const track = document.getElementById('themeTrack');
-  const knob = document.getElementById('themeKnob');
 
+  // These are hardcoded SVG constants, not user input - safe to use with innerHTML
   const sun = `
     <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
       <circle cx="12" cy="12" r="4" fill="currentColor" />
@@ -53,57 +51,121 @@
     </svg>
   `;
 
-  const status = document.getElementById('themeToggleStatus');
+  // System icon: small sun (upper-left) / small moon (lower-right) split by diagonal
+  const system = `
+    <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
+      <!-- Small sun in upper-left area, centered at (7, 7) -->
+      <g transform="translate(7, 7) scale(0.5) translate(-12, -12)">
+        <circle cx="12" cy="12" r="4" fill="currentColor" />
+        <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4" />
+          <line x1="12" y1="20" x2="12" y2="22.5" />
+          <line x1="1.5" y1="12" x2="4" y2="12" />
+          <line x1="20" y1="12" x2="22.5" y2="12" />
+          <line x1="4.8" y1="4.8" x2="6.5" y2="6.5" />
+          <line x1="17.5" y1="17.5" x2="19.2" y2="19.2" />
+          <line x1="4.8" y1="19.2" x2="6.5" y2="17.5" />
+          <line x1="17.5" y1="6.5" x2="19.2" y2="4.8" />
+        </g>
+      </g>
+      <!-- Small moon in lower-right area, centered at (17, 17) -->
+      <g transform="translate(17, 17) scale(0.5) translate(-12, -12)">
+        <path fill="currentColor" d="M20.354 15.354a1 1 0 0 0-1.066-.242A8 8 0 0 1 8.888 4.712a1 1 0 0 0-.242-1.066A1 1 0 0 0 7 4a10 10 0 1 0 13 13a1 1 0 0 0 .354-1.646Z"/>
+      </g>
+      <!-- Diagonal divider line -->
+      <line x1="24" y1="0" x2="0" y2="24" stroke="currentColor" stroke-width="1" />
+    </svg>
+  `;
+
+  const icons: Record<'light' | 'dark' | 'system', string> = { light: sun, dark: moon, system };
 
   const normalizeMode = (value: string | null): 'light' | 'dark' | 'system' =>
     value === 'light' || value === 'dark' || value === 'system' ? value : 'system';
 
   const getStored = (): 'light' | 'dark' | 'system' => normalizeMode(localStorage.getItem(storageKey));
 
-  const setVisual = (effectiveDark: boolean) => {
-    track?.classList.remove('justify-start', 'justify-end');
-    track?.classList.add(effectiveDark ? 'justify-end' : 'justify-start');
-    if (knob) {
-      knob.innerHTML = effectiveDark ? moon : sun;
-    }
-    const pressed = effectiveDark ? 'true' : 'false';
-    btn?.setAttribute('aria-pressed', pressed);
-    if (status) {
-      status.textContent = effectiveDark ? 'Dark mode on' : 'Dark mode off';
-    }
+  // Cycle: light → system → dark → light
+  const nextMode: Record<'light' | 'dark' | 'system', 'light' | 'dark' | 'system'> = {
+    light: 'system',
+    system: 'dark',
+    dark: 'light',
   };
 
-  const apply = (mode: 'light' | 'dark' | 'system') => {
-    const effectiveDark = mode === 'dark' || (mode === 'system' && prefersDark.matches);
-    root.classList.toggle('dark', effectiveDark);
-    root.dataset.theme = effectiveDark ? 'dark' : 'light';
-    if (mode === 'system') {
-      localStorage.removeItem(storageKey);
-    } else {
-      localStorage.setItem(storageKey, mode);
-    }
+  function setKnobIcon(knob: HTMLElement, mode: 'light' | 'dark' | 'system') {
+    // Using innerHTML with hardcoded SVG constants (not user input)
+    knob.innerHTML = icons[mode];
+  }
 
-    if (btn) {
+  function initThemeToggle() {
+    const btn = document.getElementById('themeToggle');
+    const track = document.getElementById('themeTrack');
+    const knob = document.getElementById('themeKnob');
+    const status = document.getElementById('themeToggleStatus');
+
+    if (!btn || !track || !knob) return;
+
+    const setVisual = (mode: 'light' | 'dark' | 'system', effectiveDark: boolean) => {
+      track.classList.remove('justify-start', 'justify-center', 'justify-end');
+      if (mode === 'light') {
+        track.classList.add('justify-start');
+      } else if (mode === 'system') {
+        track.classList.add('justify-center');
+      } else {
+        track.classList.add('justify-end');
+      }
+      setKnobIcon(knob, mode);
+      btn.setAttribute('aria-pressed', mode === 'dark' ? 'true' : mode === 'system' ? 'mixed' : 'false');
+      if (status) {
+        const statusText =
+          mode === 'system'
+            ? `System preference (${effectiveDark ? 'dark' : 'light'})`
+            : `${mode.charAt(0).toUpperCase() + mode.slice(1)} mode`;
+        status.textContent = statusText;
+      }
+    };
+
+    const apply = (mode: 'light' | 'dark' | 'system') => {
+      const effectiveDark = mode === 'dark' || (mode === 'system' && prefersDark.matches);
+      root.classList.toggle('dark', effectiveDark);
+      root.dataset.theme = effectiveDark ? 'dark' : 'light';
+      if (mode === 'system') {
+        localStorage.removeItem(storageKey);
+      } else {
+        localStorage.setItem(storageKey, mode);
+      }
       btn.dataset.mode = mode;
-    }
+      setVisual(mode, effectiveDark);
+    };
 
-    setVisual(effectiveDark);
-  };
-
-  let current: 'light' | 'dark' | 'system' = getStored();
-  apply(current);
-
-  btn?.addEventListener('click', () => {
-    const effectiveDark = btn.dataset.mode === 'dark' || (btn.dataset.mode === 'system' && prefersDark.matches);
-    current = effectiveDark ? 'light' : 'dark';
+    let current: 'light' | 'dark' | 'system' = getStored();
     apply(current);
-  });
 
+    btn.onclick = () => {
+      current = nextMode[current];
+      apply(current);
+    };
+  }
+
+  // Run on initial load and after each client-side navigation
+  document.addEventListener('astro:page-load', initThemeToggle);
+
+  // Handle system preference changes
   prefersDark.addEventListener('change', () => {
-    if (!localStorage.getItem(storageKey)) {
-      apply('system');
-    } else if (getStored() === 'system') {
-      apply('system');
+    const stored = getStored();
+    if (stored === 'system' || !localStorage.getItem(storageKey)) {
+      const effectiveDark = prefersDark.matches;
+      root.classList.toggle('dark', effectiveDark);
+      root.dataset.theme = effectiveDark ? 'dark' : 'light';
+      const knob = document.getElementById('themeKnob');
+      const track = document.getElementById('themeTrack');
+      const btn = document.getElementById('themeToggle');
+      if (knob && track && btn) {
+        // Keep showing system icon, just update the theme
+        const status = document.getElementById('themeToggleStatus');
+        if (status) {
+          status.textContent = `System preference (${effectiveDark ? 'dark' : 'light'})`;
+        }
+      }
     }
   });
 </script>
