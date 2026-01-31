@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-01-31
+
 ### Added
 
 - GitHub Actions workflow for code quality checks (`code-quality.yml`) including type checking, linting, formatting, and Node version validation
@@ -490,7 +492,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - npm-based lock file since this project is using yarn instead
 
-[Unreleased]: https://github.com/ericpoe/ericpoe.com/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/ericpoe/ericpoe.com/compare/2.2.0...HEAD
+[2.1.0]: https://github.com/ericpoe/ericpoe.com/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/ericpoe/ericpoe.com/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/ericpoe/ericpoe.com/compare/1.7.0...2.0.0
 [1.7.0]: https://github.com/ericpoe/ericpoe.com/compare/1.6.0...1.7.0
