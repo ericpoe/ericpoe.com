@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- About page (`/about`) with bio and dynamic Topics section listing all blog tags alphabetically
+- About link in site header navigation
+
 ## [2.2.0] - 2026-01-31
 
 ### Added
