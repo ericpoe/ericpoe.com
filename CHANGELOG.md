@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Goodreads social link in Colophon
 - Netlify `_headers` file for cache control: HTML pages always revalidate, hashed assets in `/_astro/` cached immutably for 1 year
 
+### Changed
+
+- Improved semantic HTML: replaced generic `<div>` elements with `<header>`, `<footer>`, `<section>`, and `<nav aria-label="Pagination">` for better accessibility and document structure
+
 ### Fixed
 
 - Removed `/public` from `.gitignore` (Gatsby leftover - Astro uses `public/` for static assets, not build output)
