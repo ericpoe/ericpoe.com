@@ -9,8 +9,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- About page (`/about`) with bio and dynamic Topics section listing all blog tags alphabetically
+- About page (`/about`) with "Hello My Name Is" sticker, bio, and dynamic Topics section listing all blog tags alphabetically
 - About link in site header navigation
+- Goodreads social link in Colophon
+- Netlify `_headers` file for cache control: HTML pages always revalidate, hashed assets in `/_astro/` cached immutably for 1 year
+
+### Fixed
+
+- Removed `/public` from `.gitignore` (Gatsby leftover - Astro uses `public/` for static assets, not build output)
+
+### Removed
+
+- Orphaned `manifest.webmanifest` and unused `largeGlassesProfile.png` from `public/` folder
 
 ## [2.2.0] - 2026-01-31
 
