@@ -87,7 +87,7 @@ const summarize = (body: string) => {
         ))
       }
     </div>
-    <div class="flex items-center justify-between pt-4 text-indigo-800 font-semibold">
+    <nav aria-label="Pagination" class="flex items-center justify-between pt-4 text-indigo-800 font-semibold">
       {
         pageNumber > 1 ? (
           <a
@@ -110,6 +110,6 @@ const summarize = (body: string) => {
           </a>
         )
       }
-    </div>
+    </nav>
   </section>
 </BaseLayout>
