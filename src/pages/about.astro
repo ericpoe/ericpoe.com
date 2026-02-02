@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { slugify } from '../utils/slugify';
+
+const posts = await getCollection('blog');
+const tags = Array.from(new Set(posts.flatMap((post) => post.data.tags ?? []).filter(Boolean))).sort((a, b) =>
+  a.localeCompare(b),
+);
+---
+
+<BaseLayout title="About" pathname="/about">
+  <section class="max-w-3xl w-full mx-auto px-4 md:px-6 py-10 md:py-12 space-y-6">
+    <h1 class="text-3xl md:text-4xl font-semibold text-indigo-900 dark:text-indigo-100">About</h1>
+    <div class="prose prose-slate dark:prose-invert max-w-none text-gray-900 dark:text-gray-100">
+      <p>Hello, friend! I'm Eric Poe.</p>
+
+      <p>
+        I'm a developer manager and writer with a passion for exploring the intersection of technology and storytelling.
+        I enjoy delving into topics like programming, art, literature, and the Oxford comma.
+      </p>
+      <p>
+        I'd like to think that I would be described by <a
+          href="https://hitchhikers.fandom.com/wiki/Gag_Halfrunt"
+          title="Info about Gag Halfrunt from the Hitchhicker's Guide to the Galaxy"
+        >
+          Gag Halfrunt</a
+        > as "Just zis guy, you know?" Yet, I am merely a recovering English Literature major, who ended up with a bachelor's
+        degree in Information Technology (Computer Science with an emphasis in Business), science groupie, dad to two amazing
+        humans (it's their mother's fault), accidental Talmud scholar, composer, half-knit/half-wit, poetaster, humorist,
+        and permanent student of everything.
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      <h2 class="text-xl md:text-2xl font-semibold text-indigo-900 dark:text-indigo-100">Topics</h2>
+      <div class="flex flex-wrap gap-2">
+        {
+          tags.map((tag) => (
+            <a
+              href={`/tag/${slugify(tag)}/`}
+              class="inline-block px-3 py-1 text-sm font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-800 no-underline"
+            >
+              {tag}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
