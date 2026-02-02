@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- About page (`/about`) with bio and dynamic Topics section listing all blog tags alphabetically
+- About page (`/about`) with "Hello My Name Is" sticker, bio, and dynamic Topics section listing all blog tags alphabetically
 - About link in site header navigation
 - Netlify `_headers` file for cache control: HTML pages always revalidate, hashed assets in `/_astro/` cached immutably for 1 year
 
