@@ -1,5 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { slugify } from '../utils/slugify';
+
+const posts = await getCollection('blog');
+const tags = Array.from(new Set(posts.flatMap((post) => post.data.tags ?? []).filter(Boolean))).sort((a, b) =>
+  a.localeCompare(b),
+);
 ---
 
 <BaseLayout title="About" pathname="/about">
@@ -13,6 +20,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </p>
 
       <!-- Add more about yourself: your background, interests, what you write about, etc. -->
+    </div>
+
+    <div class="space-y-3">
+      <h2 class="text-xl md:text-2xl font-semibold text-indigo-900 dark:text-indigo-100">Topics</h2>
+      <div class="flex flex-wrap gap-2">
+        {
+          tags.map((tag) => (
+            <a
+              href={`/tag/${slugify(tag)}/`}
+              class="inline-block px-3 py-1 text-sm font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-800 no-underline"
+            >
+              {tag}
+            </a>
+          ))
+        }
+      </div>
     </div>
   </section>
 </BaseLayout>
