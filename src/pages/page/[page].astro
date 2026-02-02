@@ -104,7 +104,7 @@ const summarize = (body: string) => {
             </article>
           ))}
         </div>
-        <div class="flex items-center justify-between pt-4 text-indigo-800 font-semibold">
+        <nav aria-label="Pagination" class="flex items-center justify-between pt-4 text-indigo-800 font-semibold">
           <a
             class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
             href={pageNumber === 2 ? '/' : `/page/${pageNumber - 1}/`}
@@ -121,7 +121,7 @@ const summarize = (body: string) => {
           ) : (
             <span />
           )}
-        </div>
+        </nav>
       </section>
     </BaseLayout>
   )
