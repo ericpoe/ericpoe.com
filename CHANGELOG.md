@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Improved semantic HTML: replaced generic `<div>` elements with `<header>`, `<footer>`, `<section>`, and `<nav aria-label="Pagination">` for better accessibility and document structure
+- Upgraded ESLint from v9 to v10; added `@eslint/js` as explicit dependency (unbundled in v10) and removed deprecated `--ext` flag from lint script
 
 ### Fixed
 
