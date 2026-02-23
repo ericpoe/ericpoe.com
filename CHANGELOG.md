@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - About link in site header navigation
 - Goodreads social link in Colophon
 - Netlify `_headers` file for cache control: HTML pages always revalidate, hashed assets in `/_astro/` cached immutably for 1 year
+- Interactive `npm run post:new` wizard to create new blog MDX posts in `src/content/blog/` with GMT/UTC timestamps, title-based filenames, and category/tag selection from existing taxonomy
+- Post wizard support for mixed category/tag input (select existing options by number and/or type new values), plus tag normalization to lowercase kebab-case
+- Post wizard optional prompts for `featuredImage_Url` and `featuredImage_Alt` frontmatter fields
+- Post wizard `--dry-run` mode to preview filename and generated frontmatter without writing a file
+- Unit tests for post wizard helpers plus a fixture-based taxonomy harvesting test (`tests/unit/new-post-wizard.test.ts`)
 
 ### Changed
 

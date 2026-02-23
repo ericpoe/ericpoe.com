@@ -13,6 +13,7 @@
     "dev": "astro dev",
     "format": "prettier --write '**/*.{js,jsx,ts,astro,md,mdx}'",
     "lint": "eslint src",
+    "post:new": "node scripts/new-post.mjs",
     "preview": "astro preview",
     "test": "npm run test:unit",
     "test:e2e": "playwright test",
