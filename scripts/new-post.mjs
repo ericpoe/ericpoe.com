@@ -8,18 +8,22 @@ const BLOG_DIR = path.resolve('src/content/blog');
 const EXCLUDED_FILES = new Set(['2026-01-31-thoughts-on-ai-coding-agents.mdx']);
 const IS_DRY_RUN = process.argv.includes('--dry-run');
 
+// Format a Date as UTC ISO-8601 without milliseconds for frontmatter consistency
 export function toUtcIsoNoMs(date = new Date()) {
   return date.toISOString().replace(/\.\d{3}Z$/, 'Z');
 }
 
+// Left-pad numeric date parts used in filenames
 function pad2(value) {
   return String(value).padStart(2, '0');
 }
 
+// Build the YYYY-MM-DD prefix for generated filenames using UTC date parts
 export function toUtcDatePrefix(date = new Date()) {
   return `${date.getUTCFullYear()}-${pad2(date.getUTCMonth() + 1)}-${pad2(date.getUTCDate())}`;
 }
 
+// Convert a title into a filesystem-safe kebab-case slug
 export function slugify(title) {
   return title
     .normalize('NFKD')
@@ -30,21 +34,26 @@ export function slugify(title) {
     .replace(/-{2,}/g, '-');
 }
 
+// Quote YAML string values with single quotes and escape embedded apostrophes
 export function yamlSingleQuote(value) {
   return `'${String(value).replace(/'/g, "''")}'`;
 }
 
+// Extract the top YAML frontmatter block from a markdown or MDX file
 export function extractFrontmatter(content) {
+  // Read only the first YAML frontmatter block at the top of the file
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   return match ? match[1] : null;
 }
 
+// Read a YAML list field like categories/tags from a frontmatter string
 export function collectListValues(frontmatter, key) {
   const lines = frontmatter.split(/\r?\n/);
   const values = [];
   let inList = false;
 
   for (const line of lines) {
+    // We only collect list items while inside the requested frontmatter key
     if (new RegExp(`^${key}:\\s*$`).test(line)) {
       inList = true;
       continue;
@@ -69,11 +78,12 @@ export function collectListValues(frontmatter, key) {
 
   return values;
 }
-
+// Scan existing blog posts to build sorted unique category and tag option lists
 export async function getExistingTaxonomy({
   blogDir = BLOG_DIR,
   excludedFiles = EXCLUDED_FILES,
 } = {}) {
+  // Build prompt options from existing posts so the wizard stays in sync with current taxonomy
   const entries = await fs.readdir(blogDir, { withFileTypes: true });
   const categories = new Set();
   const tags = new Set();
@@ -102,6 +112,7 @@ export async function getExistingTaxonomy({
   };
 }
 
+// Print numbered options for interactive selection prompts
 function printOptions(label, options) {
   output.write(`\n${label}:\n`);
   options.forEach((option, index) => {
@@ -109,6 +120,7 @@ function printOptions(label, options) {
   });
 }
 
+// Normalize typed tags so they satisfy the repo kebab-case tag convention
 export function normalizeTagValue(tag) {
   return tag
     .trim()
@@ -118,6 +130,7 @@ export function normalizeTagValue(tag) {
     .replace(/-{2,}/g, '-');
 }
 
+// Parse comma-separated selections that may include indexes, typed values, or both
 export function parseMultiSelectOrTyped(inputText, options, { normalizeTyped } = {}) {
   const trimmed = inputText.trim();
   if (!trimmed) return [];
@@ -132,6 +145,7 @@ export function parseMultiSelectOrTyped(inputText, options, { normalizeTyped } =
   const values = [];
 
   for (const part of parts) {
+    // Numeric entries reference existing options; anything else is treated as a new typed value
     if (/^\d+$/.test(part)) {
       const index = Number(part);
       if (index < 1 || index > options.length) {
@@ -151,6 +165,7 @@ export function parseMultiSelectOrTyped(inputText, options, { normalizeTyped } =
   return [...new Set(values)];
 }
 
+// Prompt until a non-empty answer is provided
 async function askNonEmpty(rl, prompt) {
   while (true) {
     const answer = (await rl.question(prompt)).trim();
@@ -159,6 +174,7 @@ async function askNonEmpty(rl, prompt) {
   }
 }
 
+// Prompt for a yes/no answer with a default value
 async function askYesNo(rl, prompt, defaultValue = false) {
   const suffix = defaultValue ? ' [Y/n]: ' : ' [y/N]: ';
 
@@ -171,6 +187,7 @@ async function askYesNo(rl, prompt, defaultValue = false) {
   }
 }
 
+// Prompt for one or more selections from existing values, with optional typed additions
 async function askMultiSelect(rl, label, options) {
   if (options.length === 0) {
     output.write(`\nNo existing ${label.toLowerCase()} found.\n`);
@@ -193,10 +210,12 @@ async function askMultiSelect(rl, label, options) {
   }
 }
 
+// Read a single optional text value from the prompt
 async function askOptionalText(rl, prompt) {
   return (await rl.question(prompt)).trim();
 }
 
+// Optionally collect featured image frontmatter fields from the user
 async function askFeaturedImageFields(rl) {
   const include = await askYesNo(rl, 'Include featured image fields?', false);
   if (!include) {
@@ -222,7 +241,9 @@ async function askFeaturedImageFields(rl) {
   return { featuredImage_Url, featuredImage_Alt };
 }
 
+// Build the MDX starter file with frontmatter in repo-required key order
 export function buildFrontmatter({ title, dateIso, categories, tags, featuredImage }) {
+  // Keep frontmatter key order aligned with repo conventions and the content schema
   const lines = ['---', `title: ${yamlSingleQuote(title)}`, `date: '${dateIso}'`];
 
   lines.push(categories.length > 0 ? 'categories:' : 'categories: []');
@@ -248,10 +269,12 @@ export function buildFrontmatter({ title, dateIso, categories, tags, featuredIma
   return lines.join('\n');
 }
 
+// Find a non-conflicting output filename by appending a numeric suffix when needed
 export async function resolveUniqueFilePath(baseName) {
   let attempt = 0;
 
   while (true) {
+    // Avoid overwriting an existing post by suffixing -2, -3, etc
     const candidateName = attempt === 0 ? `${baseName}.mdx` : `${baseName}-${attempt + 1}.mdx`;
     const candidatePath = path.join(BLOG_DIR, candidateName);
 
@@ -264,6 +287,7 @@ export async function resolveUniqueFilePath(baseName) {
   }
 }
 
+// Run the interactive CLI flow and write or preview the generated post file
 export async function main() {
   const rl = readline.createInterface({ input, output });
 
@@ -306,6 +330,7 @@ const isDirectRun =
   process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isDirectRun) {
+  // Allow importing helpers in tests without starting the interactive CLI
   main().catch((error) => {
     console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;
