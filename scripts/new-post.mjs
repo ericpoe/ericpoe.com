@@ -2,11 +2,13 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
+import { fileURLToPath } from 'node:url';
 
 const BLOG_DIR = path.resolve('src/content/blog');
+const EXCLUDED_FILES = new Set(['2026-01-31-thoughts-on-ai-coding-agents.mdx']);
 const IS_DRY_RUN = process.argv.includes('--dry-run');
 
-function toUtcIsoNoMs(date = new Date()) {
+export function toUtcIsoNoMs(date = new Date()) {
   return date.toISOString().replace(/\.\d{3}Z$/, 'Z');
 }
 
@@ -14,11 +16,11 @@ function pad2(value) {
   return String(value).padStart(2, '0');
 }
 
-function toUtcDatePrefix(date = new Date()) {
+export function toUtcDatePrefix(date = new Date()) {
   return `${date.getUTCFullYear()}-${pad2(date.getUTCMonth() + 1)}-${pad2(date.getUTCDate())}`;
 }
 
-function slugify(title) {
+export function slugify(title) {
   return title
     .normalize('NFKD')
     .replace(/\p{Diacritic}/gu, '')
@@ -28,16 +30,16 @@ function slugify(title) {
     .replace(/-{2,}/g, '-');
 }
 
-function yamlSingleQuote(value) {
+export function yamlSingleQuote(value) {
   return `'${String(value).replace(/'/g, "''")}'`;
 }
 
-function extractFrontmatter(content) {
+export function extractFrontmatter(content) {
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   return match ? match[1] : null;
 }
 
-function collectListValues(frontmatter, key) {
+export function collectListValues(frontmatter, key) {
   const lines = frontmatter.split(/\r?\n/);
   const values = [];
   let inList = false;
@@ -68,16 +70,20 @@ function collectListValues(frontmatter, key) {
   return values;
 }
 
-async function getExistingTaxonomy() {
-  const entries = await fs.readdir(BLOG_DIR, { withFileTypes: true });
+export async function getExistingTaxonomy({
+  blogDir = BLOG_DIR,
+  excludedFiles = EXCLUDED_FILES,
+} = {}) {
+  const entries = await fs.readdir(blogDir, { withFileTypes: true });
   const categories = new Set();
   const tags = new Set();
 
   for (const entry of entries) {
     if (!entry.isFile()) continue;
     if (!/\.(md|mdx)$/i.test(entry.name)) continue;
+    if (excludedFiles.has(entry.name)) continue;
 
-    const fullPath = path.join(BLOG_DIR, entry.name);
+    const fullPath = path.join(blogDir, entry.name);
     const content = await fs.readFile(fullPath, 'utf8');
     const frontmatter = extractFrontmatter(content);
     if (!frontmatter) continue;
@@ -103,32 +109,46 @@ function printOptions(label, options) {
   });
 }
 
-function parseMultiSelect(inputText, options) {
+export function normalizeTagValue(tag) {
+  return tag
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-');
+}
+
+export function parseMultiSelectOrTyped(inputText, options, { normalizeTyped } = {}) {
   const trimmed = inputText.trim();
   if (!trimmed) return [];
 
-  const picks = trimmed
+  const parts = trimmed
     .split(',')
     .map((part) => part.trim())
     .filter(Boolean);
 
-  if (picks.length === 0) return [];
+  if (parts.length === 0) return [];
 
-  const indices = [];
-  for (const pick of picks) {
-    if (!/^\d+$/.test(pick)) {
-      throw new Error(`Invalid selection "${pick}". Use comma-separated numbers.`);
+  const values = [];
+
+  for (const part of parts) {
+    if (/^\d+$/.test(part)) {
+      const index = Number(part);
+      if (index < 1 || index > options.length) {
+        throw new Error(`Selection "${part}" is out of range (1-${options.length}).`);
+      }
+      values.push(options[index - 1]);
+      continue;
     }
 
-    const index = Number(pick);
-    if (index < 1 || index > options.length) {
-      throw new Error(`Selection "${pick}" is out of range (1-${options.length}).`);
+    const typedValue = normalizeTyped ? normalizeTyped(part) : part;
+    if (!typedValue) {
+      throw new Error(`Selection "${part}" did not produce a usable value.`);
     }
-
-    indices.push(index - 1);
+    values.push(typedValue);
   }
 
-  return [...new Set(indices)].map((i) => options[i]);
+  return [...new Set(values)];
 }
 
 async function askNonEmpty(rl, prompt) {
@@ -161,10 +181,12 @@ async function askMultiSelect(rl, label, options) {
 
   while (true) {
     const answer = await rl.question(
-      `Select ${label.toLowerCase()} by number (comma-separated, blank for none): `,
+      `Select ${label.toLowerCase()} by number and/or type new values (comma-separated, blank for none): `,
     );
     try {
-      return parseMultiSelect(answer, options);
+      return parseMultiSelectOrTyped(answer, options, {
+        normalizeTyped: label === 'Tags' ? normalizeTagValue : undefined,
+      });
     } catch (error) {
       output.write(`${error.message}\n`);
     }
@@ -200,7 +222,7 @@ async function askFeaturedImageFields(rl) {
   return { featuredImage_Url, featuredImage_Alt };
 }
 
-function buildFrontmatter({ title, dateIso, categories, tags, featuredImage }) {
+export function buildFrontmatter({ title, dateIso, categories, tags, featuredImage }) {
   const lines = ['---', `title: ${yamlSingleQuote(title)}`, `date: '${dateIso}'`];
 
   lines.push(categories.length > 0 ? 'categories:' : 'categories: []');
@@ -226,7 +248,7 @@ function buildFrontmatter({ title, dateIso, categories, tags, featuredImage }) {
   return lines.join('\n');
 }
 
-async function resolveUniqueFilePath(baseName) {
+export async function resolveUniqueFilePath(baseName) {
   let attempt = 0;
 
   while (true) {
@@ -242,7 +264,7 @@ async function resolveUniqueFilePath(baseName) {
   }
 }
 
-async function main() {
+export async function main() {
   const rl = readline.createInterface({ input, output });
 
   try {
@@ -280,7 +302,12 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : String(error));
-  process.exitCode = 1;
-});
+const isDirectRun =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectRun) {
+  main().catch((error) => {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exitCode = 1;
+  });
+}
