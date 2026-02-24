@@ -1,10 +1,12 @@
 ---
 import { Image } from 'astro:assets';
+import { sanitizeCaptionHtml } from '../utils/sanitizeCaptionHtml';
 
 const { src, alt, caption, loading = 'lazy', decoding = 'async', sizes = '100vw', format, width, height } = Astro.props;
 
 const isImageMetadata = typeof src === 'object' && src !== null && 'src' in src && 'width' in src && 'height' in src;
 const resolvedSrc = typeof src === 'string' ? src : (src as any)?.src;
+const safeCaption = typeof caption === 'string' ? sanitizeCaptionHtml(caption) : '';
 ---
 
 <figure class="my-4">
@@ -32,5 +34,5 @@ const resolvedSrc = typeof src === 'string' ? src : (src as any)?.src;
       />
     )
   }
-  {caption && <figcaption class="mt-2 text-sm text-gray-700" set:html={caption} />}
+  {safeCaption && <figcaption class="mt-2 text-sm text-gray-700" set:html={safeCaption} />}
 </figure>
