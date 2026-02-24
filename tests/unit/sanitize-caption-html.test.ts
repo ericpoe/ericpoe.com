@@ -10,9 +10,7 @@ describe('sanitizeCaptionHtml', () => {
 
   it('removes unsafe protocols and tags', () => {
     expect(
-      sanitizeCaptionHtml(
-        'Hi <img src=x onerror=alert(1)> <a href="javascript:alert(1)" onclick="alert(1)">click</a>',
-      ),
+      sanitizeCaptionHtml('Hi <img src=x onerror=alert(1)> <a href="javascript:alert(1)" onclick="alert(1)">click</a>'),
     ).toBe('Hi  click');
   });
 

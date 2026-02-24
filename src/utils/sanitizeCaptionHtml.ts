@@ -3,7 +3,7 @@ function escapeHtml(value: string): string {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/\"/g, '&quot;')
+    .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 }
 
@@ -51,8 +51,5 @@ export function sanitizeCaptionHtml(caption: string): string {
 
   const escaped = escapeHtml(withoutUnsafeTags);
 
-  return anchors.reduce(
-    (result, anchor, index) => result.replace(`${placeholderPrefix}${index}__`, anchor),
-    escaped,
-  );
+  return anchors.reduce((result, anchor, index) => result.replace(`${placeholderPrefix}${index}__`, anchor), escaped);
 }
