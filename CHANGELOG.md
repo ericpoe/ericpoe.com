@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- Baseline security headers plus context-aware CSP generation for Netlify deploys (enforced in production, report-only in deploy previews) via generated `dist/_headers` from `scripts/netlify-headers.config.mjs`
+- Externalized theme toggle and analytics scripts in `public/scripts/` to support stricter CSP policies
+- Unit tests for summary utilities (`summarize` / `summarizeHtml`) covering markdown/MDX cleanup and code-formatting edge cases
 - About page (`/about`) with "Hello My Name Is" sticker, bio, and dynamic Topics section listing all blog tags alphabetically
 - About link in site header navigation
 - Goodreads social link in Colophon
@@ -21,11 +24,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- Consolidated duplicated post-list summary generation into shared `summarizeHtml()` utility and reused it across homepage, pagination, tag, and category listing pages
+- Blog post meta descriptions now use plain-text summaries instead of slicing raw markdown/MDX bodies
+- `Seo.astro` now renders article-only Open Graph/article meta tags only for article pages and only when date values are present
+- Theme toggle behavior restored to match live-site look/actions after CSP script externalization; Tailwind safelist added for classes injected by `public/scripts/theme-toggle.js`
 - Improved semantic HTML: replaced generic `<div>` elements with `<header>`, `<footer>`, `<section>`, and `<nav aria-label="Pagination">` for better accessibility and document structure
 - Upgraded ESLint from v9 to v10; added `@eslint/js` as explicit dependency (unbundled in v10) and removed deprecated `--ext` flag from lint script
 
 ### Fixed
 
+- `Figure` captions are sanitized before `set:html` rendering and now inherit article text color for better dark-mode contrast
+- Blog post "Time to read" text now includes spacing between the number and unit
 - Removed `/public` from `.gitignore` (Gatsby leftover - Astro uses `public/` for static assets, not build output)
 
 ### Removed

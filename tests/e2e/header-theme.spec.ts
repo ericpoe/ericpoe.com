@@ -1,45 +1,145 @@
 import { expect, test } from '@playwright/test';
 
-test.beforeEach(async ({ context }) => {
-  // Start in light mode to make expectations deterministic.
-  await context.addInitScript(() => {
-    localStorage.setItem('color-scheme', 'light');
+type ToggleSnapshot = {
+  ariaPressed: string | null;
+  statusText: string;
+  rootIsDark: boolean;
+  storedMode: string | null;
+  trackHasStart: boolean;
+  trackHasCenter: boolean;
+  trackHasEnd: boolean;
+  iconLines: number;
+  iconPaths: number;
+  iconCircles: number;
+};
+
+const seedTheme = async (context: import('@playwright/test').BrowserContext, mode?: 'light' | 'dark' | 'system') => {
+  await context.addInitScript((value) => {
+    localStorage.removeItem('color-scheme');
+    if (value && value !== 'system') {
+      localStorage.setItem('color-scheme', value);
+    }
+  }, mode);
+};
+
+const getToggleSnapshot = async (page: import('@playwright/test').Page): Promise<ToggleSnapshot> =>
+  page.evaluate(() => {
+    const btn = document.getElementById('themeToggle');
+    const track = document.getElementById('themeTrack');
+    const knob = document.getElementById('themeKnob');
+    const status = document.getElementById('themeToggleStatus');
+    const svg = knob?.querySelector('svg');
+
+    return {
+      ariaPressed: btn?.getAttribute('aria-pressed') ?? null,
+      statusText: status?.textContent?.trim() ?? '',
+      rootIsDark: document.documentElement.classList.contains('dark'),
+      storedMode: localStorage.getItem('color-scheme'),
+      trackHasStart: track?.classList.contains('justify-start') ?? false,
+      trackHasCenter: track?.classList.contains('justify-center') ?? false,
+      trackHasEnd: track?.classList.contains('justify-end') ?? false,
+      iconLines: svg?.querySelectorAll('line').length ?? 0,
+      iconPaths: svg?.querySelectorAll('path').length ?? 0,
+      iconCircles: svg?.querySelectorAll('circle').length ?? 0,
+    };
   });
+
+// These visual assertions protect against Tailwind purge regressions for classes
+// used only in public/scripts/theme-toggle.js (e.g. justify-center, w-5, h-5)
+const expectSystemVisual = (snapshot: ToggleSnapshot) => {
+  expect(snapshot.ariaPressed).toBe('mixed');
+  expect(snapshot.statusText).toBe('System preference (light)');
+  expect(snapshot.rootIsDark).toBe(false);
+  expect(snapshot.storedMode).toBeNull();
+  expect(snapshot.trackHasCenter).toBe(true);
+  expect(snapshot.trackHasStart).toBe(false);
+  expect(snapshot.trackHasEnd).toBe(false);
+  expect(snapshot.iconLines).toBe(9);
+  expect(snapshot.iconPaths).toBe(1);
+  expect(snapshot.iconCircles).toBe(1);
+};
+
+const expectDarkVisual = (snapshot: ToggleSnapshot) => {
+  expect(snapshot.ariaPressed).toBe('true');
+  expect(snapshot.statusText).toBe('Dark mode');
+  expect(snapshot.rootIsDark).toBe(true);
+  expect(snapshot.storedMode).toBe('dark');
+  expect(snapshot.trackHasEnd).toBe(true);
+  expect(snapshot.trackHasStart).toBe(false);
+  expect(snapshot.trackHasCenter).toBe(false);
+  expect(snapshot.iconLines).toBe(0);
+  expect(snapshot.iconPaths).toBe(1);
+  expect(snapshot.iconCircles).toBe(0);
+};
+
+const expectLightVisual = (snapshot: ToggleSnapshot) => {
+  expect(snapshot.ariaPressed).toBe('false');
+  expect(snapshot.statusText).toBe('Light mode');
+  expect(snapshot.rootIsDark).toBe(false);
+  expect(snapshot.storedMode).toBe('light');
+  expect(snapshot.trackHasStart).toBe(true);
+  expect(snapshot.trackHasCenter).toBe(false);
+  expect(snapshot.trackHasEnd).toBe(false);
+  expect(snapshot.iconLines).toBe(8);
+  expect(snapshot.iconPaths).toBe(0);
+  expect(snapshot.iconCircles).toBe(1);
+};
+
+test('theme toggle matches live-site default visual state (system/light)', async ({ page, context }) => {
+  await seedTheme(context, 'system');
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto('/');
+
+  const toggle = page.getByRole('button', { name: /toggle color scheme/i });
+  await expect(toggle).toBeVisible();
+  await expect(page.locator('#themeKnob svg')).toBeVisible();
+
+  expectSystemVisual(await getToggleSnapshot(page));
 });
 
-const getRootIsDark = (page: import('@playwright/test').Page) =>
-  page.evaluate(() => document.documentElement.classList.contains('dark'));
-
-const getColor = async (locator: import('@playwright/test').Locator) =>
-  locator.evaluate((el) => getComputedStyle(el as HTMLElement).color);
-
-test('theme toggle cycles through light, system, and dark modes', async ({ page }) => {
+test('theme toggle cycles system -> dark -> light -> system with matching visuals', async ({ page, context }) => {
+  await seedTheme(context, 'system');
+  await page.emulateMedia({ colorScheme: 'light' });
   await page.goto('/');
+
   const toggle = page.getByRole('button', { name: /toggle color scheme/i });
 
-  // Start in light mode
-  await expect(toggle).toHaveAttribute('aria-label', /toggle color scheme/i);
-  await expect(toggle).toHaveAttribute('aria-pressed', 'false');
-  await expect.poll(() => getRootIsDark(page)).toBe(false);
+  expectSystemVisual(await getToggleSnapshot(page));
 
-  // Click 1: light → system
   await toggle.click();
-  await expect(toggle).toHaveAttribute('aria-pressed', 'mixed');
-  // System mode follows OS preference (light in test environment)
-  await expect.poll(() => getRootIsDark(page)).toBe(false);
+  expectDarkVisual(await getToggleSnapshot(page));
 
-  // Click 2: system → dark
   await toggle.click();
-  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
-  await expect.poll(() => getRootIsDark(page)).toBe(true);
+  expectLightVisual(await getToggleSnapshot(page));
 
-  // Click 3: dark → light (cycle complete)
   await toggle.click();
-  await expect(toggle).toHaveAttribute('aria-pressed', 'false');
-  await expect.poll(() => getRootIsDark(page)).toBe(false);
+  expectSystemVisual(await getToggleSnapshot(page));
 });
 
-test('header links share the same theming as the site title in light and dark modes', async ({ page }) => {
+test('theme state and visual position persist across client-side navigation', async ({ page, context }) => {
+  await seedTheme(context, 'dark');
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto('/');
+
+  let snapshot = await getToggleSnapshot(page);
+  expectDarkVisual(snapshot);
+
+  await page.getByRole('link', { name: 'Programming' }).click();
+  await expect(page).toHaveURL(/\/category\/programming\//);
+
+  snapshot = await getToggleSnapshot(page);
+  expectDarkVisual(snapshot);
+
+  await page.getByRole('link', { name: 'Eric Poe' }).click();
+  await expect(page).toHaveURL('/');
+
+  snapshot = await getToggleSnapshot(page);
+  expectDarkVisual(snapshot);
+});
+
+test('header links share the same theming as the site title in light and dark modes', async ({ page, context }) => {
+  await seedTheme(context, 'light');
+  await page.emulateMedia({ colorScheme: 'light' });
   await page.goto('/');
 
   const titleLink = page.getByRole('link', { name: /eric poe/i });
@@ -49,88 +149,13 @@ test('header links share the same theming as the site title in light and dark mo
   await expect(titleLink).toBeVisible();
   await expect(firstCategory).toBeVisible();
 
-  // Light mode colors should match.
-  const titleColorLight = await getColor(titleLink);
-  const categoryColorLight = await getColor(firstCategory);
+  const titleColorLight = await titleLink.evaluate((el) => getComputedStyle(el as HTMLElement).color);
+  const categoryColorLight = await firstCategory.evaluate((el) => getComputedStyle(el as HTMLElement).color);
   expect(categoryColorLight).toBe(titleColorLight);
 
-  // Switch to dark mode (light → system → dark = 2 clicks)
-  await toggle.click(); // system
-  await toggle.click(); // dark
-  await expect.poll(() => getRootIsDark(page)).toBe(true);
-
-  const titleColorDark = await getColor(titleLink);
-  const categoryColorDark = await getColor(firstCategory);
+  await toggle.click(); // light -> system
+  await toggle.click(); // system -> dark
+  const titleColorDark = await titleLink.evaluate((el) => getComputedStyle(el as HTMLElement).color);
+  const categoryColorDark = await firstCategory.evaluate((el) => getComputedStyle(el as HTMLElement).color);
   expect(categoryColorDark).toBe(titleColorDark);
-});
-
-test('theme toggle renders correctly after client-side navigation', async ({ page }) => {
-  await page.goto('/');
-  const toggle = page.getByRole('button', { name: /toggle color scheme/i });
-
-  // Verify toggle has icon on initial load (svg should be present in knob)
-  const knob = page.locator('#themeKnob');
-  await expect(knob.locator('svg')).toBeVisible();
-
-  // Navigate to a category page via client-side navigation
-  await page.getByRole('link', { name: 'Programming' }).click();
-  await expect(page).toHaveURL(/\/category\/programming\//);
-
-  // Verify toggle still has icon after navigation
-  await expect(toggle).toBeVisible();
-  await expect(knob.locator('svg')).toBeVisible();
-  await expect(toggle).toHaveAttribute('aria-pressed', 'false');
-
-  // Verify toggle is still functional after navigation (light → system → dark)
-  await toggle.click(); // system
-  await expect(toggle).toHaveAttribute('aria-pressed', 'mixed');
-  await toggle.click(); // dark
-  await expect.poll(() => getRootIsDark(page)).toBe(true);
-  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
-});
-
-test('theme state persists across client-side navigation', async ({ page }) => {
-  await page.goto('/');
-  const toggle = page.getByRole('button', { name: /toggle color scheme/i });
-
-  // Switch to dark mode (light → system → dark)
-  await toggle.click(); // system
-  await toggle.click(); // dark
-  await expect.poll(() => getRootIsDark(page)).toBe(true);
-  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
-
-  // Navigate to another page
-  await page.getByRole('link', { name: 'Programming' }).click();
-  await expect(page).toHaveURL(/\/category\/programming\//);
-
-  // Verify dark mode persists after navigation
-  await expect.poll(() => getRootIsDark(page)).toBe(true);
-  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
-
-  // Navigate back home
-  await page.getByRole('link', { name: 'Eric Poe' }).click();
-  await expect(page).toHaveURL('/');
-
-  // Verify dark mode still persists
-  await expect.poll(() => getRootIsDark(page)).toBe(true);
-  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
-});
-
-test('system mode persists across navigation and shows correct icon', async ({ page }) => {
-  await page.goto('/');
-  const toggle = page.getByRole('button', { name: /toggle color scheme/i });
-  const knob = page.locator('#themeKnob');
-
-  // Switch to system mode (light → system)
-  await toggle.click();
-  await expect(toggle).toHaveAttribute('aria-pressed', 'mixed');
-  await expect(knob.locator('svg')).toBeVisible();
-
-  // Navigate to another page
-  await page.getByRole('link', { name: 'Programming' }).click();
-  await expect(page).toHaveURL(/\/category\/programming\//);
-
-  // Verify system mode persists with icon
-  await expect(toggle).toHaveAttribute('aria-pressed', 'mixed');
-  await expect(knob.locator('svg')).toBeVisible();
 });

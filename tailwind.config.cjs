@@ -1,6 +1,9 @@
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}'],
+  // Theme toggle SVG/icon sizing and dynamic knob-position classes are injected from
+  // public/scripts/theme-toggle.js, which Tailwind does not scan
+  safelist: ['w-5', 'h-5', 'justify-center', 'justify-end'],
   theme: {
     extend: {
       typography: {

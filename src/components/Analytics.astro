@@ -4,25 +4,4 @@ const isProd = import.meta.env.PROD;
 const shouldLoad = Boolean(isProd && measurementId);
 ---
 
-{
-  shouldLoad && (
-    <>
-      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} />
-      <script is:inline data-measurement-id={measurementId}>
-        {`const currentScript = document.currentScript;
-const gaMeasurementId = currentScript?.dataset.measurementId;
-if (!gaMeasurementId) {
-  console.warn('GA measurement ID missing; analytics not initialized.');
-} else {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  const dntEnabled = navigator.doNotTrack === '1' || window.doNotTrack === '1';
-  if (!dntEnabled) {
-    gtag('js', new Date());
-    gtag('config', gaMeasurementId, { anonymize_ip: true });
-  }
-}`}
-      </script>
-    </>
-  )
-}
+{shouldLoad && <script is:inline src="/scripts/analytics.js" data-measurement-id={measurementId} />}
