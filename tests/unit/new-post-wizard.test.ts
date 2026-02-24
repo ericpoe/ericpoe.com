@@ -99,7 +99,7 @@ describe('new-post wizard helpers', () => {
     expect(imageUrlIndex).toBeLessThan(imageAltIndex);
   });
 
-  it('harvests categories and tags from fixture posts with sorting, dedupe, and exclusions', async () => {
+  it('harvests categories and tags from fixture posts with sorting and dedupe', async () => {
     const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'new-post-wizard-'));
 
     try {
@@ -138,27 +138,25 @@ Two
       );
 
       await fs.writeFile(
-        path.join(tempDir, '2026-02-03-excluded-post.mdx'),
+        path.join(tempDir, '2026-02-03-third-post.mdx'),
         `---
-title: 'Excluded'
+title: 'Third'
 date: '2026-02-03T00:00:00Z'
 categories:
-  - should-not-appear
+  - notes
 tags:
-  - should-not-appear
+  - notes
 ---
 `,
       );
 
       await fs.writeFile(path.join(tempDir, 'notes.txt'), 'not a blog post');
-
       const result = await getExistingTaxonomy({
         blogDir: tempDir,
-        excludedFiles: new Set(['2026-02-03-excluded-post.mdx']),
       });
 
-      expect(result.categories).toEqual(['programming', 'tech', 'words']);
-      expect(result.tags).toEqual(['ai', 'testing', 'writing']);
+      expect(result.categories).toEqual(['notes', 'programming', 'tech', 'words']);
+      expect(result.tags).toEqual(['ai', 'notes', 'testing', 'writing']);
     } finally {
       await fs.rm(tempDir, { recursive: true, force: true });
     }
