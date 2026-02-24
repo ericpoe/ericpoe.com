@@ -5,7 +5,6 @@ import { stdin as input, stdout as output } from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 const BLOG_DIR = path.resolve('src/content/blog');
-const EXCLUDED_FILES = new Set(['2026-01-31-thoughts-on-ai-coding-agents.mdx']);
 const IS_DRY_RUN = process.argv.includes('--dry-run');
 
 // Format a Date as UTC ISO-8601 without milliseconds for frontmatter consistency
@@ -81,7 +80,6 @@ export function collectListValues(frontmatter, key) {
 // Scan existing blog posts to build sorted unique category and tag option lists
 export async function getExistingTaxonomy({
   blogDir = BLOG_DIR,
-  excludedFiles = EXCLUDED_FILES,
 } = {}) {
   // Build prompt options from existing posts so the wizard stays in sync with current taxonomy
   const entries = await fs.readdir(blogDir, { withFileTypes: true });
@@ -91,7 +89,6 @@ export async function getExistingTaxonomy({
   for (const entry of entries) {
     if (!entry.isFile()) continue;
     if (!/\.(md|mdx)$/i.test(entry.name)) continue;
-    if (excludedFiles.has(entry.name)) continue;
 
     const fullPath = path.join(blogDir, entry.name);
     const content = await fs.readFile(fullPath, 'utf8');
