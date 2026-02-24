@@ -30,6 +30,7 @@ const url = buildCanonicalUrl(pathname);
 const keywordList = parseKeywords(keywords);
 const image = resolveImageUrl(articleImage);
 const imageAlt = resolveImageAlt(articleImageAlt, title);
+const isArticle = type === 'article';
 ---
 
 <title>{title}</title>
@@ -40,15 +41,21 @@ const imageAlt = resolveImageAlt(articleImageAlt, title);
 <meta property="og:url" content={url} />
 <meta property="og:image" content={image} />
 <meta property="og:image:alt" content={imageAlt} />
-<meta property="og:publish_date" content={articleCreatedAt} />
-<meta property="og:author_name" content="Eric Poe" />
+{
+  isArticle ? (
+    <>
+      {articleCreatedAt && <meta property="og:publish_date" content={articleCreatedAt} />}
+      <meta property="og:author_name" content="Eric Poe" />
+      {articleCreatedAt && <meta property="og:article:published_time" content={articleCreatedAt} />}
+      {articleUpdatedAt && <meta property="og:article:modified_time" content={articleUpdatedAt} />}
+    </>
+  ) : null
+}
 {
   keywordList.length ? (
     <>
       <meta name="keywords" content={keywordList.join(', ')} />
-      {keywordList.map((keyword) => (
-        <meta property="article:tag" content={keyword} />
-      ))}
+      {isArticle ? keywordList.map((keyword) => <meta property="article:tag" content={keyword} />) : null}
     </>
   ) : null
 }
@@ -59,10 +66,8 @@ const imageAlt = resolveImageAlt(articleImageAlt, title);
 <meta name="twitter:image" content={image} />
 <meta name="twitter:image:alt" content={imageAlt} />
 <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
-<meta name="og:type" content={type} />
-<meta name="og:article:published_time" content={articleCreatedAt} />
-<meta name="og:article:modified_time" content={articleUpdatedAt} />
-<meta name="og:site_name" content={siteMetadata.siteName} />
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={siteMetadata.siteName} />
 <link rel="canonical" href={url} />
 <link
   rel="icon"

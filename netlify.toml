@@ -1,0 +1,6 @@
+[build]
+  publish = "dist"
+  command = "npm run build && node ./scripts/generate-netlify-headers.mjs production"
+
+[context.deploy-preview]
+  command = "npm run build && node ./scripts/generate-netlify-headers.mjs deploy-preview"
