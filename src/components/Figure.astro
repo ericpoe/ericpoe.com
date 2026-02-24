@@ -34,5 +34,5 @@ const safeCaption = typeof caption === 'string' ? sanitizeCaptionHtml(caption) :
       />
     )
   }
-  {safeCaption && <figcaption class="mt-2 text-sm text-gray-700" set:html={safeCaption} />}
+  {safeCaption && <figcaption class="mt-2 text-sm" set:html={safeCaption} />}
 </figure>
