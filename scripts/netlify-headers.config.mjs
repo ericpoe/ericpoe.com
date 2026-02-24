@@ -8,11 +8,12 @@ const commonHeaders = {
 };
 
 // Build a single-line CSP string because Netlify's generated _headers format requires
-// one header value per line. Preview builds optionally allow Netlify's preview UI frame
-function buildCspReportOnly({ allowNetlifyPreviewFrame = false } = {}) {
+// one header value per line. Preview builds optionally allow Netlify's preview UI frame.
+// `upgrade-insecure-requests` only applies to enforced CSP, so omit it from report-only.
+function buildCsp({ allowNetlifyPreviewFrame = false, includeUpgradeInsecureRequests = false } = {}) {
   const frameSrc = allowNetlifyPreviewFrame ? "frame-src 'self' https://app.netlify.com" : "frame-src 'self'";
 
-  return [
+  const directives = [
     "default-src 'self'",
     "base-uri 'self'",
     "object-src 'none'",
@@ -29,8 +30,13 @@ function buildCspReportOnly({ allowNetlifyPreviewFrame = false } = {}) {
       'https://*.google-analytics.com',
     ].join(' '),
     frameSrc,
-    'upgrade-insecure-requests',
-  ].join('; ');
+  ];
+
+  if (includeUpgradeInsecureRequests) {
+    directives.push('upgrade-insecure-requests');
+  }
+
+  return directives.join('; ');
 }
 
 // Each header set is an ordered list of Netlify _headers rules. Rule order matters when
@@ -48,7 +54,7 @@ export const headerSets = {
       headers: {
         'Cache-Control': 'public, max-age=0, must-revalidate',
         ...commonHeaders,
-        'Content-Security-Policy-Report-Only': buildCspReportOnly(),
+        'Content-Security-Policy': buildCsp({ includeUpgradeInsecureRequests: true }),
       },
     },
     {
@@ -88,7 +94,7 @@ export const headerSets = {
       headers: {
         'Cache-Control': 'public, max-age=0, must-revalidate',
         ...commonHeaders,
-        'Content-Security-Policy-Report-Only': buildCspReportOnly({ allowNetlifyPreviewFrame: true }),
+        'Content-Security-Policy-Report-Only': buildCsp({ allowNetlifyPreviewFrame: true }),
       },
     },
     {
