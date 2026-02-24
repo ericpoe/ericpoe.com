@@ -4,6 +4,7 @@ import readingTime from 'reading-time';
 import BlogTimestamp from '../../components/BlogTimestamp.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { formatTitleMla } from '../../utils/titleCase';
+import { summarize } from '../../utils/summarize';
 import { slugify } from '../../utils/slugify';
 
 export async function getStaticPaths() {
@@ -21,11 +22,12 @@ const createdAt = post.data.date.toISOString();
 const updatedAt = post.data.lastEdited?.toISOString();
 const timeToRead = Math.max(1, Math.round(readingTime(post.body).minutes));
 const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].join(', ');
+const description = summarize(post.body ?? '', 30);
 ---
 
 <BaseLayout
   title={formatTitleMla(post.data.title)}
-  description={`${post.body.replace(/\s+/g, ' ').slice(0, 157)}...`}
+  description={description}
   pathname={`/blog/${post.slug}/`}
   keywords={keywords}
   articleImage={post.data.featuredImage_Url}
