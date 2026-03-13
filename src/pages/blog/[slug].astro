@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import readingTime from 'reading-time';
 import BlogTimestamp from '../../components/BlogTimestamp.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -10,17 +10,17 @@ import { slugify } from '../../utils/slugify';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 const createdAt = post.data.date.toISOString();
 const updatedAt = post.data.lastEdited?.toISOString();
-const timeToRead = Math.max(1, Math.round(readingTime(post.body).minutes));
+const timeToRead = Math.max(1, Math.round(readingTime(post.body ?? '').minutes));
 const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].join(', ');
 const description = summarize(post.body ?? '', 30);
 ---
@@ -28,7 +28,7 @@ const description = summarize(post.body ?? '', 30);
 <BaseLayout
   title={formatTitleMla(post.data.title)}
   description={description}
-  pathname={`/blog/${post.slug}/`}
+  pathname={`/blog/${post.id}/`}
   keywords={keywords}
   articleImage={post.data.featuredImage_Url}
   articleImageAlt={post.data.featuredImage_Alt}
