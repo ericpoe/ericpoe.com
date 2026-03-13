@@ -30,12 +30,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Theme toggle behavior restored to match live-site look/actions after CSP script externalization; Tailwind safelist added for classes injected by `public/scripts/theme-toggle.js`
 - Improved semantic HTML: replaced generic `<div>` elements with `<header>`, `<footer>`, `<section>`, and `<nav aria-label="Pagination">` for better accessibility and document structure
 - Upgraded ESLint from v9 to v10; added `@eslint/js` as explicit dependency (unbundled in v10) and removed deprecated `--ext` flag from lint script
+- Migrated Astro content collections to the Astro 6 API by moving `src/content/config.ts` to `src/content.config.ts` and switching the blog collection to the new `glob()` loader
+- Updated blog routes, RSS, and listing pages for Astro 6 content entry changes (`id` replaces `slug`, `body` is optional, and post rendering uses `render(post)`)
+- Upgraded dev tooling dependencies: `@typescript-eslint/parser` to `8.57.0`, `eslint` to `10.0.3`, `postcss` to `8.5.8`, and `vitest` to `4.1.0`
+- Migrated site styling from Tailwind CSS v3 with `@astrojs/tailwind` to Tailwind CSS v4 using `@tailwindcss/vite`
+- Updated Tailwind entry CSS to the v4 syntax, including `@import "tailwindcss"`, `@config`, a custom `dark` variant, and `@source inline()` for theme-toggle utility classes
+- Simplified styling setup by removing the old PostCSS config and deprecated Astro Tailwind integration
 
 ### Fixed
 
 - `Figure` captions are sanitized before `set:html` rendering and now inherit article text color for better dark-mode contrast
 - Blog post "Time to read" text now includes spacing between the number and unit
 - Removed `/public` from `.gitignore` (Gatsby leftover - Astro uses `public/` for static assets, not build output)
+- Theme toggle now initializes on the first full page load as well as on Astro client-side navigations, restoring the expected icon and `aria-pressed` state for E2E coverage
 
 ### Removed
 
