@@ -1,11 +1,12 @@
 ---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import PaginationNav from '../../components/PaginationNav.astro';
 import PostFeed from '../../components/PostFeed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { PAGE_SIZE, getTaxonomyItems } from '../../utils/blog';
 import { formatTitleMla } from '../../utils/titleCase';
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   const tags = await getTaxonomyItems('tags');
   return tags.map((tag) => ({
     params: { tag: tag.slug },
@@ -16,9 +17,9 @@ export async function getStaticPaths() {
       totalPages: tag.totalPages,
     },
   }));
-}
+}) satisfies GetStaticPaths;
 
-const { tagName, tagSlug, posts, totalPages } = Astro.props;
+const { tagName, tagSlug, posts, totalPages } = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>;
 
 if (!posts?.length) {
   return Astro.redirect('/404');

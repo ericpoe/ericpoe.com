@@ -6,7 +6,7 @@ export const PAGE_SIZE = 10;
 export type BlogPost = CollectionEntry<'blog'>;
 export type TaxonomyKey = 'categories' | 'tags';
 
-export interface PaginatedPosts {
+export interface PaginatedPosts extends Record<string, unknown> {
   pageNumber: number;
   totalPages: number;
   posts: BlogPost[];
