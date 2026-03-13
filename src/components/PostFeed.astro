@@ -1,0 +1,47 @@
+---
+import type { BlogPost } from '../utils/blog';
+import { formatBlogDate } from '../utils/blog';
+import { summarize, summarizeHtml } from '../utils/summarize';
+import { formatTitleMla } from '../utils/titleCase';
+
+interface Props {
+  posts: BlogPost[];
+  summaryMode?: 'html' | 'text';
+  sectionId?: string;
+}
+
+const { posts, summaryMode = 'html', sectionId }: Props = Astro.props;
+---
+
+<div class="space-y-10" id={sectionId}>
+  {
+    posts.map((post) => (
+      <article class="border-b border-gray-300 pb-8 last:border-b-0" id={post.id}>
+        <h2 class="text-xl md:text-2xl font-semibold text-indigo-900 dark:text-indigo-200">
+          <a class="no-underline hover:underline" href={`/blog/${post.id}/`}>
+            {formatTitleMla(post.data.title)}
+          </a>
+        </h2>
+        <p class="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
+          <strong>Published:</strong> {formatBlogDate(post.data.date)}
+        </p>
+        {summaryMode === 'html' ? (
+          <p
+            class="mt-3 text-base md:text-lg leading-7 text-gray-900 dark:text-gray-100 prose prose-slate dark:prose-invert max-w-none"
+            set:html={summarizeHtml(post.body ?? '')}
+          />
+        ) : (
+          <p class="mt-3 text-base md:text-lg leading-7 text-gray-900 dark:text-gray-100 prose prose-slate dark:prose-invert max-w-none">
+            {summarize(post.body ?? '')}
+          </p>
+        )}
+        <a
+          class="mt-4 inline-block font-semibold text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
+          href={`/blog/${post.id}/`}
+        >
+          Read more...
+        </a>
+      </article>
+    ))
+  }
+</div>

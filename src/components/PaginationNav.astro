@@ -1,0 +1,35 @@
+---
+interface Props {
+  previousHref?: string;
+  nextHref?: string;
+}
+
+const { previousHref, nextHref }: Props = Astro.props;
+---
+
+<nav
+  aria-label="Pagination"
+  class="flex items-center justify-between pt-4 text-indigo-800 dark:text-indigo-200 font-semibold"
+>
+  {
+    previousHref ? (
+      <a
+        class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
+        href={previousHref}
+      >
+        ← Previous page
+      </a>
+    ) : (
+      <span />
+    )
+  }
+  {
+    nextHref ? (
+      <a class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200" href={nextHref}>
+        Next page →
+      </a>
+    ) : (
+      <span />
+    )
+  }
+</nav>

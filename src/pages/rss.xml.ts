@@ -1,11 +1,11 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
 import { siteMetadata } from '../data/siteMetadata';
+import { getAllPosts } from '../utils/blog';
 import { summarize } from '../utils/summarize';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
-  const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const posts = await getAllPosts();
 
   return rss({
     title: siteMetadata.title,
