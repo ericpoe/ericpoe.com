@@ -1,10 +1,11 @@
 ---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import PaginationNav from '../../components/PaginationNav.astro';
 import PostFeed from '../../components/PostFeed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAllPosts, paginatePosts } from '../../utils/blog';
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   const allPosts = await getAllPosts();
   const { totalPages } = paginatePosts(allPosts, 1);
 
@@ -15,9 +16,9 @@ export async function getStaticPaths() {
       props: paginatePosts(allPosts, pageNumber),
     };
   });
-}
+}) satisfies GetStaticPaths;
 
-const { pageNumber, totalPages, posts } = Astro.props;
+const { pageNumber, totalPages, posts } = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>;
 ---
 
 {

@@ -39,6 +39,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Simplified styling setup by removing the old PostCSS config and deprecated Astro Tailwind integration
 - Refactored homepage, blog index, taxonomy pages, header navigation, About topics, and RSS feed to use shared blog/taxonomy utilities instead of duplicating collection queries and pagination logic
 - Expanded the lint script/config to cover tests, scripts, and root config files instead of only `src/`
+- Updated dynamic route pages to use Astro's `GetStaticPaths` and inferred `Astro.props` typing utilities
+- Added Astro's recommended generator meta tag to the shared layout head
 
 ### Fixed
 
