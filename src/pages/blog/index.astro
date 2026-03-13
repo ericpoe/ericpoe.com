@@ -19,9 +19,9 @@ const formatDate = (date: Date) =>
     <h1 class="md:pb-8 md:pt-2 dark:text-indigo-100">All Posts</h1>
     {
       posts.map((post) => (
-        <article class="py-2 border-t-2 border-gray-300" id={post.slug}>
+        <article class="py-2 border-t-2 border-gray-300" id={post.id}>
           <h2>
-            <a class="text-indigo-900 dark:text-indigo-200" href={`/blog/${post.slug}/`}>
+            <a class="text-indigo-900 dark:text-indigo-200" href={`/blog/${post.id}/`}>
               {formatTitleMla(post.data.title)}
             </a>
           </h2>
@@ -29,11 +29,11 @@ const formatDate = (date: Date) =>
             <strong>Published:</strong> {formatDate(post.data.date)}
           </p>
           <p class="my-2 leading-normal text-gray-900 dark:text-gray-100 prose prose-slate dark:prose-invert max-w-none">
-            {summarize(post.body)}
+            {summarize(post.body ?? '')}
           </p>
           <a
             class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
-            href={`/blog/${post.slug}/`}
+            href={`/blog/${post.id}/`}
           >
             Read more...
           </a>

@@ -127,6 +127,8 @@
     window.__themeToggleInitBound = true;
   }
 
+  initThemeToggle();
+
   // Handle system preference changes.
   if (!window.__themeToggleSystemChangeBound) {
     prefersDark.addEventListener('change', () => {
