@@ -1,30 +1,21 @@
 ---
-import { getCollection } from 'astro:content';
+import PaginationNav from '../../components/PaginationNav.astro';
+import PostFeed from '../../components/PostFeed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { slugify } from '../../utils/slugify';
+import { PAGE_SIZE, getTaxonomyItems } from '../../utils/blog';
 import { formatTitleMla } from '../../utils/titleCase';
-import { summarizeHtml } from '../../utils/summarize';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  const tags = Array.from(new Set(posts.flatMap((post) => post.data.tags ?? []).filter(Boolean)));
-
-  return tags.map((tag) => {
-    const slug = slugify(tag);
-    const taggedPosts = posts
-      .filter((post) => (post.data.tags ?? []).some((t) => slugify(t) === slug))
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-    return {
-      params: { tag: slug },
-      props: {
-        tagName: tag,
-        tagSlug: slug,
-        posts: taggedPosts.slice(0, 10),
-        totalPages: Math.ceil(taggedPosts.length / 10),
-      },
-    };
-  });
+  const tags = await getTaxonomyItems('tags');
+  return tags.map((tag) => ({
+    params: { tag: tag.slug },
+    props: {
+      tagName: tag.name,
+      tagSlug: tag.slug,
+      posts: tag.posts.slice(0, PAGE_SIZE),
+      totalPages: tag.totalPages,
+    },
+  }));
 }
 
 const { tagName, tagSlug, posts, totalPages } = Astro.props;
@@ -32,59 +23,14 @@ const { tagName, tagSlug, posts, totalPages } = Astro.props;
 if (!posts?.length) {
   return Astro.redirect('/404');
 }
-
-const formatDate = (date: Date) =>
-  date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit',
-  });
 ---
 
 <BaseLayout pathname={`/tag/${tagSlug}/`}>
   <section id="tagPosts" class="max-w-3xl w-full mx-auto px-4 md:px-6 py-10 md:py-12 space-y-8 md:space-y-10">
-    <h1 class="text-3xl md:text-4xl font-semibold dark:text-indigo-100">{tagName.replace(/-/g, ' ')}</h1>
-    <div class="space-y-10">
-      {
-        posts.map((post) => (
-          <article class="border-b border-gray-200 pb-8 last:border-b-0" id={post.id}>
-            <h2 class="text-xl md:text-2xl font-semibold text-indigo-900 dark:text-indigo-200">
-              <a class="no-underline hover:underline" href={`/blog/${post.id}/`}>
-                {formatTitleMla(post.data.title)}
-              </a>
-            </h2>
-            <p class="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
-              <strong>Published:</strong> {formatDate(post.data.date)}
-            </p>
-            <p
-              class="mt-3 text-base md:text-lg leading-7 text-gray-900 dark:text-gray-100 prose prose-slate dark:prose-invert max-w-none"
-              set:html={summarizeHtml(post.body ?? '')}
-            />
-            <a
-              class="mt-4 inline-block font-semibold text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
-              href={`/blog/${post.id}/`}
-            >
-              Read more...
-            </a>
-          </article>
-        ))
-      }
-    </div>
-    <nav
-      aria-label="Pagination"
-      class="flex items-center justify-between pt-4 text-indigo-800 dark:text-indigo-200 font-semibold"
-    >
-      <span></span>
-      {
-        totalPages > 1 && (
-          <a
-            class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
-            href={`/tag/${tagSlug}/page/2/`}
-          >
-            Next page →
-          </a>
-        )
-      }
-    </nav>
+    <h1 class="text-3xl md:text-4xl font-semibold dark:text-indigo-100">
+      {formatTitleMla(tagName.replace(/-/g, ' '))}
+    </h1>
+    <PostFeed posts={posts} />
+    <PaginationNav nextHref={totalPages > 1 ? `/tag/${tagSlug}/page/2/` : undefined} />
   </section>
 </BaseLayout>

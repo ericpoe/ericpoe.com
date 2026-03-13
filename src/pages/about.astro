@@ -1,12 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { slugify } from '../utils/slugify';
+import { getTaxonomyItems } from '../utils/blog';
 
-const posts = await getCollection('blog');
-const tags = Array.from(new Set(posts.flatMap((post) => post.data.tags ?? []).filter(Boolean))).sort((a, b) =>
-  a.localeCompare(b),
-);
+const tags = await getTaxonomyItems('tags');
 ---
 
 <style>
@@ -67,10 +63,10 @@ const tags = Array.from(new Set(posts.flatMap((post) => post.data.tags ?? []).fi
         {
           tags.map((tag) => (
             <a
-              href={`/tag/${slugify(tag)}/`}
+              href={`/tag/${tag.slug}/`}
               class="inline-block px-3 py-1 text-sm font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-800 no-underline"
             >
-              {tag}
+              {tag.name}
             </a>
           ))
         }
