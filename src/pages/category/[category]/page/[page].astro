@@ -1,119 +1,60 @@
 ---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
+import PaginationNav from '../../../../components/PaginationNav.astro';
+import PostFeed from '../../../../components/PostFeed.astro';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { PAGE_SIZE, getTaxonomyItems, paginatePosts } from '../../../../utils/blog';
 import { formatTitleMla } from '../../../../utils/titleCase';
-import { summarizeHtml } from '../../../../utils/summarize';
-import { slugify } from '../../../../utils/slugify';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  const categories = Array.from(
-    new Set<string>(
-      posts
-        .flatMap((post) => post.data.categories ?? [])
-        .filter((cat): cat is string => typeof cat === 'string' && cat.trim().length > 0),
-    ),
-  );
+export const getStaticPaths = (async () => {
+  const categories = await getTaxonomyItems('categories');
 
   const paths: Array<{
     params: { category: string; page: string };
-    props: { categoryName: string; categorySlug: string; pageNumber: number; totalPages: number; posts: any };
+    props: {
+      categoryName: string;
+      categorySlug: string;
+      pageNumber: number;
+      totalPages: number;
+      posts: CollectionEntry<'blog'>[];
+    };
   }> = [];
 
-  for (const cat of categories) {
-    const slug = slugify(cat);
-    const catPosts = posts
-      .filter((post) => (post.data.categories ?? []).some((c) => slugify(c) === slug))
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-    const totalPages = Math.ceil(catPosts.length / 10);
-    for (let page = 2; page <= totalPages; page++) {
-      const start = (page - 1) * 10;
+  for (const category of categories) {
+    for (let page = 2; page <= category.totalPages; page++) {
       paths.push({
-        params: { category: slug, page: String(page) },
+        params: { category: category.slug, page: String(page) },
         props: {
-          categoryName: cat,
-          categorySlug: slug,
-          pageNumber: page,
-          totalPages,
-          posts: catPosts.slice(start, start + 10),
+          categoryName: category.name,
+          categorySlug: category.slug,
+          ...paginatePosts(category.posts, page, PAGE_SIZE),
         },
       });
     }
   }
 
   return paths;
-}
+}) satisfies GetStaticPaths;
 
-const { categoryName, categorySlug, pageNumber, totalPages, posts } = Astro.props as {
-  categoryName: string;
-  categorySlug: string;
-  pageNumber: number;
-  totalPages: number;
-  posts: CollectionEntry<'blog'>[];
-};
+const { categoryName, categorySlug, pageNumber, totalPages, posts } = Astro.props as InferGetStaticPropsType<
+  typeof getStaticPaths
+>;
 
 if (!posts?.length) {
   return Astro.redirect('/404');
 }
-
-const formatDate = (date: Date) =>
-  date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit',
-  });
 ---
 
 <BaseLayout pathname={`/category/${categorySlug}/page/${pageNumber}/`}>
   <section id="categoryPosts" class="max-w-3xl w-full mx-auto px-4 md:px-6 py-10 md:py-12 space-y-8 md:space-y-10">
     <h1 class="text-3xl md:text-4xl font-semibold dark:text-indigo-100">{formatTitleMla(categoryName)}</h1>
-    <div class="space-y-10">
-      {
-        posts.map((post) => (
-          <article class="border-b border-gray-300 pb-8 last:border-b-0" id={post.id}>
-            <h2 class="text-xl md:text-2xl font-semibold text-indigo-900 dark:text-indigo-200">
-              <a class="no-underline hover:underline" href={`/blog/${post.id}/`}>
-                {formatTitleMla(post.data.title)}
-              </a>
-            </h2>
-            <p class="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
-              <strong>Published:</strong> {formatDate(post.data.date)}
-            </p>
-            <p
-              class="mt-3 text-base md:text-lg leading-7 text-gray-900 dark:text-gray-100 prose prose-slate dark:prose-invert max-w-none"
-              set:html={summarizeHtml(post.body ?? '')}
-            />
-            <a
-              class="mt-4 inline-block font-semibold text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
-              href={`/blog/${post.id}/`}
-            >
-              Read more...
-            </a>
-          </article>
-        ))
-      }
-    </div>
-    <div class="flex items-center justify-between pt-4 text-indigo-800 dark:text-indigo-200 font-semibold">
-      <a
-        class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
-        href={pageNumber === 2 ? `/category/${categorySlug}/` : `/category/${categorySlug}/page/${pageNumber - 1}/`}
-      >
-        ← Previous page
-      </a>
-      {
-        pageNumber < totalPages ? (
-          <a
-            class="text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
-            href={`/category/${categorySlug}/page/${pageNumber + 1}/`}
-          >
-            Next page →
-          </a>
-        ) : (
-          <span />
-        )
-      }
-    </div>
+    <PostFeed posts={posts} />
+    <PaginationNav
+      previousHref={pageNumber === 2
+        ? `/category/${categorySlug}/`
+        : `/category/${categorySlug}/page/${pageNumber - 1}/`}
+      nextHref={pageNumber < totalPages ? `/category/${categorySlug}/page/${pageNumber + 1}/` : undefined}
+    />
   </section>
 </BaseLayout>
