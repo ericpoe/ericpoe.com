@@ -72,9 +72,9 @@ const formatDate = (date: Date) =>
     <div class="space-y-10">
       {
         posts.map((post) => (
-          <article class="border-b border-gray-300 pb-8 last:border-b-0" id={post.slug}>
+          <article class="border-b border-gray-300 pb-8 last:border-b-0" id={post.id}>
             <h2 class="text-xl md:text-2xl font-semibold text-indigo-900 dark:text-indigo-200">
-              <a class="no-underline hover:underline" href={`/blog/${post.slug}/`}>
+              <a class="no-underline hover:underline" href={`/blog/${post.id}/`}>
                 {formatTitleMla(post.data.title)}
               </a>
             </h2>
@@ -83,11 +83,11 @@ const formatDate = (date: Date) =>
             </p>
             <p
               class="mt-3 text-base md:text-lg leading-7 text-gray-900 dark:text-gray-100 prose prose-slate dark:prose-invert max-w-none"
-              set:html={summarizeHtml(post.body)}
+              set:html={summarizeHtml(post.body ?? '')}
             />
             <a
               class="mt-4 inline-block font-semibold text-indigo-700 hover:text-indigo-900 dark:text-indigo-300 dark:hover:text-indigo-200"
-              href={`/blog/${post.slug}/`}
+              href={`/blog/${post.id}/`}
             >
               Read more...
             </a>
