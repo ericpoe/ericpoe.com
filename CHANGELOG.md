@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Post wizard optional prompts for `featuredImage_Url` and `featuredImage_Alt` frontmatter fields
 - Post wizard `--dry-run` mode to preview filename and generated frontmatter without writing a file
 - Unit tests for post wizard helpers plus a fixture-based taxonomy harvesting test (`tests/unit/new-post-wizard.test.ts`)
+- Shared blog data utilities and reusable `PostFeed` / `PaginationNav` components to centralize post sorting, taxonomy generation, and pagination rendering
 
 ### Changed
 
@@ -36,6 +37,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Migrated site styling from Tailwind CSS v3 with `@astrojs/tailwind` to Tailwind CSS v4 using `@tailwindcss/vite`
 - Updated Tailwind entry CSS to the v4 syntax, including `@import "tailwindcss"`, `@config`, a custom `dark` variant, and `@source inline()` for theme-toggle utility classes
 - Simplified styling setup by removing the old PostCSS config and deprecated Astro Tailwind integration
+- Refactored homepage, blog index, taxonomy pages, header navigation, About topics, and RSS feed to use shared blog/taxonomy utilities instead of duplicating collection queries and pagination logic
+- Expanded the lint script/config to cover tests, scripts, and root config files instead of only `src/`
+- Updated dynamic route pages to use Astro's `GetStaticPaths` and inferred `Astro.props` typing utilities
+- Added Astro's recommended generator meta tag to the shared layout head
 
 ### Fixed
 
@@ -43,6 +48,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Blog post "Time to read" text now includes spacing between the number and unit
 - Removed `/public` from `.gitignore` (Gatsby leftover - Astro uses `public/` for static assets, not build output)
 - Theme toggle now initializes on the first full page load as well as on Astro client-side navigations, restoring the expected icon and `aria-pressed` state for E2E coverage
+- Removed non-standard Open Graph article fields from `Seo.astro` and replaced them with standard article metadata plus a plain author meta tag
 
 ### Removed
 

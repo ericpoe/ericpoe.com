@@ -1,14 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import { siteMetadata } from '../data/siteMetadata';
-import { slugify } from '../utils/slugify';
+import { getTaxonomyItems } from '../utils/blog';
 import { formatTitleMla } from '../utils/titleCase';
 import ThemeToggle from './ThemeToggle.astro';
 
-const posts = await getCollection('blog');
-const categories = Array.from(new Set(posts.flatMap((post) => post.data.categories ?? []).filter(Boolean))).sort(
-  (a, b) => a.localeCompare(b),
-);
+const categories = await getTaxonomyItems('categories');
 ---
 
 <nav class="bg-indigo-900 m-0 py-5 px-6 w-full">
@@ -21,10 +17,9 @@ const categories = Array.from(new Set(posts.flatMap((post) => post.data.categori
     >
       {
         categories.map((cat) => {
-          const slug = slugify(cat);
           return (
-            <a class="no-underline hover:underline !text-gray-100 !dark:text-gray-100" href={`/category/${slug}/`}>
-              {formatTitleMla(cat)}
+            <a class="no-underline hover:underline !text-gray-100 !dark:text-gray-100" href={`/category/${cat.slug}/`}>
+              {formatTitleMla(cat.name)}
             </a>
           );
         })
