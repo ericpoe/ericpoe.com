@@ -42,7 +42,7 @@
     "@testing-library/react": "^16.3.2",
     "@typescript-eslint/parser": "^8.57.1",
     "astro": "^6.0.8",
-    "astro-eslint-parser": "^1.0.4",
+    "astro-eslint-parser": "^1.4.0",
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.6.0",
