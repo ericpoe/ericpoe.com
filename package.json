@@ -14,6 +14,8 @@
     "format": "prettier --write '**/*.{js,jsx,ts,astro,md,mdx}'",
     "lint": "eslint .",
     "post:new": "node scripts/new-post.mjs",
+    "pretest:e2e": "node scripts/ensure-playwright-browsers.mjs",
+    "pretest:e2e:ui": "node scripts/ensure-playwright-browsers.mjs",
     "preview": "astro preview",
     "test": "npm run test:unit",
     "test:e2e": "playwright test",

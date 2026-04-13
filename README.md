@@ -29,6 +29,7 @@ Open the local dev server URL printed by Astro to view the site.
 
 - Unit/component tests use [Vitest](https://vitest.dev/) with jsdom and Testing Library. Run with `npm run test` or `npm run test:unit`.
 - End-to-end tests use [Playwright](https://playwright.dev/). Run with `npm run test:e2e` (or `npm run test:e2e:ui` for the UI runner). The command will start the dev server if needed.
+- If `npm update` changes Playwright, run `npx playwright install` to refresh browser binaries. The E2E scripts now check for the Chromium executable up front and fail fast with that instruction if it is missing.
 - Coverage (from Vitest) lands in `coverage/`. Playwright artifacts (reports, traces) land under `playwright-report/` and `test-results/` and are git-ignored.
 
 ## Content
