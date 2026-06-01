@@ -1,5 +1,7 @@
 ---
-const measurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+import { PUBLIC_GA_MEASUREMENT_ID } from 'astro:env/client';
+
+const measurementId = PUBLIC_GA_MEASUREMENT_ID;
 const isProd = import.meta.env.PROD;
 const shouldLoad = Boolean(isProd && measurementId);
 ---

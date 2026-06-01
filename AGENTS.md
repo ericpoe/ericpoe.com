@@ -14,6 +14,7 @@
 - Preview production build locally: `npm run preview`.
 - Lint: `npm run lint`; Format: `npm run format`; Type/markup check: `npm run check` (Astro content schema + type diagnostics).
 - Tests: `npm run test` / `npm run test:unit` (Vitest + Testing Library), `npm run test:e2e` (Playwright).
+- CI tests: when asked to run CI tests, run `npm run check`, `npm run lint`, `npx prettier --check '**/*.{js,jsx,ts,astro,md,mdx}'`, `npm run test:unit`, `npm run build`, and `npm run test:e2e`.
 - After any code or content edits, run lint, `npm run check`, and unit tests before handing changes off. Run E2E when changing layouts/routes.
 
 ## Coding Style & Naming Conventions

@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+### Changed
+
+### Fixed
+
+### Removed
+
+## [2.3.0] - 2026-06-01
+
+### Added
+
 - Baseline security headers plus context-aware CSP generation for Netlify deploys (enforced in production, report-only in deploy previews) via generated `dist/_headers` from `scripts/netlify-headers.config.mjs`
 - Externalized theme toggle and analytics scripts in `public/scripts/` to support stricter CSP policies
 - Unit tests for summary utilities (`summarize` / `summarizeHtml`) covering markdown/MDX cleanup and code-formatting edge cases
@@ -22,6 +32,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Post wizard `--dry-run` mode to preview filename and generated frontmatter without writing a file
 - Unit tests for post wizard helpers plus a fixture-based taxonomy harvesting test (`tests/unit/new-post-wizard.test.ts`)
 - Shared blog data utilities and reusable `PostFeed` / `PaginationNav` components to centralize post sorting, taxonomy generation, and pagination rendering
+- E2E coverage that crawls rendered same-site pages and fails on broken local image links
+- Local copy of the PHP `array_filter` reaction GIF used by the 2015 post
+- Unit test coverage to catch non-standard inline HTML tags in blog Markdown/MDX content
 
 ### Changed
 
@@ -41,6 +54,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Expanded the lint script/config to cover tests, scripts, and root config files instead of only `src/`
 - Updated dynamic route pages to use Astro's `GetStaticPaths` and inferred `Astro.props` typing utilities
 - Added Astro's recommended generator meta tag to the shared layout head
+- Removed global Astro `ClientRouter` usage so the static blog uses normal page navigation
+- Theme preference is now applied earlier in the document head to reduce light/dark mode flash
+- Analytics now uses Astro's type-safe `astro:env/client` access for `PUBLIC_GA_MEASUREMENT_ID`
+- Tightened blog content schema validation for non-empty taxonomy values and required featured-image alt text
+- `Figure.astro` props are now explicitly typed
+- Replaced non-standard blog `<accr>` tags with standard `<abbr>` markup and added visible styling for titled abbreviations
 
 ### Fixed
 
@@ -49,6 +68,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removed `/public` from `.gitignore` (Gatsby leftover - Astro uses `public/` for static assets, not build output)
 - Theme toggle now initializes on the first full page load as well as on Astro client-side navigations, restoring the expected icon and `aria-pressed` state for E2E coverage
 - Removed non-standard Open Graph article fields from `Seo.astro` and replaced them with standard article metadata plus a plain author meta tag
+- Replaced a broken external GIF URL in the PHP `array_filter` post with a local Astro-processed image
+- Theme toggle storage handling now fails gracefully when `localStorage` is unavailable
 
 ### Removed
 
@@ -539,7 +560,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - npm-based lock file since this project is using yarn instead
 
-[Unreleased]: https://github.com/ericpoe/ericpoe.com/compare/2.2.0...HEAD
+[Unreleased]: https://github.com/ericpoe/ericpoe.com/compare/2.3.0...HEAD
+[2.3.0]: https://github.com/ericpoe/ericpoe.com/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/ericpoe/ericpoe.com/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/ericpoe/ericpoe.com/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/ericpoe/ericpoe.com/compare/1.7.0...2.0.0
