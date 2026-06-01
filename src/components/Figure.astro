@@ -15,8 +15,17 @@ interface Props {
   height?: number;
 }
 
-const { src, alt, caption, loading = 'lazy', decoding = 'async', sizes = '100vw', format, width, height }: Props =
-  Astro.props;
+const {
+  src,
+  alt,
+  caption,
+  loading = 'lazy',
+  decoding = 'async',
+  sizes = '100vw',
+  format,
+  width,
+  height,
+}: Props = Astro.props;
 
 const isImageMetadata = typeof src === 'object' && src !== null && 'src' in src && 'width' in src && 'height' in src;
 const resolvedSrc = typeof src === 'string' ? src : src.src;
