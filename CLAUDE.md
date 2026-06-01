@@ -14,6 +14,17 @@ npm run test         # Unit tests (Vitest)
 npm run test:e2e     # E2E tests (Playwright, auto-starts server)
 ```
 
+When asked to run CI tests, run:
+
+```bash
+npm run check
+npm run lint
+npx prettier --check '**/*.{js,jsx,ts,astro,md,mdx}'
+npm run test:unit
+npm run build
+npm run test:e2e
+```
+
 Run a single unit test: `npx vitest run tests/unit/slugify.test.ts`
 Run a single E2E test: `npx playwright test tests/e2e/home.spec.ts`
 
