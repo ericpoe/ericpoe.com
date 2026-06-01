@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Shared blog data utilities and reusable `PostFeed` / `PaginationNav` components to centralize post sorting, taxonomy generation, and pagination rendering
 - E2E coverage that crawls rendered same-site pages and fails on broken local image links
 - Local copy of the PHP `array_filter` reaction GIF used by the 2015 post
+- Unit test coverage to catch non-standard inline HTML tags in blog Markdown/MDX content
 
 ### Changed
 
@@ -58,6 +59,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Analytics now uses Astro's type-safe `astro:env/client` access for `PUBLIC_GA_MEASUREMENT_ID`
 - Tightened blog content schema validation for non-empty taxonomy values and required featured-image alt text
 - `Figure.astro` props are now explicitly typed
+- Replaced non-standard blog `<accr>` tags with standard `<abbr>` markup and added visible styling for titled abbreviations
 
 ### Fixed
 

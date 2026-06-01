@@ -65,7 +65,7 @@ beneficial to learning good programming practices, I try to incorporate TDD Kata
 into my weekly routine.
 
 I use TDD Kata to help me internalize new skills. My latest TDD kata have helped
-me learn to use [Composer](https://getcomposer.org/), [PSR-4](http://www.php-fig.org/psr/psr-4/), [PHPUnit](https://phpunit.de/), and basic <accr title="Object-Oriented Programming">OOP</accr>.
+me learn to use [Composer](https://getcomposer.org/), [PSR-4](http://www.php-fig.org/psr/psr-4/), [PHPUnit](https://phpunit.de/), and basic <abbr title="Object-Oriented Programming">OOP</abbr>.
 
 Some interesting TDD Kata to attempt can be found at the [Cyber Dojo](http://cyber-dojo.org/).
 
