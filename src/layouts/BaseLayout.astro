@@ -24,6 +24,25 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        let stored;
+
+        try {
+          stored = localStorage.getItem('color-scheme');
+        } catch {
+          stored = null;
+        }
+
+        const mode = stored === 'light' || stored === 'dark' ? stored : 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = mode === 'dark' || (mode === 'system' && prefersDark);
+
+        root.classList.toggle('dark', isDark);
+        root.dataset.theme = isDark ? 'dark' : 'light';
+      })();
+    </script>
     <Seo
       title={title}
       description={description}

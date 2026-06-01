@@ -57,7 +57,31 @@
   const normalizeMode = (value) =>
     value === 'light' || value === 'dark' || value === 'system' ? value : 'system';
 
-  const getStored = () => normalizeMode(localStorage.getItem(storageKey));
+  const readStoredMode = () => {
+    try {
+      return localStorage.getItem(storageKey);
+    } catch {
+      return null;
+    }
+  };
+
+  const writeStoredMode = (mode) => {
+    try {
+      localStorage.setItem(storageKey, mode);
+    } catch {
+      // Ignore storage failures; the current page can still reflect the chosen mode.
+    }
+  };
+
+  const clearStoredMode = () => {
+    try {
+      localStorage.removeItem(storageKey);
+    } catch {
+      // Ignore storage failures; system mode can still be applied for this page.
+    }
+  };
+
+  const getStored = () => normalizeMode(readStoredMode());
 
   // Cycle: light -> system -> dark -> light
   const nextMode = {
@@ -104,9 +128,9 @@
       root.classList.toggle('dark', effectiveDark);
       root.dataset.theme = effectiveDark ? 'dark' : 'light';
       if (mode === 'system') {
-        localStorage.removeItem(storageKey);
+        clearStoredMode();
       } else {
-        localStorage.setItem(storageKey, mode);
+        writeStoredMode(mode);
       }
       btn.dataset.mode = mode;
       setVisual(mode, effectiveDark);
@@ -133,7 +157,7 @@
   if (!window.__themeToggleSystemChangeBound) {
     prefersDark.addEventListener('change', () => {
       const stored = getStored();
-      if (stored === 'system' || !localStorage.getItem(storageKey)) {
+      if (stored === 'system' || !readStoredMode()) {
         const effectiveDark = prefersDark.matches;
         root.classList.toggle('dark', effectiveDark);
         root.dataset.theme = effectiveDark ? 'dark' : 'light';
