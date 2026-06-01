@@ -27,7 +27,7 @@ public function testFilterVowelWords()
 ```
 
 So, yay `array_filter`! But wait, what's this? There's an optional flag for `array_filter` that was introduced in PHP 5.6? It allows one to filter by array key, or if one is completely nuts, by both array value and array key. Woah.
-![A surprised reaction GIF](images/php-array-filter-reaction.gif)
+![A young Keanu Reeves and Alex Winter from "Bill and Ted's Excellent Adventure" saying, "Woah."](images/php-array-filter-reaction.gif)
 
 So, if one were to filter by key, easy-peasy. The flag is `ARRAY_FILTER_USE_KEY`:
 
