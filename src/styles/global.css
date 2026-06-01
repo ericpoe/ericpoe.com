@@ -34,6 +34,11 @@
     padding-left: theme('padding.4');
   }
 
+  abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+  }
+
   blockquote {
     padding-left: theme('padding.4');
     font-style: italic;

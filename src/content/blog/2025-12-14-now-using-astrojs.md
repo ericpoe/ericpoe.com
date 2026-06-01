@@ -32,7 +32,7 @@ It was with sadness that I began to look for alternatives to Gatsby. One option 
 
 I have been pondering the switch for several months.
 
-Meanwhile, at work we have been investigating <accr title="Artificial Intelligence">AI</accr> for use in various projects as well as figuring out how to use chat agents to assist with making code changes. Largely, AI seems to be a mystery tool looking for a problem to fix. A coworker had introduced me to using [Codex](https://developers.openai.com/codex/) as a coding agent. An agent is like having a junior developer do some coding and investigation for you -- you still have to review the code and guide them out of the weeds.
+Meanwhile, at work we have been investigating <abbr title="Artificial Intelligence">AI</abbr> for use in various projects as well as figuring out how to use chat agents to assist with making code changes. Largely, AI seems to be a mystery tool looking for a problem to fix. A coworker had introduced me to using [Codex](https://developers.openai.com/codex/) as a coding agent. An agent is like having a junior developer do some coding and investigation for you -- you still have to review the code and guide them out of the weeds.
 
 I tested Codex for helping me with a feature at work and, with some gentle coaxing and cajoling, it eventually did the required job. It also found some areas I had forgotten about in our 12+ year codebase.
 
