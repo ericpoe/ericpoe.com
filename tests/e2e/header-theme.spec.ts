@@ -116,7 +116,7 @@ test('theme toggle cycles system -> dark -> light -> system with matching visual
   expectSystemVisual(await getToggleSnapshot(page));
 });
 
-test('theme state and visual position persist across client-side navigation', async ({ page, context }) => {
+test('theme state and visual position persist across navigation', async ({ page, context }) => {
   await seedTheme(context, 'dark');
   await page.emulateMedia({ colorScheme: 'light' });
   await page.goto('/');
