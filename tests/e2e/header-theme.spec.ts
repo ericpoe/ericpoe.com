@@ -124,14 +124,17 @@ test('theme state and visual position persist across navigation', async ({ page,
   let snapshot = await getToggleSnapshot(page);
   expectDarkVisual(snapshot);
 
-  await page.getByRole('link', { name: 'Programming' }).click();
-  await expect(page).toHaveURL(/\/category\/programming\//);
+  await Promise.all([
+    page.waitForURL(/\/category\/programming\//),
+    page.getByRole('link', { name: 'Programming' }).click(),
+  ]);
+  await expect(page.getByRole('button', { name: /toggle color scheme/i })).toBeVisible();
 
   snapshot = await getToggleSnapshot(page);
   expectDarkVisual(snapshot);
 
-  await page.getByRole('link', { name: 'Eric Poe' }).click();
-  await expect(page).toHaveURL('/');
+  await Promise.all([page.waitForURL('/'), page.getByRole('link', { name: 'Eric Poe' }).click()]);
+  await expect(page.getByRole('button', { name: /toggle color scheme/i })).toBeVisible();
 
   snapshot = await getToggleSnapshot(page);
   expectDarkVisual(snapshot);
