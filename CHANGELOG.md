@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+### Changed
+
+### Fixed
+
+### Removed
+
+## [2.3.0] - 2026-06-01
+
+### Added
+
 - Baseline security headers plus context-aware CSP generation for Netlify deploys (enforced in production, report-only in deploy previews) via generated `dist/_headers` from `scripts/netlify-headers.config.mjs`
 - Externalized theme toggle and analytics scripts in `public/scripts/` to support stricter CSP policies
 - Unit tests for summary utilities (`summarize` / `summarizeHtml`) covering markdown/MDX cleanup and code-formatting edge cases
@@ -548,7 +558,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - npm-based lock file since this project is using yarn instead
 
-[Unreleased]: https://github.com/ericpoe/ericpoe.com/compare/2.2.0...HEAD
+[Unreleased]: https://github.com/ericpoe/ericpoe.com/compare/2.3.0...HEAD
+[2.3.0]: https://github.com/ericpoe/ericpoe.com/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/ericpoe/ericpoe.com/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/ericpoe/ericpoe.com/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/ericpoe/ericpoe.com/compare/1.7.0...2.0.0
