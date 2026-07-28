@@ -9,7 +9,7 @@ tags:
   - php
 ---
 
-From a [KCPUG](http://kcpug.org/) lightning talk being given on [06 Apr 2016]().
+From a [KCPHPUG](http://kcphpug.org/) lightning talk being given on [06 Apr 2016](<>).
 
 ## BASH COMING TO WINDOWS!
 
