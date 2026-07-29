@@ -11,9 +11,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- Consolidated `AGENTS.md` into `CLAUDE.md` as the single source of repo guidance for coding agents; moved the CI-check command sequence into a `run-ci-checks` skill
+
 ### Fixed
 
 ### Removed
+
+- `AGENTS.md` (content merged into `CLAUDE.md`)
 
 ## [2.3.0] - 2026-06-01
 
