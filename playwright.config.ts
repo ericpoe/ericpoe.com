@@ -11,7 +11,7 @@ export default defineConfig({
     headless: true,
   },
   webServer: {
-    command: `npm run dev -- --host --port ${PORT}`,
+    command: `npm run build && npm run preview -- --host --port ${PORT}`,
     url: BASE_URL,
     reuseExistingServer: true,
     timeout: 120_000,
