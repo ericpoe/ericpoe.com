@@ -32,11 +32,13 @@ export function pagePath(page = 1): string {
   return page > 1 ? `/page/${page}/` : '/';
 }
 
-export function tagPath(slug: string, page = 1): string {
+export function tagPath(name: string, page = 1): string {
+  const slug = slugify(name);
   return page > 1 ? `/tag/${slug}/page/${page}/` : `/tag/${slug}/`;
 }
 
-export function categoryPath(slug: string, page = 1): string {
+export function categoryPath(name: string, page = 1): string {
+  const slug = slugify(name);
   return page > 1 ? `/category/${slug}/page/${page}/` : `/category/${slug}/`;
 }
 
