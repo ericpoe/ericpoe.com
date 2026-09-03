@@ -1,0 +1,17 @@
+# Legacy post URLs. These posts were renamed to lowercase, punctuation-free
+# slugs (see postSlug in src/utils/blog.ts); redirect the old paths so existing
+# inbound links and bookmarks keep working.
+/blog/2014-02-20-Dart-Flight-School/         /blog/2014-02-20-dart-flight-school/          301
+/blog/2014-02-20-Dart-Flight-School          /blog/2014-02-20-dart-flight-school/          301
+/blog/2014-03-03-Decisions-Decisions/        /blog/2014-03-03-decisions-decisions/         301
+/blog/2014-03-03-Decisions-Decisions         /blog/2014-03-03-decisions-decisions/         301
+/blog/2014-04-08-atom.io--a-php-oriented-review/   /blog/2014-04-08-atom-io-a-php-oriented-review/   301
+/blog/2014-04-08-atom.io--a-php-oriented-review    /blog/2014-04-08-atom-io-a-php-oriented-review/   301
+/blog/2014-05-06-Lonestar-PHP-Conference-2014/     /blog/2014-05-06-lonestar-php-conference-2014/    301
+/blog/2014-05-06-Lonestar-PHP-Conference-2014      /blog/2014-05-06-lonestar-php-conference-2014/    301
+/blog/2015-04-27-LoneStarPHP-Day-0/          /blog/2015-04-27-lonestarphp-day-0/           301
+/blog/2015-04-27-LoneStarPHP-Day-0           /blog/2015-04-27-lonestarphp-day-0/           301
+/blog/2015-04-28-LoneStarPHP2015/            /blog/2015-04-28-lonestarphp2015/             301
+/blog/2015-04-28-LoneStarPHP2015             /blog/2015-04-28-lonestarphp2015/             301
+/blog/2015-05-05-Revenge-Of-The-Fifth/       /blog/2015-05-05-revenge-of-the-fifth/        301
+/blog/2015-05-05-Revenge-Of-The-Fifth        /blog/2015-05-05-revenge-of-the-fifth/        301

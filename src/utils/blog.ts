@@ -12,18 +12,34 @@ export interface PaginatedPosts extends Record<string, unknown> {
   posts: BlogPost[];
 }
 
-export interface TaxonomyItem extends PaginatedPosts {
+export interface TaxonomyItem {
   name: string;
   slug: string;
+  posts: BlogPost[];
+  totalPages: number;
 }
 
 let allPostsPromise: Promise<BlogPost[]> | undefined;
+const taxonomyItemsPromises = new Map<TaxonomyKey, Promise<TaxonomyItem[]>>();
+
+/**
+ * URL slug for a post. Derived from the file id so post URLs stay lowercase and
+ * punctuation-free regardless of how the source file is named.
+ */
+export function postSlug(post: BlogPost): string {
+  return slugify(post.id);
+}
+
+export function postPath(post: BlogPost): string {
+  return `/blog/${postSlug(post)}/`;
+}
 
 export function formatBlogDate(date: Date): string {
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: '2-digit',
+    timeZone: 'UTC',
   });
 }
 
@@ -47,37 +63,40 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 }
 
 export async function getTaxonomyItems(key: TaxonomyKey): Promise<TaxonomyItem[]> {
-  const posts = await getAllPosts();
-  const taxonomyMap = new Map<string, TaxonomyItem>();
+  let promise = taxonomyItemsPromises.get(key);
 
-  for (const post of posts) {
-    for (const value of post.data[key] ?? []) {
-      const name = value.trim();
-      if (!name) continue;
+  if (!promise) {
+    promise = getAllPosts().then((posts) => {
+      const taxonomyMap = new Map<string, TaxonomyItem>();
 
-      const slug = slugify(name);
-      const existing = taxonomyMap.get(slug);
-      if (existing) {
-        existing.posts.push(post);
-        continue;
+      for (const post of posts) {
+        for (const value of post.data[key] ?? []) {
+          const name = value.trim();
+          if (!name) continue;
+
+          const slug = slugify(name);
+          const existing = taxonomyMap.get(slug);
+          if (existing) {
+            existing.posts.push(post);
+            continue;
+          }
+
+          taxonomyMap.set(slug, { name, slug, posts: [post], totalPages: 1 });
+        }
       }
 
-      taxonomyMap.set(slug, {
-        name,
-        slug,
-        posts: [post],
-        pageNumber: 1,
-        totalPages: 1,
-      });
-    }
+      return [...taxonomyMap.values()]
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((item) => ({
+          ...item,
+          totalPages: Math.ceil(item.posts.length / PAGE_SIZE),
+        }));
+    });
+
+    taxonomyItemsPromises.set(key, promise);
   }
 
-  return [...taxonomyMap.values()]
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((item) => ({
-      ...item,
-      totalPages: Math.ceil(item.posts.length / PAGE_SIZE),
-    }));
+  return promise;
 }
 
 export async function getTaxonomyItem(key: TaxonomyKey, slug: string): Promise<TaxonomyItem | undefined> {

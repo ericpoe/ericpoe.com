@@ -40,10 +40,6 @@ export const getStaticPaths = (async () => {
 const { tagName, tagSlug, pageNumber, totalPages, posts } = Astro.props as InferGetStaticPropsType<
   typeof getStaticPaths
 >;
-
-if (!posts?.length) {
-  return Astro.redirect('/404');
-}
 ---
 
 <BaseLayout pathname={`/tag/${tagSlug}/page/${pageNumber}/`}>

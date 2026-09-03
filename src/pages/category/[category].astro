@@ -20,10 +20,6 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { categoryName, categorySlug, posts, totalPages } = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>;
-
-if (!posts?.length) {
-  return Astro.redirect('/404');
-}
 ---
 
 <BaseLayout pathname={`/category/${categorySlug}/`}>
