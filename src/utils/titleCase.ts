@@ -70,7 +70,8 @@ const isAcronym = (word: string) => word.length > 1 && word === word.toUpperCase
 
 const capitalize = (word: string) => {
   if (isAcronym(word)) return word;
-  return word ? word[0].toUpperCase() + word.slice(1).toLowerCase() : word;
+  // Only touch the first letter so intentional inner capitalization ("JavaScript") survives.
+  return word ? word[0].toUpperCase() + word.slice(1) : word;
 };
 
 const formatHyphenated = (segment: string, forceCap: boolean) =>

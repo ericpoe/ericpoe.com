@@ -7,9 +7,8 @@
   type="button"
   class="relative w-12 min-w-[3rem] h-20 rounded-full bg-indigo-800 border border-indigo-700 shadow-inner flex items-stretch justify-center p-1 transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
   aria-label="Toggle color scheme"
-  aria-live="polite"
+  aria-pressed="mixed"
 >
-  <span class="sr-only" id="themeToggleLabel">Toggle color scheme</span>
   <div
     id="themeTrack"
     class="flex flex-col justify-start w-full h-full transition-all duration-200 ease-out motion-reduce:transition-none"
@@ -20,7 +19,7 @@
     >
     </div>
   </div>
-  <span class="sr-only" id="themeToggleStatus"></span>
 </button>
+<span class="sr-only" id="themeToggleStatus" aria-live="polite" role="status"></span>
 
 <script is:inline src="/scripts/theme-toggle.js"></script>

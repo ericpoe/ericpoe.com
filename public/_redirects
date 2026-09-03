@@ -1,0 +1,6 @@
+# Astro's glob loader already lowercases post ids, so renaming the mixed-case
+# source files did not change their URLs. The one exception: github-slugger
+# turned "atom.io--a-php-oriented-review" into ".../atomio--a-php-oriented-review";
+# that file was renamed to a clean slug, so redirect its old published URL.
+/blog/2014-04-08-atomio--a-php-oriented-review/   /blog/2014-04-08-atom-io-a-php-oriented-review/   301
+/blog/2014-04-08-atomio--a-php-oriented-review    /blog/2014-04-08-atom-io-a-php-oriented-review/   301
