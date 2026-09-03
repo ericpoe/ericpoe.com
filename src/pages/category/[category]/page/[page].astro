@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import PaginationNav from '../../../../components/PaginationNav.astro';
 import PostFeed from '../../../../components/PostFeed.astro';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { PAGE_SIZE, getTaxonomyItems, paginatePosts } from '../../../../utils/blog';
+import { PAGE_SIZE, categoryPath, getTaxonomyItems, paginatePosts } from '../../../../utils/blog';
 import { formatTitleMla } from '../../../../utils/titleCase';
 
 export const getStaticPaths = (async () => {
@@ -40,21 +40,15 @@ export const getStaticPaths = (async () => {
 const { categoryName, categorySlug, pageNumber, totalPages, posts } = Astro.props as InferGetStaticPropsType<
   typeof getStaticPaths
 >;
-
-if (!posts?.length) {
-  return Astro.redirect('/404');
-}
 ---
 
-<BaseLayout pathname={`/category/${categorySlug}/page/${pageNumber}/`}>
+<BaseLayout pathname={categoryPath(categorySlug, pageNumber)}>
   <section id="categoryPosts" class="max-w-3xl w-full mx-auto px-4 md:px-6 py-10 md:py-12 space-y-8 md:space-y-10">
     <h1 class="text-3xl md:text-4xl font-semibold dark:text-indigo-100">{formatTitleMla(categoryName)}</h1>
     <PostFeed posts={posts} />
     <PaginationNav
-      previousHref={pageNumber === 2
-        ? `/category/${categorySlug}/`
-        : `/category/${categorySlug}/page/${pageNumber - 1}/`}
-      nextHref={pageNumber < totalPages ? `/category/${categorySlug}/page/${pageNumber + 1}/` : undefined}
+      previousHref={categoryPath(categorySlug, pageNumber - 1)}
+      nextHref={pageNumber < totalPages ? categoryPath(categorySlug, pageNumber + 1) : undefined}
     />
   </section>
 </BaseLayout>

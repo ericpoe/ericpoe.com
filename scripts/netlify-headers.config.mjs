@@ -20,8 +20,8 @@ function buildCsp({ allowNetlifyPreviewFrame = false, includeUpgradeInsecureRequ
     "frame-ancestors 'none'",
     "form-action 'self'",
     "img-src 'self' data: https:",
-    "font-src 'self' data:",
-    "style-src 'self' 'unsafe-inline'",
+    "font-src 'self' data: https://fonts.gstatic.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "script-src 'self' https://www.googletagmanager.com",
     [
       "connect-src 'self'",

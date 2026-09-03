@@ -1,6 +1,6 @@
 ---
 import { siteMetadata } from '../data/siteMetadata';
-import { getTaxonomyItems } from '../utils/blog';
+import { categoryPath, getTaxonomyItems } from '../utils/blog';
 import { formatTitleMla } from '../utils/titleCase';
 import ThemeToggle from './ThemeToggle.astro';
 
@@ -18,7 +18,7 @@ const categories = await getTaxonomyItems('categories');
       {
         categories.map((cat) => {
           return (
-            <a class="no-underline hover:underline !text-gray-100 !dark:text-gray-100" href={`/category/${cat.slug}/`}>
+            <a class="no-underline hover:underline !text-gray-100 !dark:text-gray-100" href={categoryPath(cat.slug)}>
               {formatTitleMla(cat.name)}
             </a>
           );

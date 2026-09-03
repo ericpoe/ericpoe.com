@@ -86,4 +86,9 @@ describe('formatTitleMla', () => {
     expect(formatTitleMla('hello')).toBe('Hello');
     expect(formatTitleMla('API')).toBe('API');
   });
+
+  it('preserves intentional inner capitalization', () => {
+    expect(formatTitleMla('a fresh look at JavaScript')).toBe('A Fresh Look at JavaScript');
+    expect(formatTitleMla('deploying to GitHub Pages')).toBe('Deploying to GitHub Pages');
+  });
 });

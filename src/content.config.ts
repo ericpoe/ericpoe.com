@@ -32,6 +32,13 @@ const blog = defineCollection({
             message: 'Featured images must include alt text.',
           });
         }
+        if (featuredImage_Alt && !featuredImage_Url) {
+          ctx.addIssue({
+            code: 'custom',
+            path: ['featuredImage_Url'],
+            message: 'featuredImage_Alt is set without a featuredImage_Url; remove the alt text or add the image.',
+          });
+        }
       }),
 });
 
