@@ -4,6 +4,7 @@ import { getCollection, render } from 'astro:content';
 import readingTime from 'reading-time';
 import BlogTimestamp from '../../components/BlogTimestamp.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { postPath, postSlug } from '../../utils/blog';
 import { formatTitleMla } from '../../utils/titleCase';
 import { summarize } from '../../utils/summarize';
 import { slugify } from '../../utils/slugify';
@@ -11,7 +12,7 @@ import { slugify } from '../../utils/slugify';
 export const getStaticPaths = (async () => {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
-    params: { slug: post.id },
+    params: { slug: postSlug(post) },
     props: { post },
   }));
 }) satisfies GetStaticPaths;
@@ -29,7 +30,7 @@ const description = summarize(post.body ?? '', 30);
 <BaseLayout
   title={formatTitleMla(post.data.title)}
   description={description}
-  pathname={`/blog/${post.id}/`}
+  pathname={postPath(post)}
   keywords={keywords}
   articleImage={post.data.featuredImage_Url}
   articleImageAlt={post.data.featuredImage_Alt}
@@ -40,10 +41,7 @@ const description = summarize(post.body ?? '', 30);
   <section class="leading-normal text-lg">
     <header id="DateTimeInfo">
       <h1>{formatTitleMla(post.data.title)}</h1>
-      <BlogTimestamp
-        createdAt={new Date(createdAt).toUTCString()}
-        lastEditedAt={updatedAt ? new Date(updatedAt).toUTCString() : undefined}
-      />
+      <BlogTimestamp createdAt={post.data.date} lastEditedAt={post.data.lastEdited} />
       <p id="timeToRead" class="mt-2">
         <strong>Time to read:</strong>
         {timeToRead}{' '}
