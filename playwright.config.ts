@@ -15,5 +15,10 @@ export default defineConfig({
     url: BASE_URL,
     reuseExistingServer: true,
     timeout: 120_000,
+    // Astro 7's `astro preview` auto-detects agentic environments (via `am-i-vibing`)
+    // and daemonizes itself, so the foreground process exits immediately and Playwright
+    // reports "Process from config.webServer exited early". Setting the background env
+    // var tells Astro this process IS the server and to stay in the foreground.
+    env: { ASTRO_PREVIEW_BACKGROUND: '1' },
   },
 });
