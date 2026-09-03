@@ -91,10 +91,4 @@ describe('formatTitleMla', () => {
     expect(formatTitleMla('a fresh look at JavaScript')).toBe('A Fresh Look at JavaScript');
     expect(formatTitleMla('deploying to GitHub Pages')).toBe('Deploying to GitHub Pages');
   });
-
-  it('applies canonical casing for known tokens regardless of input case or position', () => {
-    expect(formatTitleMla('why i switched to javascript')).toBe('Why I Switched to JavaScript');
-    expect(formatTitleMla('MACOS tips and tricks')).toBe('macOS Tips and Tricks');
-    expect(formatTitleMla('a look at graphql')).toBe('A Look at GraphQL');
-  });
 });

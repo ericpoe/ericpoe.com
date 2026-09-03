@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getTaxonomyItems } from '../utils/blog';
+import { getTaxonomyItems, tagPath } from '../utils/blog';
 
 const tags = await getTaxonomyItems('tags');
 ---
@@ -63,7 +63,7 @@ const tags = await getTaxonomyItems('tags');
         {
           tags.map((tag) => (
             <a
-              href={`/tag/${tag.slug}/`}
+              href={tagPath(tag.slug)}
               class="inline-block px-3 py-1 text-sm font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-800 no-underline"
             >
               {tag.name}

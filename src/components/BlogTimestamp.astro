@@ -1,5 +1,5 @@
 ---
-import { formatBlogDate } from '../utils/blog';
+import FormattedDate from './FormattedDate.astro';
 
 interface Props {
   createdAt: Date;
@@ -10,14 +10,11 @@ const { createdAt, lastEditedAt }: Props = Astro.props;
 ---
 
 <div id="blog-timestamp">
-  <p id="createdAt">
-    <strong>Created:</strong>{' '}
-    <time datetime={createdAt.toISOString()}>{formatBlogDate(createdAt)}</time>
-  </p>
+  <p id="createdAt"><strong>Created:</strong> <FormattedDate date={createdAt} /></p>
   {
     lastEditedAt && (
       <p id="lastEditedAt">
-        <strong>Updated:</strong> <time datetime={lastEditedAt.toISOString()}>{formatBlogDate(lastEditedAt)}</time>
+        <strong>Updated:</strong> <FormattedDate date={lastEditedAt} />
       </p>
     )
   }
