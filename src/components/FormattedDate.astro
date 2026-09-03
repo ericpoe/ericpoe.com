@@ -1,0 +1,11 @@
+---
+import { formatBlogDate } from '../utils/blog';
+
+interface Props {
+  date: Date;
+}
+
+const { date }: Props = Astro.props;
+---
+
+<time datetime={date.toISOString()}>{formatBlogDate(date)}</time>

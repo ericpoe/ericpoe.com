@@ -1,6 +1,7 @@
 ---
 import type { BlogPost } from '../utils/blog';
-import { formatBlogDate, postPath, postSlug } from '../utils/blog';
+import { postPath } from '../utils/blog';
+import FormattedDate from './FormattedDate.astro';
 import { summarize, summarizeHtml } from '../utils/summarize';
 import { formatTitleMla } from '../utils/titleCase';
 
@@ -16,15 +17,14 @@ const { posts, summaryMode = 'html', sectionId }: Props = Astro.props;
 <div class="space-y-10" id={sectionId}>
   {
     posts.map((post) => (
-      <article class="border-b border-gray-300 pb-8 last:border-b-0" id={postSlug(post)}>
+      <article class="border-b border-gray-300 pb-8 last:border-b-0" id={post.id}>
         <h2 class="text-xl md:text-2xl font-semibold text-indigo-900 dark:text-indigo-200">
           <a class="no-underline hover:underline" href={postPath(post)}>
             {formatTitleMla(post.data.title)}
           </a>
         </h2>
         <p class="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
-          <strong>Published:</strong>{' '}
-          <time datetime={post.data.date.toISOString()}>{formatBlogDate(post.data.date)}</time>
+          <strong>Published:</strong> <FormattedDate date={post.data.date} />
         </p>
         {summaryMode === 'html' ? (
           <p

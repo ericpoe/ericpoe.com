@@ -3,7 +3,7 @@ import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import PaginationNav from '../../components/PaginationNav.astro';
 import PostFeed from '../../components/PostFeed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getAllPosts, paginatePosts } from '../../utils/blog';
+import { getAllPosts, pagePath, paginatePosts } from '../../utils/blog';
 
 export const getStaticPaths = (async () => {
   const allPosts = await getAllPosts();
@@ -21,13 +21,13 @@ export const getStaticPaths = (async () => {
 const { pageNumber, totalPages, posts } = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>;
 ---
 
-<BaseLayout pathname={`/page/${pageNumber}/`}>
+<BaseLayout pathname={pagePath(pageNumber)}>
   <section id="latestPosts" class="max-w-3xl w-full mx-auto px-4 md:px-6 py-10 md:py-12 space-y-8 md:space-y-10">
     <h1 class="text-3xl md:text-4xl font-semibold dark:text-indigo-100">Latest Posts</h1>
     <PostFeed posts={posts} />
     <PaginationNav
-      previousHref={pageNumber === 2 ? '/' : `/page/${pageNumber - 1}/`}
-      nextHref={pageNumber < totalPages ? `/page/${pageNumber + 1}/` : undefined}
+      previousHref={pagePath(pageNumber - 1)}
+      nextHref={pageNumber < totalPages ? pagePath(pageNumber + 1) : undefined}
     />
   </section>
 </BaseLayout>

@@ -11,9 +11,10 @@ const blogPostFilenames = (): string[] =>
     .map((entry) => entry.name);
 
 describe('blog post filenames', () => {
-  // Post URLs derive from a slugified file id (see postSlug in src/utils/blog.ts),
-  // so a mixed-case, dotted, or otherwise non-slug filename would produce a URL
-  // that no longer matches its own source file. Keep filenames slug-clean.
+  // Astro's glob loader turns the filename into the post id (and URL) via
+  // github-slugger, which lowercases but also silently drops characters — e.g.
+  // "atom.io--review" becomes ".../atomio--review". Requiring filenames to already
+  // be clean slugs keeps each post's URL obvious from its filename.
   it('are lowercase, punctuation-free slugs', () => {
     const offenders = blogPostFilenames()
       .map((name) => {
