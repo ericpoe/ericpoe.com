@@ -1,0 +1,16 @@
+---
+import type { ListingProps } from '../utils/blog';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PaginationNav from './PaginationNav.astro';
+import PostFeed from './PostFeed.astro';
+
+const { title, pathname, sectionId, posts, previousHref, nextHref } = Astro.props as ListingProps;
+---
+
+<BaseLayout pathname={pathname}>
+  <section id={sectionId} class="max-w-3xl w-full mx-auto px-4 md:px-6 py-10 md:py-12 space-y-8 md:space-y-10">
+    <h1 class="text-3xl md:text-4xl font-semibold dark:text-indigo-100">{title}</h1>
+    <PostFeed posts={posts} />
+    <PaginationNav previousHref={previousHref} nextHref={nextHref} />
+  </section>
+</BaseLayout>

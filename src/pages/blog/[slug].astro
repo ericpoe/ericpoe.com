@@ -4,9 +4,8 @@ import { render } from 'astro:content';
 import readingTime from 'reading-time';
 import BlogTimestamp from '../../components/BlogTimestamp.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getAllPosts, postPath, tagPath } from '../../utils/blog';
+import { getAllPosts, postDescription, postPath, postTerms, tagPath } from '../../utils/blog';
 import { formatTitleMla } from '../../utils/titleCase';
-import { summarize } from '../../utils/summarize';
 
 export const getStaticPaths = (async () => {
   const posts = await getAllPosts();
@@ -22,15 +21,14 @@ const { Content } = await render(post);
 const createdAt = post.data.date.toISOString();
 const updatedAt = post.data.lastEdited?.toISOString();
 const timeToRead = Math.max(1, Math.round(readingTime(post.body ?? '').minutes));
-const keywords = [...(post.data.categories ?? []), ...(post.data.tags ?? [])].join(', ');
-const description = summarize(post.body ?? '', 30);
+const title = formatTitleMla(post.data.title);
 ---
 
 <BaseLayout
-  title={formatTitleMla(post.data.title)}
-  description={description}
+  title={title}
+  description={postDescription(post)}
   pathname={postPath(post)}
-  keywords={keywords}
+  keywords={postTerms(post)}
   articleImage={post.data.featuredImage_Url}
   articleImageAlt={post.data.featuredImage_Alt}
   articleCreatedAt={createdAt}
@@ -39,7 +37,7 @@ const description = summarize(post.body ?? '', 30);
 >
   <section class="leading-normal text-lg">
     <header id="DateTimeInfo">
-      <h1>{formatTitleMla(post.data.title)}</h1>
+      <h1>{title}</h1>
       <BlogTimestamp createdAt={post.data.date} lastEditedAt={post.data.lastEdited} />
       <p id="timeToRead" class="mt-2">
         <strong>Time to read:</strong>
