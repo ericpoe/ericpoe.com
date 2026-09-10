@@ -1,6 +1,13 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      // `astro:content` only exists inside an Astro build; stub it for unit tests.
+      'astro:content': fileURLToPath(new URL('./tests/stubs/astro-content.ts', import.meta.url)),
+    },
+  },
   test: {
     environment: 'jsdom',
     globals: true,

@@ -62,10 +62,18 @@ export function paginatePosts(posts: BlogPost[], pageNumber: number, pageSize = 
   };
 }
 
+// A post is publishable unless it is flagged `draft` or its `date` is still in
+// the future. The gate only applies to production builds (`astro build` /
+// `astro preview`); `astro dev` shows every post so drafts can be previewed.
+export function isPublishable(post: BlogPost, now = Date.now()): boolean {
+  return !post.data.draft && post.data.date.getTime() <= now;
+}
+
 export async function getAllPosts(): Promise<BlogPost[]> {
-  allPostsPromise ??= getCollection('blog').then((posts) =>
-    posts.slice().sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
-  );
+  allPostsPromise ??= getCollection('blog').then((posts) => {
+    const visible = import.meta.env.PROD ? posts.filter((post) => isPublishable(post)) : posts.slice();
+    return visible.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  });
 
   return allPostsPromise;
 }
