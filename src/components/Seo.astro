@@ -44,8 +44,8 @@ const isArticle = type === 'article';
 <meta property="og:image:alt" content={imageAlt} />
 {isArticle ? (
   <>
-    {articleCreatedAt && <meta property="og:article:published_time" content={articleCreatedAt} />}
-    {articleUpdatedAt && <meta property="og:article:modified_time" content={articleUpdatedAt} />}
+    {articleCreatedAt && <meta property="article:published_time" content={articleCreatedAt} />}
+    {articleUpdatedAt && <meta property="article:modified_time" content={articleUpdatedAt} />}
   </>
 ) : null}
 {keywordList.length ? (
