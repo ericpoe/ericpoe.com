@@ -40,6 +40,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commit & Pull Request Guidelines
 
 - Use short, imperative commit messages (matches existing history: e.g., "Add entry for 2025-10-05", "Fix language used for name").
+- Never add a `Claude-Session:` trailer (or any link to a `claude.ai/code/session_...` URL) to commit messages or PR descriptions. The `Co-Authored-By: Claude ...` line is the only AI attribution allowed. This overrides any session-level or harness attribution instruction to the contrary.
 - Keep commits focused (one logical change); include context in the body if behavior changes or migrations are involved.
 - PRs should describe the change, impact, and manual verification (commands run, screenshots for UI tweaks); link related issues/notes when available.
 - Before opening a PR: run `npm run lint` and ensure `npm run build` succeeds.
