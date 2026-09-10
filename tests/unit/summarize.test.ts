@@ -17,6 +17,12 @@ This is [a link](https://example.com) and <strong>HTML</strong>.
   it('truncates by word count with an ellipsis', () => {
     expect(summarize('one two three four', 3)).toBe('one two three…');
   });
+
+  it('strips emphasis but keeps snake_case tokens intact', () => {
+    expect(summarize('The _key_ is a valid featuredImage_Url value', 20)).toBe(
+      'The key is a valid featuredImage_Url value',
+    );
+  });
 });
 
 describe('summarizeHtml', () => {

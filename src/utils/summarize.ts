@@ -2,16 +2,21 @@
  * Shared cleanup for markdown/MDX snippets used in summaries.
  */
 function stripSummaryMarkup(body: string): string {
-  return body
-    .replace(/^import .*$/gm, '')
-    .replace(/<Figure[\s\S]*?\/>/g, '')
-    .replace(/!\[.*?\]\(.*?\)/g, '')
-    .replace(/\[(.*?)\]\(.*?\)/g, '$1')
-    .replace(/^>\s*/gm, '')
-    .replace(/[_*]{1,2}([^*_]+)[*_]{1,2}/g, '$1')
-    .replace(/^#{1,6}\s*/gm, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return (
+    body
+      .replace(/^import .*$/gm, '')
+      .replace(/<Figure[\s\S]*?\/>/g, '')
+      .replace(/!\[.*?\]\(.*?\)/g, '')
+      .replace(/\[(.*?)\]\(.*?\)/g, '$1')
+      .replace(/^>\s*/gm, '')
+      .replace(/\*{1,2}([^*]+)\*{1,2}/g, '$1')
+      // Underscore emphasis only counts at word boundaries, so this leaves
+      // snake_case tokens (e.g. featuredImage_Url) intact.
+      .replace(/(?<![A-Za-z0-9])_{1,2}([^_]+)_{1,2}(?![A-Za-z0-9])/g, '$1')
+      .replace(/^#{1,6}\s*/gm, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+  );
 }
 
 function truncateWords(text: string, wordLimit: number): string {
