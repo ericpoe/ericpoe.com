@@ -51,5 +51,11 @@ export function sanitizeCaptionHtml(caption: string): string {
 
   const escaped = escapeHtml(withoutUnsafeTags);
 
-  return anchors.reduce((result, anchor, index) => result.replace(`${placeholderPrefix}${index}__`, anchor), escaped);
+  // Use a replacer function so `$` sequences in the anchor HTML (e.g. `$&` in a
+  // link's text) are inserted literally instead of being treated as
+  // String.prototype.replace substitution patterns.
+  return anchors.reduce(
+    (result, anchor, index) => result.replace(`${placeholderPrefix}${index}__`, () => anchor),
+    escaped,
+  );
 }
