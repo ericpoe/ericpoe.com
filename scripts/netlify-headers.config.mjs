@@ -39,87 +39,29 @@ function buildCsp({ allowNetlifyPreviewFrame = false, includeUpgradeInsecureRequ
   return directives.join('; ');
 }
 
-// Each header set is an ordered list of Netlify _headers rules. Rule order matters when
-// multiple path patterns can match (for example, /* and /_astro/*)
+const NO_STORE_HTML = 'public, max-age=0, must-revalidate';
+
+// Every deploy context uses the same ordered rule list; only the CSP header on
+// the catch-all `/*` rule changes (enforced + upgrade-insecure-requests in
+// production, report-only + preview-frame allowance for deploy previews). Rule
+// order matters when multiple patterns can match (e.g. /* and /_astro/*).
+function buildHeaderSet(cspHeaderName, cspOptions) {
+  return [
+    { path: '/*.html', headers: { 'Cache-Control': NO_STORE_HTML } },
+    {
+      path: '/*',
+      headers: {
+        'Cache-Control': NO_STORE_HTML,
+        ...commonHeaders,
+        [cspHeaderName]: buildCsp(cspOptions),
+      },
+    },
+    { path: '/_astro/*', headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
+    { path: '/images/*', headers: { 'Cache-Control': 'public, max-age=604800' } },
+  ];
+}
+
 export const headerSets = {
-  production: [
-    {
-      path: '/*.html',
-      headers: {
-        'Cache-Control': 'public, max-age=0, must-revalidate',
-      },
-    },
-    {
-      path: '/*',
-      headers: {
-        'Cache-Control': 'public, max-age=0, must-revalidate',
-        ...commonHeaders,
-        'Content-Security-Policy': buildCsp({ includeUpgradeInsecureRequests: true }),
-      },
-    },
-    {
-      path: '/_astro/*',
-      headers: {
-        'Cache-Control': 'public, max-age=31536000, immutable',
-      },
-    },
-    {
-      path: '/images/*',
-      headers: {
-        'Cache-Control': 'public, max-age=604800',
-      },
-    },
-    {
-      path: '/icon.png',
-      headers: {
-        'Cache-Control': 'public, max-age=604800',
-      },
-    },
-    {
-      path: '/manifest.webmanifest',
-      headers: {
-        'Cache-Control': 'public, max-age=604800',
-      },
-    },
-  ],
-  'deploy-preview': [
-    {
-      path: '/*.html',
-      headers: {
-        'Cache-Control': 'public, max-age=0, must-revalidate',
-      },
-    },
-    {
-      path: '/*',
-      headers: {
-        'Cache-Control': 'public, max-age=0, must-revalidate',
-        ...commonHeaders,
-        'Content-Security-Policy-Report-Only': buildCsp({ allowNetlifyPreviewFrame: true }),
-      },
-    },
-    {
-      path: '/_astro/*',
-      headers: {
-        'Cache-Control': 'public, max-age=31536000, immutable',
-      },
-    },
-    {
-      path: '/images/*',
-      headers: {
-        'Cache-Control': 'public, max-age=604800',
-      },
-    },
-    {
-      path: '/icon.png',
-      headers: {
-        'Cache-Control': 'public, max-age=604800',
-      },
-    },
-    {
-      path: '/manifest.webmanifest',
-      headers: {
-        'Cache-Control': 'public, max-age=604800',
-      },
-    },
-  ],
+  production: buildHeaderSet('Content-Security-Policy', { includeUpgradeInsecureRequests: true }),
+  'deploy-preview': buildHeaderSet('Content-Security-Policy-Report-Only', { allowNetlifyPreviewFrame: true }),
 };
