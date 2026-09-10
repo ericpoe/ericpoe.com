@@ -23,6 +23,7 @@ const blog = defineCollection({
           }),
         featuredImage_Url: image().optional(),
         featuredImage_Alt: z.string().trim().min(1).optional(),
+        draft: z.boolean().default(false),
       })
       .superRefine(({ featuredImage_Url, featuredImage_Alt }, ctx) => {
         if (featuredImage_Url && !featuredImage_Alt) {

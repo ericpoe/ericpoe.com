@@ -13,7 +13,13 @@ export interface SeoInput {
 }
 
 export function buildCanonicalUrl(pathname: string = '/'): string {
-  return new globalThis.URL(pathname, siteMetadata.siteUrl).toString();
+  const url = new globalThis.URL(pathname, siteMetadata.siteUrl);
+  // The site is built with `trailingSlash: 'always'`; every caller passes a page
+  // route, so the canonical URL always ends in a slash.
+  if (!url.pathname.endsWith('/')) {
+    url.pathname += '/';
+  }
+  return url.toString();
 }
 
 export function parseKeywords(keywords: string | string[] | undefined): string[] {

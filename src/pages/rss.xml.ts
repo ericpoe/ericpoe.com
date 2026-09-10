@@ -1,7 +1,6 @@
 import rss from '@astrojs/rss';
 import { siteMetadata } from '../data/siteMetadata';
-import { getAllPosts, postPath } from '../utils/blog';
-import { summarize } from '../utils/summarize';
+import { getAllPosts, postDescription, postPath, postTerms } from '../utils/blog';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
@@ -14,9 +13,9 @@ export async function GET(context: APIContext) {
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,
-      description: summarize(post.body ?? '', 30),
+      description: postDescription(post),
       link: postPath(post),
-      categories: [...(post.data.categories ?? []), ...(post.data.tags ?? [])],
+      categories: postTerms(post),
     })),
     customData: `<language>en-us</language>`,
   });

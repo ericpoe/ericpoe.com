@@ -24,13 +24,14 @@ export function toUtcDatePrefix(date = new Date()) {
 
 // Convert a title into a filesystem-safe kebab-case slug
 export function slugify(title) {
+  // `[^a-z0-9]+ -> -` already collapses every run of separators, so no
+  // interior `--` can survive to need a second pass.
   return title
     .normalize('NFKD')
     .replace(/\p{Diacritic}/gu, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-');
+    .replace(/^-+|-+$/g, '');
 }
 
 // Quote YAML string values with single quotes and escape embedded apostrophes
@@ -119,12 +120,7 @@ function printOptions(label, options) {
 
 // Normalize typed tags so they satisfy the repo kebab-case tag convention
 export function normalizeTagValue(tag) {
-  return tag
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-');
+  return slugify(tag.trim());
 }
 
 // Parse comma-separated selections that may include indexes, typed values, or both
@@ -243,19 +239,19 @@ export function buildFrontmatter({ title, dateIso, categories, tags, featuredIma
   // Keep frontmatter key order aligned with repo conventions and the content schema
   const lines = ['---', `title: ${yamlSingleQuote(title)}`, `date: '${dateIso}'`];
 
-  lines.push(categories.length > 0 ? 'categories:' : 'categories: []');
-  if (categories.length > 0) {
-    for (const category of categories) {
-      lines.push(`  - ${category}`);
+  const emitList = (key, values) => {
+    if (values.length === 0) {
+      lines.push(`${key}: []`);
+      return;
     }
-  }
+    lines.push(`${key}:`);
+    for (const value of values) {
+      lines.push(`  - ${value}`);
+    }
+  };
 
-  lines.push(tags.length > 0 ? 'tags:' : 'tags: []');
-  if (tags.length > 0) {
-    for (const tag of tags) {
-      lines.push(`  - ${tag}`);
-    }
-  }
+  emitList('categories', categories);
+  emitList('tags', tags);
 
   if (featuredImage) {
     lines.push(`featuredImage_Url: ${featuredImage.featuredImage_Url}`);
@@ -271,8 +267,9 @@ export async function resolveUniqueFilePath(baseName) {
   let attempt = 0;
 
   while (true) {
-    // Avoid overwriting an existing post by suffixing -2, -3, etc
-    const candidateName = attempt === 0 ? `${baseName}.mdx` : `${baseName}-${attempt + 1}.mdx`;
+    // Avoid overwriting an existing post by suffixing -2, -3, etc.
+    // The scaffold is plain Markdown; rename to `.mdx` by hand when a post needs JSX.
+    const candidateName = attempt === 0 ? `${baseName}.md` : `${baseName}-${attempt + 1}.md`;
     const candidatePath = path.join(BLOG_DIR, candidateName);
 
     try {

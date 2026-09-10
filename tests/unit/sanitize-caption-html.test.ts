@@ -17,4 +17,10 @@ describe('sanitizeCaptionHtml', () => {
   it('escapes non-anchor markup', () => {
     expect(sanitizeCaptionHtml('Use <em>italics</em> & text')).toBe('Use italics &amp; text');
   });
+
+  it('treats `$` sequences in link text literally', () => {
+    expect(sanitizeCaptionHtml('See <a href="https://example.com">a $& b</a>')).toBe(
+      'See <a href="https://example.com" rel="noopener noreferrer">a $&amp; b</a>',
+    );
+  });
 });

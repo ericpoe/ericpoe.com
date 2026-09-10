@@ -1,9 +1,9 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import PostListing from '../../components/PostListing.astro';
-import { feedPagePaths } from '../../utils/blog';
+import { taxonomyListingPaths } from '../../utils/blog';
 
-export const getStaticPaths = (async () => feedPagePaths()) satisfies GetStaticPaths;
+export const getStaticPaths = (async () => taxonomyListingPaths()) satisfies GetStaticPaths;
 
 const listing = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>;
 ---

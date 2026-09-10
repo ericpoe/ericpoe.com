@@ -48,6 +48,17 @@ export default [
     languageOptions: {
       parser: tsParser,
     },
+    rules: {
+      // Without the typescript-eslint plugin, core no-unused-vars also flags
+      // parameter names inside TS type annotations (e.g. the `page` in
+      // `path: (page: number) => string`), which are required syntax, not real
+      // bindings. Allow an underscore prefix to opt such names out; `tsc` (via
+      // `astro check`) still catches genuine unused bindings.
+      'no-unused-vars': [
+        'error',
+        { args: 'after-used', argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
+      ],
+    },
   },
   {
     files: ['**/*.cjs'],

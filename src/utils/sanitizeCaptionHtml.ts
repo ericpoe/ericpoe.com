@@ -1,11 +1,4 @@
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
+import { escapeHtml } from './escapeHtml';
 
 function isSafeHref(rawHref: string): boolean {
   const href = rawHref.trim();
@@ -51,5 +44,11 @@ export function sanitizeCaptionHtml(caption: string): string {
 
   const escaped = escapeHtml(withoutUnsafeTags);
 
-  return anchors.reduce((result, anchor, index) => result.replace(`${placeholderPrefix}${index}__`, anchor), escaped);
+  // Use a replacer function so `$` sequences in the anchor HTML (e.g. `$&` in a
+  // link's text) are inserted literally instead of being treated as
+  // String.prototype.replace substitution patterns.
+  return anchors.reduce(
+    (result, anchor, index) => result.replace(`${placeholderPrefix}${index}__`, () => anchor),
+    escaped,
+  );
 }

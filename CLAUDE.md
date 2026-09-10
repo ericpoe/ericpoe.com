@@ -30,6 +30,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Blog frontmatter order must be: `title`, `date`, `categories`, `tags`, `featuredImage_Url`, `featuredImage_Alt`, then any other keys.
 - Tags are lowercase kebab-case only; keep them alphabetized in frontmatter.
 
+## Blog Drafts
+
+- **Never commit a draft blog post.** A post is a draft if its `draft: true` frontmatter is set, its `date` is in the future, or its prose is unfinished. Drafts stay untracked in the working tree (or on a personal branch) until they are finished and ready to publish.
+- Do not `git add` a post in `src/content/blog/` unless it is complete and its `date` is not in the future.
+- `getAllPosts()` in `src/utils/blog.ts` gates posts at build time as a backstop: in production builds (`astro build` / `astro preview`) it drops any post with `draft: true` or a future `date`. `astro dev` still shows every post so drafts can be previewed locally. This backstop does not replace the "don't commit drafts" rule — it only protects scheduled/future-dated posts.
+- If you find a committed post that is a draft by the definition above, remove it from version control (`git rm --cached`) and leave the file in the working tree.
+
 ## Testing Guidelines
 
 - Unit/component tests use Vitest (jsdom) with Testing Library helpers; place tests under `tests/unit` using `*.test.ts`.

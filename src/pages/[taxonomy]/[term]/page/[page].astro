@@ -1,0 +1,11 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import PostListing from '../../../../components/PostListing.astro';
+import { taxonomyPagePaths } from '../../../../utils/blog';
+
+export const getStaticPaths = (async () => taxonomyPagePaths()) satisfies GetStaticPaths;
+
+const listing = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>;
+---
+
+<PostListing {...listing} />

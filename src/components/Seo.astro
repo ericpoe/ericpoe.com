@@ -42,18 +42,10 @@ const isArticle = type === 'article';
 <meta property="og:url" content={url} />
 <meta property="og:image" content={image} />
 <meta property="og:image:alt" content={imageAlt} />
-{isArticle ? (
-  <>
-    {articleCreatedAt && <meta property="og:article:published_time" content={articleCreatedAt} />}
-    {articleUpdatedAt && <meta property="og:article:modified_time" content={articleUpdatedAt} />}
-  </>
-) : null}
-{keywordList.length ? (
-  <>
-    <meta name="keywords" content={keywordList.join(', ')} />
-    {isArticle ? keywordList.map((keyword) => <meta property="article:tag" content={keyword} />) : null}
-  </>
-) : null}
+{isArticle && articleCreatedAt && <meta property="article:published_time" content={articleCreatedAt} />}
+{isArticle && articleUpdatedAt && <meta property="article:modified_time" content={articleUpdatedAt} />}
+{keywordList.length > 0 && <meta name="keywords" content={keywordList.join(', ')} />}
+{isArticle && keywordList.map((keyword) => <meta property="article:tag" content={keyword} />)}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:url" content={url} />
