@@ -6,4 +6,4 @@ const isProd = import.meta.env.PROD;
 const shouldLoad = Boolean(isProd && measurementId);
 ---
 
-{shouldLoad && <script is:inline src="/scripts/analytics.js" data-measurement-id={measurementId} />}
+{shouldLoad && <script is:inline src="/scripts/analytics.js" data-measurement-id={measurementId}></script>}

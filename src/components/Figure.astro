@@ -33,29 +33,27 @@ const safeCaption = typeof caption === 'string' ? sanitizeCaptionHtml(caption) :
 ---
 
 <figure class="my-4">
-  {
-    isImageMetadata ? (
-      <Image
-        src={src}
-        alt={alt}
-        class="w-full rounded"
-        loading={loading}
-        decoding={decoding}
-        sizes={sizes}
-        {...(format ? { format } : {})}
-      />
-    ) : (
-      <img
-        src={resolvedSrc}
-        alt={alt}
-        class="w-full rounded"
-        loading={loading}
-        decoding={decoding}
-        sizes={sizes}
-        width={width}
-        height={height}
-      />
-    )
-  }
+  {isImageMetadata ? (
+    <Image
+      src={src}
+      alt={alt}
+      class="w-full rounded"
+      loading={loading}
+      decoding={decoding}
+      sizes={sizes}
+      {...(format ? { format } : {})}
+    />
+  ) : (
+    <img
+      src={resolvedSrc}
+      alt={alt}
+      class="w-full rounded"
+      loading={loading}
+      decoding={decoding}
+      sizes={sizes}
+      width={width}
+      height={height}
+    />
+  )}
   {safeCaption && <figcaption class="mt-2 text-sm" set:html={safeCaption} />}
 </figure>

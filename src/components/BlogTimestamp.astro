@@ -10,12 +10,12 @@ const { createdAt, lastEditedAt }: Props = Astro.props;
 ---
 
 <div id="blog-timestamp">
-  <p id="createdAt"><strong>Created:</strong> <FormattedDate date={createdAt} /></p>
-  {
-    lastEditedAt && (
-      <p id="lastEditedAt">
-        <strong>Updated:</strong> <FormattedDate date={lastEditedAt} />
-      </p>
-    )
-  }
+  <p id="createdAt">
+    <strong>Created:</strong> <FormattedDate date={createdAt} />
+  </p>
+  {lastEditedAt && (
+    <p id="lastEditedAt">
+      <strong>Updated:</strong> <FormattedDate date={lastEditedAt} />
+    </p>
+  )}
 </div>
