@@ -271,8 +271,9 @@ export async function resolveUniqueFilePath(baseName) {
   let attempt = 0;
 
   while (true) {
-    // Avoid overwriting an existing post by suffixing -2, -3, etc
-    const candidateName = attempt === 0 ? `${baseName}.mdx` : `${baseName}-${attempt + 1}.mdx`;
+    // Avoid overwriting an existing post by suffixing -2, -3, etc.
+    // The scaffold is plain Markdown; rename to `.mdx` by hand when a post needs JSX.
+    const candidateName = attempt === 0 ? `${baseName}.md` : `${baseName}-${attempt + 1}.md`;
     const candidatePath = path.join(BLOG_DIR, candidateName);
 
     try {
