@@ -16,6 +16,11 @@ describe('buildCanonicalUrl', () => {
   it('handles paths without leading slash', () => {
     expect(buildCanonicalUrl('blog/post/')).toBe('https://www.ericpoe.com/blog/post/');
   });
+
+  it('appends a trailing slash to match trailingSlash: always', () => {
+    expect(buildCanonicalUrl('/about')).toBe('https://www.ericpoe.com/about/');
+    expect(buildCanonicalUrl('/404')).toBe('https://www.ericpoe.com/404/');
+  });
 });
 
 describe('parseKeywords', () => {
