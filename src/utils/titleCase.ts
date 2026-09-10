@@ -62,7 +62,6 @@ const lowerWords = new Set([
   'up',
   'upon',
   'within',
-  'without',
   'vs',
 ]);
 

@@ -110,8 +110,3 @@ async function buildTaxonomyItems(key: TaxonomyKey): Promise<TaxonomyItem[]> {
     .sort((a, b) => a.name.localeCompare(b.name))
     .map((item) => ({ ...item, totalPages: Math.ceil(item.posts.length / PAGE_SIZE) }));
 }
-
-export async function getTaxonomyItem(key: TaxonomyKey, slug: string): Promise<TaxonomyItem | undefined> {
-  const items = await getTaxonomyItems(key);
-  return items.find((item) => item.slug === slug);
-}
