@@ -52,6 +52,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Prefer atomic commits: each commit should be a single, self-contained change that builds and passes tests on its own, so it can be reverted or bisected independently without dragging unrelated changes with it.
 - Favor smaller, narrower commits and PRs over large ones to reduce blast radius — split unrelated changes (e.g., a refactor and a feature) into separate commits/PRs rather than bundling them.
 - PRs should describe the change, impact, and manual verification (commands run, screenshots for UI tweaks); link related issues/notes when available.
+- PR descriptions should explain *why* the change was made (motivation, problem it solves), not narrate *what* the diff does — the diff already shows that. Keep it concise, not verbose.
 - Before opening a PR: run `npm run lint` and ensure `npm run build` succeeds.
 
 ## Security & Configuration Tips
