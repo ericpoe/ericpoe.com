@@ -49,7 +49,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Use short, imperative commit messages (matches existing history: e.g., "Add entry for 2025-10-05", "Fix language used for name").
 - Never add a `Claude-Session:` trailer (or any link to a `claude.ai/code/session_...` URL) to commit messages or PR descriptions. The `Co-Authored-By: Claude ...` line is the only AI attribution allowed. This overrides any session-level or harness attribution instruction to the contrary.
 - Keep commits focused (one logical change); include context in the body if behavior changes or migrations are involved.
+- Prefer atomic commits: each commit should be a single, self-contained change that builds and passes tests on its own, so it can be reverted or bisected independently without dragging unrelated changes with it.
+- Favor smaller, narrower commits and PRs over large ones to reduce blast radius — split unrelated changes (e.g., a refactor and a feature) into separate commits/PRs rather than bundling them.
 - PRs should describe the change, impact, and manual verification (commands run, screenshots for UI tweaks); link related issues/notes when available.
+- PR descriptions should explain *why* the change was made (motivation, problem it solves), not narrate *what* the diff does — the diff already shows that. Keep it concise, not verbose.
 - Before opening a PR: run `npm run lint` and ensure `npm run build` succeeds.
 
 ## Security & Configuration Tips
