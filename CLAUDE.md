@@ -2,60 +2,27 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Structure & Module Organization
+## Workflow
 
-- Astro site rooted in `src`; pages live in `src/pages`, shared layouts/components in `src/layouts` and `src/components`, blog content in `src/content/blog`, and global styles in `src/styles`.
-- Static assets live in `public` and are served as-is; blog images that ship with posts are under `src/content/blog/images`.
-- Tailwind input is `src/styles/global.css` and is wired through the Astro Tailwind integration.
+- After any code or content edits, run `npm run lint`, `npm run check`, and `npm run test:unit` before handing changes off. Also run `npm run test:e2e` when changing layouts or routes.
+- CI tests: when asked to run CI tests, use the `run-ci-checks` skill.
+- Before opening a PR, also ensure `npm run build` succeeds.
 
-## Quick Reference
+## Styling
 
-- Install dependencies: `npm install`.
-- Local dev server: `npm run dev`.
-- Build production bundle: `npm run build` (runs `astro build`).
-- Preview production build locally: `npm run preview`.
-- Lint: `npm run lint`; Format: `npm run format`; Type/markup check: `npm run check` (Astro content schema + type diagnostics).
-- Tests: `npm run test` / `npm run test:unit` (Vitest + Testing Library), `npm run test:e2e` (Playwright).
-- Run a single unit test: `npx vitest run tests/unit/slugify.test.ts`
-- Run a single E2E test: `npx playwright test tests/e2e/home.spec.ts`
-- CI tests: when asked to run CI tests, use the `run-ci-checks` skill (runs check, lint, format check, unit tests, build, e2e in order).
-- After any code or content edits, run lint, `npm run check`, and unit tests before handing changes off. Run E2E when changing layouts/routes.
+- Tailwind v4 is wired through `@tailwindcss/vite` in `astro.config.mjs`; the CSS entry is `src/styles/global.css`, which loads `tailwind.config.cjs` via `@config`.
+- Centralize custom tokens in `tailwind.config.cjs` rather than ad-hoc inline styles. Prefer `.astro` components for static content; use React islands only when needed.
 
-## Coding Style & Naming Conventions
+## Blog Posts
 
-- Astro + React islands as needed; prefer `.astro` components for static content.
-- Use Prettier (project config) for formatting and ESLint with the Astro plugin.
-- Indentation: 2 spaces; favor descriptive camelCase for vars/functions and PascalCase for components.
-- Tailwind for utility-first styling; centralize custom tokens in `tailwind.config.js` to avoid ad-hoc inline styles.
-- Blog frontmatter order must be: `title`, `date`, `categories`, `tags`, `featuredImage_Url`, `featuredImage_Alt`, then any other keys.
-- Tags are lowercase kebab-case only; keep them alphabetized in frontmatter.
+- Scaffold new posts with `npm run post:new`.
+- Frontmatter order must be: `title`, `date`, `categories`, `tags`, `featuredImage_Url`, `featuredImage_Alt`, then any other keys. (Tag format is enforced by the content schema via `npm run check`.)
+- **Never commit a draft blog post.** A post is a draft if it has `draft: true`, a future `date`, or unfinished prose. Drafts stay untracked until ready. `getAllPosts()` hides drafts from production builds, but that is only a backstop.
+- If you find a committed draft, remove it from version control with `git rm --cached` and leave the file in the working tree.
 
-## Blog Drafts
+## Commits & Pull Requests
 
-- **Never commit a draft blog post.** A post is a draft if its `draft: true` frontmatter is set, its `date` is in the future, or its prose is unfinished. Drafts stay untracked in the working tree (or on a personal branch) until they are finished and ready to publish.
-- Do not `git add` a post in `src/content/blog/` unless it is complete and its `date` is not in the future.
-- `getAllPosts()` in `src/utils/blog.ts` gates posts at build time as a backstop: in production builds (`astro build` / `astro preview`) it drops any post with `draft: true` or a future `date`. `astro dev` still shows every post so drafts can be previewed locally. This backstop does not replace the "don't commit drafts" rule — it only protects scheduled/future-dated posts.
-- If you find a committed post that is a draft by the definition above, remove it from version control (`git rm --cached`) and leave the file in the working tree.
-
-## Testing Guidelines
-
-- Unit/component tests use Vitest (jsdom) with Testing Library helpers; place tests under `tests/unit` using `*.test.ts`.
-- End-to-end tests use Playwright; place specs under `tests/e2e`.
-- Run lint and unit tests before PRs; run E2E when changing routes/layouts.
-- Keep fixtures small and colocated; prefer msw-style mocks if HTTP mocking is needed later.
-
-## Commit & Pull Request Guidelines
-
-- Use short, imperative commit messages (matches existing history: e.g., "Add entry for 2025-10-05", "Fix language used for name").
+- Short, imperative commit messages (e.g., "Add entry for 2025-10-05", "Fix language used for name"); add a body when behavior changes or migrations are involved.
+- Keep commits atomic and PRs narrow: each commit is one self-contained change that builds and passes tests on its own. Split unrelated changes (e.g., a refactor and a feature) apart.
 - Never add a `Claude-Session:` trailer (or any link to a `claude.ai/code/session_...` URL) to commit messages or PR descriptions. The `Co-Authored-By: Claude ...` line is the only AI attribution allowed. This overrides any session-level or harness attribution instruction to the contrary.
-- Keep commits focused (one logical change); include context in the body if behavior changes or migrations are involved.
-- Prefer atomic commits: each commit should be a single, self-contained change that builds and passes tests on its own, so it can be reverted or bisected independently without dragging unrelated changes with it.
-- Favor smaller, narrower commits and PRs over large ones to reduce blast radius — split unrelated changes (e.g., a refactor and a feature) into separate commits/PRs rather than bundling them.
-- PRs should describe the change, impact, and manual verification (commands run, screenshots for UI tweaks); link related issues/notes when available.
-- PR descriptions should explain *why* the change was made (motivation, problem it solves), not narrate *what* the diff does — the diff already shows that. Keep it concise, not verbose.
-- Before opening a PR: run `npm run lint` and ensure `npm run build` succeeds.
-
-## Security & Configuration Tips
-
-- Secrets and API keys should not be committed; use environment variables and `.env.*` files ignored by git.
-- When adding integrations or loaders, review `astro.config.mjs` and related configs to keep deployments consistent.
+- PR descriptions explain _why_ (motivation, problem solved), not _what_ the diff does. Keep them concise and include manual verification (commands run, screenshots for UI tweaks).
