@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Consolidated repo guidance for coding agents into a single, trimmed-down `AGENTS.md`, read by both Claude Code and Codex
 - Updated Astro to 7.3.5, `@astrojs/mdx` to 8.0.2, Prettier to 3.9.9, `prettier-plugin-astro` to 1.1.0, `astro-eslint-parser` to 3.2.0, and `@typescript-eslint/parser` to 8.70.1; raised the `tailwindcss` floor to 4.3.3 to match `@tailwindcss/vite`
+- Upgraded `@astrojs/react` from v6 to v7, which compiles JSX and Fast Refresh with Oxc instead of Babel (no config changes needed)
 
 ### Fixed
 
