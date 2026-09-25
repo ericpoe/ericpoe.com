@@ -13,13 +13,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Consolidated `AGENTS.md` into `CLAUDE.md` as the single source of repo guidance for coding agents
+- Consolidated repo guidance for coding agents into a single, trimmed-down `AGENTS.md`, read by both Claude Code and Codex
 
 ### Fixed
 
 ### Removed
-
-- `AGENTS.md` (content merged into `CLAUDE.md`)
 
 ## [2.3.0] - 2026-06-01
 
