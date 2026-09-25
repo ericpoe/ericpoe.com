@@ -40,4 +40,4 @@ jobs:
         run: npm run lint
 
       - name: Check formatting
-        run: npx prettier --check '**/*.{js,jsx,ts,astro,md,mdx}'
+        run: npm run format:check

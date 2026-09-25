@@ -10,8 +10,10 @@
   "scripts": {
     "build": "astro build",
     "check": "astro check",
+    "ci": "npm run check && npm run lint && npm run format:check && npm run test:unit && npm run build && npm run test:e2e",
     "dev": "astro dev",
     "format": "prettier --write '**/*.{js,jsx,ts,astro,md,mdx}'",
+    "format:check": "prettier --check '**/*.{js,jsx,ts,astro,md,mdx}'",
     "lint": "eslint .",
     "post:new": "node scripts/new-post.mjs",
     "pretest:e2e": "node scripts/ensure-playwright-browsers.mjs",

@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- `npm run ci` runs the full CI-equivalent sequence locally (check, lint, format check, unit tests, build, e2e); `npm run format:check` is now shared with the Code Quality workflow
+
 ### Changed
 
-- Consolidated `AGENTS.md` into `CLAUDE.md` as the single source of repo guidance for coding agents; moved the CI-check command sequence into a `run-ci-checks` skill
+- Consolidated `AGENTS.md` into `CLAUDE.md` as the single source of repo guidance for coding agents
 
 ### Fixed
 

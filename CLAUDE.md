@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Workflow
 
 - After any code or content edits, run `npm run lint`, `npm run check`, and `npm run test:unit` before handing changes off. Also run `npm run test:e2e` when changing layouts or routes.
-- CI tests: when asked to run CI tests, use the `run-ci-checks` skill.
+- CI tests: when asked to run CI tests, run `npm run ci` (check, lint, format check, unit, build, e2e — mirrors `.github/workflows/`).
 - Before opening a PR, also ensure `npm run build` succeeds.
 
 ## Styling
